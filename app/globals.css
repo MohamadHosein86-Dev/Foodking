@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "flowbite";
 
 :root {
   --primaryColor: #00813d;
@@ -25,6 +26,7 @@
   --wc-form-border-radius: 4px;
   --wc-form-border-width: 1px;
 }
+
 .shadwoCss {
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
 }
