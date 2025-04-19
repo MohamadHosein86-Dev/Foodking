@@ -10,7 +10,7 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-
+import SwiperForUsers from "@/components/related_chefPage/swiperForUsers";
 import { FaChevronLeft } from "react-icons/fa";
 import FeatureOfUs from "@/components/related_chefPage/FeatureOfUs";
 import { useEffect, useRef } from "react";
@@ -75,7 +75,10 @@ export default function Chef() {
         <h1 className="font-semibold  w-full text-center text-5xl text-slate-800">
           دیدار با کارشناس و سرآشپزها
         </h1>
-        <div className=" flex flex-wrap justify-center space-x-12 space-y-3 w-2/3 min-h-96 mt-12">
+        <div
+          className=" flex flex-wrap justify-center gap-12  w-2/3
+         min-h-96 mt-12"
+        >
           <MoreAbout_chef
             role="اجاق گاز ارشد"
             chefLink="#"
@@ -141,7 +144,7 @@ export default function Chef() {
       {/* //! دیدار با کارشناس ها و سرآشپزها */}
       <div
         className="bg-[url(https://modinatheme.com/foodking/wp-content/
-      uploads/2024/03/bg-shape.png)] bg-green-700 space-x-6 flex justify-center items-center w-full h-[400px]"
+      uploads/2024/03/bg-shape.png)] bg-green-700  space-x-6 flex justify-center items-center w-full h-[400px]"
       >
         <FeatureOfUs
           title="غذای 100% طبیعی"
@@ -166,21 +169,14 @@ export default function Chef() {
           imageUrl="https://modinatheme.com/foodking/wp-content/uploads/2024/03/01.svg"
         />
       </div>
-      <div className="bg-slate-100 flex w-full h-[600px]">
+      <div className="bg-slate-150 flex w-full h-[600px]">
         <section
-          className=" w-1/4 h-full -space-y-60  flex-wrap 
+          className=" w-1/5 h-full -space-y-60  flex-wrap 
          flex justify-end items-center"
         >
-          <div className="w-full  relative h-1/4">
+          <div className="w-full mr-12 relative h-1/4">
             <motion.div
               style={{ y }}
-              // transition={{
-              //   duration: 0.5,
-              //   ease: "easeInOut",
-              //   time: [0, 0.5, 1],
-              // }}
-              // whileInView={{ translateY: -90 }}
-              // viewport={{ amount: 0.7, margin: "-90px" }}
               ref={scope}
               className="w-auto  transition-all duration-500  absolute right-0"
             >
@@ -194,12 +190,8 @@ export default function Chef() {
               />
             </motion.div>
           </div>
-          <div className="w-full relative h-1/4">
+          <div className="w-full mr-12 relative h-1/4">
             <motion.div
-              // initial={{ rotate: 1 }}
-              // transition={{ duration: 0.3 }}
-              // whileInView={{ rotate: 180 }}
-              // viewport={{ amount: 0.8 }}
               style={{ rotate: rotPitzza }}
               ref={pitzza}
               className="w-auto absolute transition-all duration-500  rotate-180 right-0"
@@ -215,11 +207,13 @@ export default function Chef() {
             </motion.div>
           </div>
         </section>
-        <section className="w-2/4"></section>
-        <section className=" w-1/4 h-full flex justify-center items-center">
+        <section className="w-3/5 h-full flex-wrap flex justify-center items-center">
+          <SwiperForUsers />
+        </section>
+        <section className=" w-1/5 h-full flex justify-center items-center">
           <div className="flex items-center h-full w-full">
             <motion.div
-              className="w-30  rotate-180 transition-all duration-500 "
+              className="w-30 ml-12 rotate-180 transition-all duration-500 "
               ref={hamburger}
               style={{ rotate: rotateHamburgur }}
             >
