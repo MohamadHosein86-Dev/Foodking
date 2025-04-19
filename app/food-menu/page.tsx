@@ -17,11 +17,11 @@ export default function Menu1() {
           </div>
         </div>
       </TitelPages>
-
       <div className="my-[140px] w-full">
         <h5 className="text-center text-[var(--primaryColor)] my-2 font-bold">درباره غذای ما</h5>
-        <h2 className="text-center  text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold">منوی غذای پرطرفدار</h2>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 gap-y-12  border-1 border-dotted mx-5 xl:mx-auto max-w-[82rem]  py-[2rem] my-5 rounded-2xl  px-2 lg-px-0">
+        <h2 className="text-center  text-3xl md:text-4xl pb-[2rem] lg:text-5xl xl:text-6xl font-bold">منوی غذای پرطرفدار</h2>
+
+        <div className=" mb-[0rem] grid grid-cols-1 lg:grid-cols-12 gap-4 gap-y-12  border-1 border-dotted mx-5 xl:mx-auto max-w-[79rem]  py-[4.5rem] my-5 rounded-2xl  px-[2rem] lg-px-0">
           <div className="cursor-pointer col-span-6 border-b-[1px] border-dotted mx-[30px] hover:bg-[var(--primaryColor)] transition-all group duration-300 hover:text-white rounded-t-xl px-3 py-2">
             <div className="grid grid-cols-12 items-center">
               <div className="md:col-span-10 col-span-12 h-full lg:px-0 md:px-2">
@@ -111,8 +111,9 @@ export default function Menu1() {
             </div>
           </div>
         </div>
-        <div className=" h-[500px] bg-[var(--wc-secondary)]">
-          <div className="h-full bg-[var(--wc-secondary)] max-w-[82rem] mx-auto grid grid-cols-12">
+
+        <div className=" h-[500px] mb-[-11rem] bg-[#F4F1EA]">
+          <div className="h-full bg-[#F4F1EA] max-w-[82rem] mx-auto grid grid-cols-12">
             <div className="col-span-1">
               <img src="/pages/menu_1/shape_food3.png" alt="" className="my-[150px]" />
             </div>
@@ -128,9 +129,9 @@ export default function Menu1() {
                   slidesPerView: 1
                 }
               }}
-              className="h-full bg-[var(--wc-secondary)] max-w-[70rem]  py-[2rem] col-span-10"
+              className="h-full bg-[#F4F1EA] max-w-[70rem]  py-[2rem] col-span-10"
             >
-              <SwiperSlide className="bg-[var(--wc-secondary)] p-6 text-center flex flex-col items-center justify-center gap-4 pt-[100px]">
+              <SwiperSlide className="bg-[#F4F1EA] p-6 text-center flex flex-col items-center justify-center gap-4 pt-[100px]">
                 <h3 className="text-4xl font-bold text-black my-5">امیلیا امیلی</h3>
                 <p className="text-red-600 text-2xl my-3 font-medium">مدیر عامل و موسس کسب و کار</p>
                 <p className="text-black text-xl leading-7  font-bold my-5">ممنون برای شام دیشب. شگفت‌انگیز بود!! من می‌گویم که این بهترین وعده غذایی است که در چند وقت اخیر خورده‌ام. قطعاً در سال آینده شاهد غذا خوردن بیشتری خواهیم بود :</p>
@@ -143,7 +144,7 @@ export default function Menu1() {
                   <img src="/pages/menu_1/avatar01.jpg" alt="user1" className="w-20 h-20 rounded-full border-2 border-white shadow-md" />
                 </div>
               </SwiperSlide>
-              <SwiperSlide className="bg-[var(--wc-secondary)] p-6 text-center flex flex-col items-center justify-center gap-4 pt-[100px]">
+              <SwiperSlide className="bg-[#F4F1EA] p-6 text-center flex flex-col items-center justify-center gap-4 pt-[100px]">
                 <h3 className="text-4xl font-bold text-black my-5">امیلیا امیلی</h3>
                 <p className="text-red-600 text-2xl my-3 font-medium">مدیر عامل و موسس کسب و کار</p>
                 <p className="text-black text-xl leading-7  font-bold my-5">ممنون برای شام دیشب. شگفت‌انگیز بود!! من می‌گویم که این بهترین وعده غذایی است که در چند وقت اخیر خورده‌ام. قطعاً در سال آینده شاهد غذا خوردن بیشتری خواهیم بود :</p>
@@ -156,7 +157,7 @@ export default function Menu1() {
                   <img src="/pages/menu_1/avatar01.jpg" alt="user1" className="w-20 h-20 rounded-full border-2 border-white shadow-md" />
                 </div>
               </SwiperSlide>
-              <SwiperSlide className="bg-[var(--wc-secondary)] p-6 text-center flex flex-col items-center justify-center gap-4 pt-[100px]">
+              <SwiperSlide className="bg-[#F4F1EA] p-6 text-center flex flex-col items-center justify-center gap-4 pt-[100px]">
                 <h3 className="text-4xl font-bold text-black my-5">امیلیا امیلی</h3>
                 <p className="text-red-600 text-2xl my-3 font-medium">مدیر عامل و موسس کسب و کار</p>
                 <p className="text-black text-xl leading-7  font-bold my-5">ممنون برای شام دیشب. شگفت‌انگیز بود!! من می‌گویم که این بهترین وعده غذایی است که در چند وقت اخیر خورده‌ام. قطعاً در سال آینده شاهد غذا خوردن بیشتری خواهیم بود :</p>
@@ -169,7 +170,7 @@ export default function Menu1() {
                   <img src="/pages/menu_1/avatar01.jpg" alt="user1" className="w-20 h-20 rounded-full border-2 border-white shadow-md" />
                 </div>
               </SwiperSlide>
-              <SwiperSlide className="bg-[var(--wc-secondary)] p-6 text-center flex flex-col items-center justify-center gap-4 pt-[100px]">
+              <SwiperSlide className="bg-[#F4F1EA] p-6 text-center flex flex-col items-center justify-center gap-4 pt-[100px]">
                 <h3 className="text-4xl font-bold text-black my-5">امیلیا امیلی</h3>
                 <p className="text-red-600 text-2xl my-3 font-medium">مدیر عامل و موسس کسب و کار</p>
                 <p className="text-black text-xl leading-7  font-bold my-5">ممنون برای شام دیشب. شگفت‌انگیز بود!! من می‌گویم که این بهترین وعده غذایی است که در چند وقت اخیر خورده‌ام. قطعاً در سال آینده شاهد غذا خوردن بیشتری خواهیم بود :)</p>
@@ -182,7 +183,7 @@ export default function Menu1() {
                   <img src="/pages/menu_1/avatar01.jpg" alt="user1" className="w-20 h-20 rounded-full border-2 border-white shadow-md" />
                 </div>
               </SwiperSlide>
-              <SwiperSlide className="bg-[var(--wc-secondary)] p-6 text-center flex flex-col items-center justify-center gap-4 pt-[100px]">
+              <SwiperSlide className="bg-[#F4F1EA] p-6 text-center flex flex-col items-center justify-center gap-4 pt-[100px]">
                 <h3 className="text-4xl font-bold text-black my-5">امیلیا امیلی</h3>
                 <p className="text-red-600 text-2xl my-3 font-medium">مدیر عامل و موسس کسب و کار</p>
                 <p className="text-black text-xl leading-7  font-bold my-5">ممنون برای شام دیشب. شگفت‌انگیز بود!! من می‌گویم که این بهترین وعده غذایی است که در چند وقت اخیر خورده‌ام. قطعاً در سال آینده شاهد غذا خوردن بیشتری خواهیم بود :)</p>

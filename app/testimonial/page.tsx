@@ -50,8 +50,11 @@ export default function Testimonial() {
       </div>
 
       {/* Testimonial Cards */}
-      <div className="w-full flex-wrap space-y-4 flex justify-center items-end">
-        <div className="flex flex-wrap gap-6 justify-center space-y-3 w-2/3 min-h-96 mt-12">
+      <div
+        className="  mx-auto max-w-[82rem] py-[4rem]
+px-[1.5rem] "
+      >
+        <div className="  grid justify-center grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-x-[5rem] gap-y-[1rem]  space-y-3 w-full min-h-96 mt-12">
           <MoreAbout_testimonial role="بلاگر مواد غذایی" testimonialName="فرانک اچ. هیوستون" imageUrl="https://modinatheme.com/foodking/wp-content/uploads/2024/03/09.jpg" content="برای اطمینان از تسلط فعالانه، استراتژی های برد-برد را به روی میز بیاورید..." />
           <MoreAbout_testimonial role="توسعه دهنده" testimonialName="جین کوپر" imageUrl="https://modinatheme.com/foodking/wp-content/uploads/2024/03/08.jpg" content="برای اطمینان از تسلط فعالانه، استراتژی های برد-برد را به روی میز بیاورید..." />
           <MoreAbout_testimonial role="عاشق غذا" testimonialName="کنت میکس" imageUrl="https://modinatheme.com/foodking/wp-content/uploads/2024/03/11.jpg" content="برای اطمینان از تسلط فعالانه، استراتژی های برد-برد را به روی میز بیاورید..." />

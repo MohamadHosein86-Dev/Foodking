@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { FaArrowLeft, FaCalendarAlt, FaComment, FaUser } from "react-icons/fa";
 
-export default function BlogPage({ title, desc, data, image }) {
+export default function BlogPage({ title, desc, image }: { title: string; desc: string; image: string }) {
   return (
     <>
       <div className="flex">
@@ -31,6 +31,9 @@ export default function BlogPage({ title, desc, data, image }) {
         </div>
       </div>
       <div className="my-[40px]">
+        <div className="my-[40px] relative w-full lg:h-[700px] h-[400px]">
+          <Image className="rounded-2xl object-center cover" src={image} alt="تصویر غذا" fill />
+        </div>
         <h1 className="text-[44px] font-bold">{title}</h1>
         <h4 className="text-[18px] my-[40px] font-bold" style={{ color: "var(--textColor)" }}>
           {desc}
@@ -41,9 +44,6 @@ export default function BlogPage({ title, desc, data, image }) {
             <FaArrowLeft size="20px" />
           </span>
         </a>
-        <div className="my-[40px] relative w-full lg:h-[700px] h-[400px]">
-          <Image className="rounded-2xl object-center cover" src={image} alt="تصویر غذا" fill />
-        </div>
       </div>
     </>
   );
