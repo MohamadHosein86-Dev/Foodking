@@ -265,9 +265,13 @@ md:justify-center
           </button>
         </section>
 
+
         <section
           className="
        sm:w-0
+
+        <motion.div ref={motorCycleRef} transition={{ duration: 14 }} style={{ translateX: forMotorCycle }} className="transition-all duration-700 -translate-y-5 w-1/4 h-[350px] bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/08/delivery-man-2.png)]"></motion.div>
+
 
        md:w-0
           

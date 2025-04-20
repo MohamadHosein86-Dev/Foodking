@@ -24,9 +24,9 @@ export default function Chef() {
   });
   const strokeDashoffset = useTransform(scaleX, (v) => 164 - 164 * v);
 
-  const scope = useRef<any>(null);
-  const pitzza = useRef<any>(null);
-  const hamburger = useRef<any>(null);
+  const scope = useRef<HTMLDivElement>(null);
+  const pitzza = useRef<HTMLDivElement>(null);
+  const hamburger = useRef<HTMLDivElement>(null);
 
   const forVerticalDir = useScroll({
     target: scope,
@@ -79,8 +79,11 @@ export default function Chef() {
           </div>
         </div>
       </TitelPages>
-      {/* //! دیدار با کارشناس ها و سرآشپزها */}
-      <div className="w-full flex-wrap space-y-4 flex mt-[7rem] justify-center items-end">
+
+      <div
+        className="w-full flex-wrap space-y-4 flex mx-auto max-w-[82rem] py-[1rem]
+px-[1.5rem] mt-[7rem] justify-center items-end"
+      >
         <h1
           className="font-semibold w-full text-center 
         text-xl text-green-700
@@ -99,8 +102,8 @@ export default function Chef() {
           دیدار با کارشناس و سرآشپزها
         </h1>
         <div
-          className=" flex flex-wrap justify-center gap-12  w-2/3
-         min-h-96 mt-12"
+          className=" flex flex-wrap justify-center gap-12 
+         min-h-96 mt-12 py-[4rem] "
         >
           <MoreAbout_chef role="اجاق گاز ارشد" chefLink="#" imageUrl="https://t-theme.com/foodking/wp-content/uploads/2024/03/01-2.jpg" chefName="اوون آشر" faceBookLink="#" linkedinLink="#" twitterLink="#" youtubeLink="#" />
           <MoreAbout_chef role="اجاق گاز ارشد" chefLink="#" imageUrl="https://t-theme.com/foodking/wp-content/uploads/2024/03/06-2.jpg" chefName="لزلی مایکل" faceBookLink="#" linkedinLink="#" twitterLink="#" youtubeLink="#" />
@@ -110,7 +113,7 @@ export default function Chef() {
           <MoreAbout_chef role="اجاق گاز ارشد" chefLink="#" imageUrl="https://t-theme.com/foodking/wp-content/uploads/2024/03/02-2.jpg" chefName="دنیل جک" faceBookLink="#" linkedinLink="#" twitterLink="#" youtubeLink="#" />
         </div>
       </div>
-      {/* //! دیدار با کارشناس ها و سرآشپزها */}
+
       <div
         className="
         bg-[url(https://modinatheme.com/foodking/wp-content/uploads/2024/03/bg-shape.png)]
@@ -119,7 +122,7 @@ export default function Chef() {
        h-[1200px]
         md:h-[700px]
         lg:h-[700px]
-
+        py-[3rem]
        xl:h-[700px]
        2xl:h-[400px]
 
@@ -141,19 +144,22 @@ export default function Chef() {
           imageUrl="https://modinatheme.com/foodking/wp-content/uploads/2024/03/01.svg"
         />
       </div>
-      <div className="bg-slate-150 flex w-full h-[600px]">
+      <div
+        className="bg-slate-150 mx-auto max-w-[82rem] py-[1rem]
+px-[1.5rem] flex w-full h-[50rem] sm:h-[600px] "
+      >
         <section
           className=" w-1/5 h-full -space-y-60  flex-wrap 
          flex justify-end items-center"
         >
-          <div className="w-full mr-12 relative h-1/4">
+          <div className=" hidden lg:flex w-full mr-12 relative h-1/4">
             <motion.div style={{ y }} ref={scope} className="w-auto  transition-all duration-500  absolute right-0">
               <Image alt="#" width={80} height={80} src={"https://t-theme.com/foodking/wp-content/uploads/2024/02/fry-shape-2-3.png"} />
             </motion.div>
           </div>
-          <div className="w-full mr-12 relative h-1/4">
+          <div className=" hidden lg:flex w-full mr-12 relative h-1/4">
             <motion.div style={{ rotate: rotPitzza }} ref={pitzza} className="w-auto absolute transition-all duration-500  rotate-180 right-0">
-              <Image alt="#" width={100} height={100} src={"https://t-theme.com/foodking/wp-content/uploads/2024/02/pizzashape-1.png"} />
+              <Image alt="#" width={100} height={100} src={"https://modinatheme.com/foodking/wp-content/uploads/2024/02/pizzashape-1.png"} />
             </motion.div>
           </div>
         </section>
@@ -161,7 +167,7 @@ export default function Chef() {
           <SwiperForUsers />
         </section>
         <section className=" w-1/5 h-full flex justify-center items-center">
-          <div className="flex items-center h-full w-full">
+          <div className=" hidden lg:flex  items-center h-full w-full">
             <motion.div className="w-30 ml-12 rotate-180 transition-all duration-500 " ref={hamburger} style={{ rotate: rotateHamburgur }}>
               <Image alt="#" width={120} height={120} src={"https://t-theme.com/foodking/wp-content/uploads/2024/02/burger-shape-3-3.png"} />
             </motion.div>
