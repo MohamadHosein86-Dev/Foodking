@@ -11,7 +11,7 @@ import Link from "next/link";
 export default function moreAboutChef({ role, chefName, imageUrl, chefLink, faceBookLink, twitterLink, youtubeLink, linkedinLink }: { role: string; chefName: string; imageUrl: string; chefLink: string; faceBookLink: string; twitterLink: string; youtubeLink: string; linkedinLink: string }) {
   const [onAction, setonAction] = useState(false);
   return (
-    <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} onMouseEnter={() => setonAction(true)} onMouseLeave={() => setonAction(false)} className="w-[370px] flex flex-wrap  h-[500px]  ">
+    <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} onMouseEnter={() => setonAction(true)} onMouseLeave={() => setonAction(false)} className=" w-[370px] flex flex-wrap  h-[500px]  ">
       <div className="h-[400px] w-full relative">
         <div
           className={`${onAction ? "rotate-3" : "rotate-0"} rounded-xl absolute top-0 left-0 w-[345px] h-96 

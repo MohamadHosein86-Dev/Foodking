@@ -12,12 +12,12 @@ import { useRef, useState } from "react";
 import SwiperForUsers_Contents from "./swiperForUsers_Contents";
 export default function SwipperComponents() {
   const userSwipper = useRef<any>(null);
-  const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
   return (
     <>
       <Swiper
         className="
-h-[300px]
+        h-[300px]
         sm:h-[240px]
 
         md:h-[240px]
@@ -26,18 +26,16 @@ h-[300px]
         xl:h-[200px]
         2xl:h-[200px]
           w-full "
-        style={
-          {
-            //   "--swiper-navigation-color": "#880808",
-            "--swiper-pagination-color": "#880808",
+        style={{
+          //   "--swiper-navigation-color": "#880808",
+          "--swiper-pagination-color": "#880808",
 
-            "--swiper-pagination-bottom": "2px",
+          "--swiper-pagination-bottom": "2px",
 
-            "--swiper-pagination-bottom": "-5px",
+          "--swiper-pagination-bottom": "-5px",
 
-            "--swiper-pagination-bottom": "2px"
-          } as any
-        }
+          "--swiper-pagination-bottom": "2px"
+        }}
         thumbs={{ swiper: thumbsSwiper }}
         modules={[Navigation, Thumbs, Autoplay, Pagination, Scrollbar, A11y]}
         pagination={{ clickable: true }}
@@ -47,7 +45,8 @@ h-[300px]
           delay: 2500,
           disableOnInteraction: false
         }}
-        spaceBetween={50}
+        s
+        paceBetween={50}
         slidesPerView={1}
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => {
@@ -65,7 +64,7 @@ h-[300px]
         </SwiperSlide>
       </Swiper>
 
-      <Swiper spaceBetween={2} slidesPerView={1} className="  w-full " modules={[Thumbs]} watchSlidesProgress onSwiper={setThumbsSwiper}>
+      <Swiper spaceBetween={2} slidesPerView={1} className="   lg:mt-[-9rem]  w-full " modules={[Thumbs]} watchSlidesProgress onSwiper={setThumbsSwiper}>
         <SwiperSlide>
           <SwiperForUsers_Images url="https://t-theme.com/foodking/wp-content/uploads/2024/02/02-1.jpg" />
         </SwiperSlide>

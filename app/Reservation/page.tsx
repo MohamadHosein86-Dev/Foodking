@@ -1,48 +1,47 @@
 import { FaChevronLeft } from "react-icons/fa";
 import DateInput from "@/components/date_Input_Reservation/Date_Input";
+import TitelPages from "@/components/titelCompo/TitelPges";
 export default function Reservation() {
   return (
     <div className="w-full">
-      <div className="bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/07/breadcrumb-1.jpg)] w-full flex justify-center items-center h-95">
+      <TitelPages>
         <div className="space-y-5">
           <h1 className="font-semibold text-6xl text-white">سایر اعضا</h1>
           <div className="flex space-x-1 items-center h-8 flex-row-reverse">
-            <h1 className="font-semibold text-xl text-green-700">
-              صفحه اصلی
-            </h1>
+            <h1 className="font-semibold text-xl text-green-700">صفحه اصلی</h1>
             <FaChevronLeft className="mt-2 text-base text-green-700" />
             <h1 className="font-semibold text-xl text-white">رزرواسیون</h1>
           </div>
         </div>
-      </div>
+      </TitelPages>
       <div dir="rtl" className="min-h-screen flex items-center justify-center p-4">
         <div className="text-white bg-green-800 rounded-2xl p-6 md:p-10 w-full max-w-4xl shadow-lg">
           <h2 className="text-3xl font-bold text-center mb-8">رزرو ایجاد کنید</h2>
           <form className="grid grid-cols-1 md:grid-cols-2 gap-6 text-right">
             <div className="flex flex-col gap-2">
-              <input
-                type="text"
-                placeholder="نام"
-                data-has-listeners="false"
-                className="rounded-lg p-4 text-white focus:outline-none placeholder:text-white !border border-gray-100 focus:ring-gray-200"
-              />
+              <input type="text" placeholder="نام" data-has-listeners="false" className="rounded-lg p-4 text-white focus:outline-none placeholder:text-white !border border-gray-100 focus:ring-gray-200" />
             </div>
             <div className="flex flex-col gap-2">
-              <input
-                type="text"
-                placeholder="نام خانوادگی"
-                data-has-listeners="false"
-                className="rounded-lg p-4 text-white focus:outline-none placeholder:text-white !border border-gray-100 focus:ring-gray-200"
-              />
+              <input type="text" placeholder="نام خانوادگی" data-has-listeners="false" className="rounded-lg p-4 text-white focus:outline-none placeholder:text-white !border border-gray-100 focus:ring-gray-200" />
             </div>
             <div className="flex flex-col gap-2">
               <select id="countries" className="border cursor-pointer border-gray-100 text-white rounded-lg focus:outline-none placeholder:text-white block w-full p-4">
                 <option className="text-green-700">لطفا یک گزینه را انتخاب کنید</option>
-                <option className="text-green-700" value="یک نفر">یک نفر</option>
-                <option className="text-green-700" value="دو نفر">دو نفر</option>
-                <option className="text-green-700" value="سه نفر">سه نفر</option>
-                <option className="text-green-700" value="چهار نفر">چهار نفر</option>
-                <option className="text-green-700" value="بیشتر از چهار نفر">بیشتر از چهار نفر</option>
+                <option className="text-green-700" value="یک نفر">
+                  یک نفر
+                </option>
+                <option className="text-green-700" value="دو نفر">
+                  دو نفر
+                </option>
+                <option className="text-green-700" value="سه نفر">
+                  سه نفر
+                </option>
+                <option className="text-green-700" value="چهار نفر">
+                  چهار نفر
+                </option>
+                <option className="text-green-700" value="بیشتر از چهار نفر">
+                  بیشتر از چهار نفر
+                </option>
               </select>
             </div>
             <div className="flex flex-col gap-2 !justify-center">
@@ -71,15 +70,12 @@ export default function Reservation() {
             </div>
           </form>
           <div className="mt-8 text-center w-full">
-            <button
-              type="submit"
-              className="bg-yellow-400 w-full text-black font-bold p-4 rounded-xl hover:bg-white cursor-pointer transition duration-300"
-            >
+            <button type="submit" className="bg-yellow-400 w-full text-black font-bold p-4 rounded-xl hover:bg-white cursor-pointer transition duration-300">
               رزرو کن
             </button>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }

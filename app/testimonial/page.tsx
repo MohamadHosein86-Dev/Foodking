@@ -37,20 +37,24 @@ export default function Testimonial() {
         <motion.circle cx="30" cy="30" r="26" stroke="#cd0808" strokeWidth="4" fill="none" strokeDasharray="164" strokeDashoffset="164" style={{ strokeDashoffset }} />
       </motion.svg>
 
+      {/* Header Section */}
       <div className="bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/07/breadcrumb-1.jpg)] w-full flex justify-center items-center h-95">
-        <div className=" space-y-5">
-          <h1 className="font-semibold  text-6xl text-white"> گواهینامه</h1>
+        <div className="space-y-5">
+          <h1 className="font-semibold text-6xl text-white">گواهینامه</h1>
           <div className="flex space-x-1 items-center h-8 flex-row-reverse">
-            <h1 className="font-semibold  text-xl text-green-500"> صفحه اصلی</h1>
-            <FaChevronLeft className=" mt-2 text-base text-green-500" />
-            <h1 className="font-semibold  text-xl text-slate-100"> گواهینامه</h1>
+            <h1 className="font-semibold text-xl text-green-500">صفحه اصلی</h1>
+            <FaChevronLeft className="mt-2 text-base text-green-500" />
+            <h1 className="font-semibold text-xl text-slate-100">گواهینامه</h1>
           </div>
         </div>
       </div>
 
-      {/* //! دیدار با کارشناس ها و سرآشپزها */}
-      <div className="w-full flex-wrap space-y-4 flex  justify-center items-end">
-        <div className="flex flex-wrap gap-6 justify-center space-y-3 w-2/3 min-h-96 mt-12">
+      {/* Testimonial Cards */}
+      <div
+        className="  mx-auto max-w-[82rem] py-[4rem]
+px-[1.5rem] "
+      >
+        <div className="  grid justify-center grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-x-[5rem] gap-y-[1rem]  space-y-3 w-full min-h-96 mt-12">
           <MoreAbout_testimonial role="بلاگر مواد غذایی" testimonialName="فرانک اچ. هیوستون" imageUrl="https://modinatheme.com/foodking/wp-content/uploads/2024/03/09.jpg" content="برای اطمینان از تسلط فعالانه، استراتژی های برد-برد را به روی میز بیاورید..." />
           <MoreAbout_testimonial role="توسعه دهنده" testimonialName="جین کوپر" imageUrl="https://modinatheme.com/foodking/wp-content/uploads/2024/03/08.jpg" content="برای اطمینان از تسلط فعالانه، استراتژی های برد-برد را به روی میز بیاورید..." />
           <MoreAbout_testimonial role="عاشق غذا" testimonialName="کنت میکس" imageUrl="https://modinatheme.com/foodking/wp-content/uploads/2024/03/11.jpg" content="برای اطمینان از تسلط فعالانه، استراتژی های برد-برد را به روی میز بیاورید..." />
@@ -60,8 +64,8 @@ export default function Testimonial() {
         </div>
       </div>
 
-      {/* //! سکشن انیمیشنی با موتور */}
-      <div className="w-full flex flex-wrap justify-end bg-[#e7ed70] mt-24 bg-no-repeat bg-cover bg-center h-96 bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/08/image.jpg)]">
+      {/* Call to Action Section */}
+      <div className="w-full flex flex-wrap justify-center bg-[#e7ed70] mt-24 bg-no-repeat bg-cover bg-center h-96 bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/08/image.jpg)]">
         <section className="w-[188px] flex justify-start items-center h-full">
           <motion.div
             animate={{ translateY: [0, -200, 0] }}
