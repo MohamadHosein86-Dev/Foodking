@@ -2,9 +2,11 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
+import React, { useState } from "react";
 import { FaBars, FaShoppingBasket } from "react-icons/fa";
 import { FaTruckFast } from "react-icons/fa6";
+import Modal from "../modal/Modal";
+import ModalHeader from "../modal/ModalHeader";
 
 interface PropsType {
   setShowBox3: (s: boolean) => void;
@@ -19,22 +21,25 @@ interface PropsType {
 }
 export default function AnimationHeader({ setShowBox3, showBox2, showBox3, showSticky, setShowBox, setShowBox2, setShowBox10, setShowBox20, showBox }: PropsType) {
   const curentUrl = usePathname();
-
+  const [open, setOpen] = useState(false);
   return (
     <AnimatePresence>
       {showSticky && (
-        <motion.div initial={{ y: -80, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -80, opacity: 0 }} transition={{ duration: 0.3 }} className="fixed top-0 left-0 w-full bg-white shadow-xl z-50 px-4 py-3">
+        <motion.div initial={{ y: -80, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -80, opacity: 0 }} transition={{ duration: 0.3 }} className="fixed top-0 left-0 w-full bg-white shadow-xl z-[100000] px-4 py-3">
           <div className=" bg-[#ffff]  ">
             <div className={` z-[100000]  ${curentUrl == "/" ? "border-b-[1px] border-[#f4f1ea42] " : " border-none "} `}>
               <div className={`  text-[#fcfbfe] mx-auto max-w-[82rem] py-[.4rem] items-center flex justify-between  sm:px-[1.6rem] `}>
                 <div className=" flex items-center gap-[5rem] md:gap-[1.5rem] ">
-                  <FaBars className=" block xl:hidden cursor-pointer " size={30} color="#212121" />
+                  <FaBars onClick={() => setOpen(true)} className=" block xl:hidden cursor-pointer " size={30} color="#212121" />
                   <button className=" rounded-md outline-none  transition-all ease delay-200 cursor-pointer hover:bg-[#00813D] bg-[#D12525] hidden  md:flex items-center justify-center gap-[.5rem] border-[1px] border-[#ffff] text-center px-[1rem] w-[15rem] py-[1rem] pb-[1.3rem] font-bold ">
                     اکنون سفارش دهید
                     <span>
                       <FaTruckFast size={22} />{" "}
                     </span>{" "}
                   </button>
+                  <Modal isOpen={open} onClose={() => setOpen(false)}>
+                    <ModalHeader />
+                  </Modal>
                   <div className=" hidden xl:flex items-center gap-[1.5rem] relative  ">
                     <div className=" bg-[#212121] cursor-pointer top-[-.4rem] left-[-.5rem] absolute  w-[1rem] text-[.6rem] pb-[.1rem] pr-[0rem] rounded-[.5rem] h-[1rem] flex justify-center items-center text-[#fcfbfe] ">0</div>
                     <FaShoppingBasket className="  text-[#D12525] cursor-pointer " size={20} />

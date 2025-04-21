@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function moreAboutTestimonial({ role, testimonialName, imageUrl, content }: { role: string; testimonialName: string; imageUrl: string; content: string }) {
   return (
-    <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} className="w-[400px] flex p-4  flex-wrap  bg-[#fff] shadow rounded-2xl h-[340px]  ">
+    <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} className=" mx-auto  sm:m-0 w-full flex p-4  flex-wrap  bg-[#fff] shadow rounded-2xl h-[340px]  ">
       <section className=" w-full flex h-24 ">
         <div className="w-1/2 h-12 flex items-start justify-start ">
           <div className=" flex -scale-100">
@@ -14,7 +14,7 @@ export default function moreAboutTestimonial({ role, testimonialName, imageUrl, 
             <SiComma className="text-red-700 text-3xl " />
           </div>
         </div>
-        <div className="w-1/2 h-24 flex justify-center ">
+        <div className="w-1/2 h-24 flex sm:justify-center justify-end ">
           <Image src={imageUrl} width={100} height={100} alt="#" className="rounded-full" />
         </div>
       </section>

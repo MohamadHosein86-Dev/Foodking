@@ -14,7 +14,7 @@ function Footer() {
             whileInView={{ x: -38 }}
             transition={{ duration: 1 }}
             viewport={{ once: false, amount: 0.2 }}
-            className=" hidden xl:block opacity-[.30] absolute left-[0] top-[14rem]"
+            className=" hidden 2xl:block opacity-[.30] absolute left-[0] top-[14rem]"
             src="https://modinatheme.com/foodking/wp-content/uploads/2024/02/fry-shape-2.png"
             alt=""
           />
@@ -109,7 +109,7 @@ function Footer() {
             whileInView={{ y: -140 }}
             transition={{ duration: 1 }}
             viewport={{ once: false, amount: 0.2 }}
-            className=" hidden xl:block  opacity-[.28] absolute right-[-4.7rem] top-[20rem]"
+            className=" hidden 2xl:block  opacity-[.28] absolute right-[-4.7rem] top-[20rem]"
             src="https://modinatheme.com/foodking/wp-content/uploads/2024/02/burger-shape-3.png"
             alt=""
           />
