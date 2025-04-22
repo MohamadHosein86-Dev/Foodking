@@ -4,15 +4,18 @@ import Image from "next/image";
 import burgur from "@/public/burger-4.png";
 import MoreAbout_chef from "@/components/related_chefPage/moreAbout_chef";
 import SwiperForUsers from "@/components/related_chefPage/swiperForUsers";
-
 import { useRef } from "react";
-import { motion, useAnimate, useInView, useAnimation, useScroll, useTransform } from "framer-motion";
+
+import { motion, useScroll, useTransform } from "framer-motion";
 import { FaChevronLeft } from "react-icons/fa";
 import TitelPages from "@/components/titelCompo/TitelPges";
+import FoodProcessing from "@/components/FoodProcessing_aboutUs/FoodProcessing";
+import MotorSycle from "@/components/MotorCycelComponents/MotorSycle";
+
 const AboutUs: React.FC = () => {
-  const scope = useRef<any>(null);
-  const pitzza = useRef<any>(null);
-  const hamburger = useRef<any>(null);
+  const scope = useRef<HTMLDivElement>(null);
+  const pitzza = useRef<HTMLDivElement>(null);
+  const hamburger = useRef<HTMLDivElement>(null);
 
   const forVerticalDir = useScroll({
     target: scope,
@@ -29,6 +32,7 @@ const AboutUs: React.FC = () => {
     target: hamburger,
     offset: ["start end", "end start"]
   });
+
   const rotateHamburgur = useTransform(forhumbarger.scrollYProgress, [0, 0.2, 0.4], [60, 180, 270]);
   return (
     <>
@@ -45,8 +49,10 @@ const AboutUs: React.FC = () => {
       <div dir="rtl" className="flex flex-col gap-y-12 md:flex-row items-center justify-evenly p-6 md:p-16 bg-[#fffefb]">
         {/* Image Section */}
         <div className="md:w-1/2 relative mb-10 md:mb-0">
-          <Image src={burgur} alt="Burger" width={600} height={600} className="rounded-xl" />
-          <div className="absolute top-4 right-4 text-orange-400 px-4 py-2 rounded-xl -rotate-[30deg] text-[60px] font-bold">Burgur</div>
+          <div className=" relative  ">
+            <Image src={burgur} alt="Burger" width={600} height={600} className="rounded-xl" />
+            <img className=" absolute top-[1rem] " alt="Burger" src="https://modinatheme.com/foodking/wp-content/uploads/2024/02/burger-text-4.png" />
+          </div>
           <div className="absolute bottom-8 left-8 bg-orange-400 text-white p-5 rounded-xl rotate-[30deg] text-4xl font-bold">از سال ۱۹۸۵</div>
           <div className="absolute bottom-0 right-3 text-black p-5 rounded-xl text-4xl font-bold">0 تومان</div>
         </div>
@@ -112,6 +118,7 @@ const AboutUs: React.FC = () => {
         <div className="w-full flex-wrap space-y-4 flex mt-[7rem] justify-center items-end">
           <h1 className="font-semibold w-full text-center text-xl text-green-700">در مورد غذای ما</h1>
           <h1 className="font-semibold w-full text-center text-5xl text-slate-800">با سرآشپزهای متخصص ما ملاقات کنید</h1>
+
           <div className="flex flex-wrap justify-center gap-12 w-2/3 min-h-96 mt-12">
             <MoreAbout_chef role="اجاق گاز ارشد" chefLink="#" imageUrl="https://t-theme.com/foodking/wp-content/uploads/2024/03/01-2.jpg" chefName="اوون آشر" faceBookLink="#" linkedinLink="#" twitterLink="#" youtubeLink="#" />
             <MoreAbout_chef role="سرآشپز ارشد" chefLink="#" imageUrl="https://t-theme.com/foodking/wp-content/uploads/2024/03/05-2.jpg" chefName="لزلی الکساندر" faceBookLink="#" linkedinLink="#" twitterLink="#" youtubeLink="#" />
@@ -142,6 +149,10 @@ const AboutUs: React.FC = () => {
             </div>
           </section>
         </div>
+        <FoodProcessing />
+      </div>
+      <div className=" mt-[-6rem] ">
+        <MotorSycle bg="bg-[url(https://modinatheme.com/foodking/wp-content/uploads/2024/03/main-cta-bg.jpg)]" />
       </div>
     </>
   );

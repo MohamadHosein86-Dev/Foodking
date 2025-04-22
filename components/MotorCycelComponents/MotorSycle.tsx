@@ -3,7 +3,10 @@ import { useScroll, useTransform, motion, useSpring } from "framer-motion";
 import { useRef } from "react";
 import { TbTruckDelivery } from "react-icons/tb";
 
-export default function MotorSycle() {
+interface PropsType {
+  bg?: string;
+}
+export default function MotorSycle({ bg = "bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/08/image.jpg)]" }: PropsType) {
   const motorCycleRef = useRef(null);
   const motorCycle = useScroll({
     target: motorCycleRef,
@@ -23,13 +26,13 @@ export default function MotorSycle() {
   const strokeDashoffset = useTransform(scaleX, (v) => 164 - 164 * v);
   const forMotorCycle = useTransform(motorCycle.scrollYProgress, [0, 0.5, 0.7, 1], [230, 55, 15, 0]);
   return (
-    <div ref={ref}>
+    <div className="  " ref={ref}>
       <motion.svg className="fixed bottom-4 left-4" width="60" height="60" viewBox="0 0 60 60">
         <circle cx="30" cy="30" r="26" stroke="#fff" strokeWidth="4" fill="none" />
         <motion.circle cx="30" cy="30" r="26" stroke="#cd0808" strokeWidth="4" fill="none" strokeDasharray="164" strokeDashoffset="164" style={{ strokeDashoffset }} />
       </motion.svg>
       <div
-        className="
+        className={`
 justify-center
 md:justify-center
 lg:justify-center
@@ -40,8 +43,10 @@ xl:justify-center
 w-full flex 
   bg-[#e7ed70] mt-24 
 bg-cover bg-center h-96
-bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/08/image.jpg)]"
+    ${bg}
+ `}
       >
+        <div></div>
         <section
           className="
  
@@ -69,7 +74,7 @@ relative  h-full"
           className="
  
   justify-start
-  w-3/5
+  w-2/5
 
 md:justify-center 
 md:w-3/5 
@@ -80,47 +85,16 @@ xl:w-1/4
 2xl:justify-center 
 2xl:w-1/4
 flex 
-items-center "
+items-center
+
+ "
         >
-          <button
-            className="
-    w-48
-     md:w-64 
-     lg:w-64 
-     xl:w-64 
-     2xl:w-64 
-     hidden sm:block
-    h-16 group relative
-   font-semibold rounded-xl bg-slate-100"
-          >
-            <div
-              className="w-full h-full z-10 group-hover:text-white absolute inset-0 flex 
-      items-center 
-      justify-center space-x-1
-      font-semibold"
-            >
-              <h1
-                className="
-        font-semibold
-        text-xs
-       md:text-base
-     lg:text-base
-     xl:text-base
-     2xl:text-base
-      "
-              >
-                اکنون سفارش دهید
-              </h1>
-              <TbTruckDelivery
-                className="text-green-700
-       transition-all duration-500 group-hover:text-white text-2xl"
-              />
+          <button className="w-56  md:w-64 h-16 md:h-16 group relative font-semibold rounded-xl bg-slate-100">
+            <div className="w-full h-full cursor-pointer z-10 group-hover:text-white absolute inset-0 flex items-center justify-center space-x-1 font-semibold">
+              <h1>اکنون سفارش دهید</h1>
+              <TbTruckDelivery className="text-green-700 transition-all duration-500 group-hover:text-white text-xl md:text-2xl" />
             </div>
-            <span
-              className="absolute inset-0 w-full h-full  rounded-xl 
-       scale-0 group-hover:scale-100
-     transition-all duration-500 ease-out origin-center"
-            ></span>
+            <span className="absolute inset-0 w-full  rounded-xl bg-amber-400 scale-0 group-hover:scale-100 transition-all duration-500 ease-out origin-center"></span>
           </button>
         </section>
 
@@ -137,7 +111,7 @@ relative"
           <motion.div
             ref={motorCycleRef}
             transition={{ duration: 14 }}
-            style={{ translateX: forMotorCycle as any }}
+            style={{ translateX: forMotorCycle }}
             className="
     absolute 
     inset-0
@@ -167,7 +141,7 @@ xl:-translate-x-36
         </section>
         <section
           className="
-   
+           hidden md:block
 w-[220px]
 
  sm:w-[350px]

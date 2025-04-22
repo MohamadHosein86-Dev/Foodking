@@ -1,6 +1,8 @@
 import { FaChevronLeft } from "react-icons/fa";
-import DateInput from "@/components/date_Input_Reservation/Date_Input";
 import TitelPages from "@/components/titelCompo/TitelPges";
+import DateInput from "@/components/date_Input_Reservation/Date_Input";
+import MotorSycle from "@/components/MotorCycelComponents/MotorSycle";
+
 export default function Reservation() {
   return (
     <div className="w-full">
@@ -15,7 +17,7 @@ export default function Reservation() {
         </div>
       </TitelPages>
       <div dir="rtl" className="min-h-screen flex items-center justify-center p-4">
-        <div className="text-white bg-green-800 rounded-2xl p-6 md:p-10 w-full max-w-4xl shadow-lg">
+        <div className="text-white bg-[url(https://modinatheme.com/foodking/wp-content/uploads/2024/03/bg-shape.png)] bg-cover bg-no-repeat bg-green-800 object-contain rounded-2xl p-6 md:p-10 w-full max-w-4xl shadow-lg">
           <h2 className="text-3xl font-bold text-center mb-8">رزرو ایجاد کنید</h2>
           <form className="grid grid-cols-1 md:grid-cols-2 gap-6 text-right">
             <div className="flex flex-col gap-2">
@@ -76,6 +78,8 @@ export default function Reservation() {
           </div>
         </div>
       </div>
+      <MotorSycle bg=" bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/08/pepsi-bg.png)] " />
     </div>
   );
 }
+//"

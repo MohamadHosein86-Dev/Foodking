@@ -1,17 +1,13 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useState } from 'react';
-const faMonths = [
-  'فروردین', 'اردیبهشت', 'خرداد', 'تیر',
-  'مرداد', 'شهریور', 'مهر', 'آبان',
-  'آذر', 'دی', 'بهمن', 'اسفند'
-];
-const faDays = ['ش', 'ی', 'د', 'س', 'چ', 'پ', 'ج'];
+import { useEffect, useRef, useState } from "react";
+const faMonths = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
+const faDays = ["ش", "ی", "د", "س", "چ", "پ", "ج"];
 type Props = {
   value?: string;
   onChange?: (date: string) => void;
 };
-export default function DateInput({ value = '', onChange }: Props) {
+export default function DateInput({ value = "", onChange }: Props) {
   const [showCalendar, setShowCalendar] = useState(false);
   const [selectedDate, setSelectedDate] = useState<string>(value);
   const [year, setYear] = useState<number>(1404);
@@ -32,11 +28,11 @@ export default function DateInput({ value = '', onChange }: Props) {
         setShowCalendar(false);
       }
     };
-    document.addEventListener('mousedown', handleOutsideClick);
-    return () => document.removeEventListener('mousedown', handleOutsideClick);
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, []);
   const handleSelectDate = (d: number) => {
-    const padded = (num: number) => String(num).padStart(2, '0');
+    const padded = (num: number) => String(num).padStart(2, "0");
     const formatted = `${year}/${padded(month)}/${padded(d)}`;
     setSelectedDate(formatted);
     onChange?.(formatted);
@@ -67,14 +63,7 @@ export default function DateInput({ value = '', onChange }: Props) {
   };
   return (
     <div className="relative" ref={ref}>
-      <input
-        type="text"
-        value={selectedDate}
-        onChange={handleInputChange}
-        onFocus={() => setShowCalendar(true)}
-        className="size-full placeholder:text-white p-2 focus:outline-none"
-        placeholder="تاریخ رزرو را وارد کنید"
-      />
+      <input type="text" value={selectedDate} onChange={handleInputChange} onFocus={() => setShowCalendar(true)} className="size-full placeholder:text-white p-2 focus:outline-none" placeholder="تاریخ رزرو را وارد کنید" />
 
       {showCalendar && (
         <div className="absolute bg-green-700 border rounded shadow p-4 mt-2 w-full z-10">
@@ -82,7 +71,7 @@ export default function DateInput({ value = '', onChange }: Props) {
           <div className="flex gap-2 mb-4 justify-between">
             <input
               type="number"
-              value={day ?? ''}
+              value={day ?? ""}
               onChange={(e) => {
                 const val = +e.target.value;
                 if (val >= 1 && val <= daysInMonth) {
@@ -92,41 +81,18 @@ export default function DateInput({ value = '', onChange }: Props) {
               className="border-2 border-gray-700 rounded px-2 py-1 w-1/3"
               placeholder="روز"
             />
-            <input
-              type="number"
-              value={month}
-              onChange={(e) => setMonth(+e.target.value)}
-              min={1}
-              max={12}
-              className="border-2 border-gray-700 rounded px-2 py-1 w-1/3"
-              placeholder="ماه"
-            />
-            <input
-              type="number"
-              value={year}
-              onChange={(e) => setYear(+e.target.value)}
-              className="border-2 border-gray-700 rounded px-2 py-1 w-1/3"
-              placeholder="سال"
-            />
+            <input type="number" value={month} onChange={(e) => setMonth(+e.target.value)} min={1} max={12} className="border-2 border-gray-700 rounded px-2 py-1 w-1/3" placeholder="ماه" />
+            <input type="number" value={year} onChange={(e) => setYear(+e.target.value)} className="border-2 border-gray-700 rounded px-2 py-1 w-1/3" placeholder="سال" />
           </div>
-
           {/* هدربار ماه */}
           <div className="flex justify-between items-center mb-2">
-            <button
-              type="button"
-              onClick={goToPrevMonth}
-              className="text-sm cursor-pointer px-2 py-1 border-2 border-gray-700 rounded"
-            >
+            <button type="button" onClick={goToPrevMonth} className="text-sm cursor-pointer px-2 py-1 border-2 border-gray-700 rounded">
               قبلی
             </button>
             <span className="font-bold text-sm border-b-2 border-gray-700">
               {faMonths[month - 1]} {year}
             </span>
-            <button
-              type="button"
-              onClick={goToNextMonth}
-              className="text-sm cursor-pointer px-2 py-1 border-2 border-gray-700 rounded"
-            >
+            <button type="button" onClick={goToNextMonth} className="text-sm cursor-pointer px-2 py-1 border-2 border-gray-700 rounded">
               بعدی
             </button>
           </div>
@@ -137,12 +103,7 @@ export default function DateInput({ value = '', onChange }: Props) {
               </div>
             ))}
             {daysArray.map((d) => (
-              <div
-                key={d}
-                onClick={() => handleSelectDate(d)}
-                className={`cursor-pointer py-1 rounded-lg hover:bg-blue-100 hover:text-green-700 ${d === day ? 'border-2 border-gray-700 text-white' : ''
-                  }`}
-              >
+              <div key={d} onClick={() => handleSelectDate(d)} className={`cursor-pointer py-1 rounded-lg hover:bg-blue-100 hover:text-green-700 ${d === day ? "border-2 border-gray-700 text-white" : ""}`}>
                 {d}
               </div>
             ))}

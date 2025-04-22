@@ -38,7 +38,7 @@ export default function AnimationHeader({ setShowBox3, showBox2, showBox3, showS
                     </span>{" "}
                   </button>
                   <Modal isOpen={open} onClose={() => setOpen(false)}>
-                    <ModalHeader />
+                    <ModalHeader setOpen={setOpen} />
                   </Modal>
                   <div className=" hidden xl:flex items-center gap-[1.5rem] relative  ">
                     <div className=" bg-[#212121] cursor-pointer top-[-.4rem] left-[-.5rem] absolute  w-[1rem] text-[.6rem] pb-[.1rem] pr-[0rem] rounded-[.5rem] h-[1rem] flex justify-center items-center text-[#fcfbfe] ">0</div>

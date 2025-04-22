@@ -40,10 +40,10 @@ export default function Faqs() {
           </div>
         </div>
       </TitelPages>
-      <div className="flex flex-col justify-center items-center">
-        <div className="title my-12 flex items-center justify-center flex-col gap-y-2">
-          <p className="text-green-700">سوالات پرتکرار</p>
-          <p className="text-[25px]">سوالات متداول</p>
+      <div className="flex flex-col justify-center items-center my-4">
+        <div className="title mb-[0rem] mt-[6rem] flex items-center justify-center flex-col gap-y-2">
+          <p className="text-green-700  font-bold ">سوالات پرتکرار</p>
+          <p className="text-[40px] font-bold   ">سوالات متداول</p>
         </div>
 
         <div className="max-w-5xl mx-auto mt-10 space-y-4">
