@@ -3,10 +3,12 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
-import { FaArrowLeft, FaBars, FaSearch, FaShoppingBasket } from "react-icons/fa";
+import { FaArrowLeft, FaBars, FaSearch, FaShoppingBasket, FaUser } from "react-icons/fa";
 import { FaTruckFast } from "react-icons/fa6";
 import HeaderSecond from "./HeaderSecond";
 import AnimationHeader from "./AnimationHeader";
+import Modal from "../modal/Modal";
+import ModalLoginUser from "../modal/ModalLoginUser";
 
 export default function Header() {
   const [showBox, setShowBox] = useState(false);
@@ -14,6 +16,7 @@ export default function Header() {
   const [showBox3, setShowBox3] = useState(false);
   const [showBox10, setShowBox10] = useState(false);
   const [showBox20, setShowBox20] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const curentUrl = usePathname();
   const heroRef = useRef<HTMLDivElement>(null);
@@ -46,7 +49,11 @@ export default function Header() {
         <section className=" bg-[url('https://t-theme.com/foodking/wp-content/uploads/2024/02/hero-bg-3.jpg')]  bg-cover bg-center ">
           <div ref={heroRef} className={` ${curentUrl == "/" ? "border-b-[1px] border-[#f4f1ea42] " : " border-none "} `}>
             <div className={`  text-[#fcfbfe] mx-auto max-w-[82rem] py-[1rem] items-center flex justify-between px-[1.5rem] `}>
-              <div className=" flex items-center gap-[2rem] xl:gap-[5rem] ">
+              <div className=" flex items-center gap-[2rem] xl:gap-[3rem] ">
+                <FaUser onClick={() => setOpen(true)} size={22} color="#ffff" className=" cursor-pointer " />
+                <Modal center={true} isOpen={open} onClose={() => setOpen(false)}>
+                  <ModalLoginUser setOpen={setOpen} />
+                </Modal>
                 <button className=" outline-none rounded-md  transition-all ease delay-200 cursor-pointer hover:bg-[#00813D] bg-[#D12525] xl:flex hidden  items-center justify-center gap-[.5rem] border-[1px] border-[#ffff] text-center px-[1rem] w-[15rem] py-[1rem] pb-[1.3rem] font-bold ">
                   اکنون سفارش دهید
                   <span>
@@ -54,6 +61,7 @@ export default function Header() {
                   </span>{" "}
                 </button>
                 <FaBars className=" block xl:hidden cursor-pointer " size={30} color="#ffff" />
+
                 <div className=" flex items-center gap-[1.5rem] relative  ">
                   <div className=" bg-[#200707cc] top-[-.4rem] left-[-.5rem] absolute  w-[1rem] text-[.6rem] pb-[.1rem] pr-[.1rem] rounded-[.5rem] h-[1rem] xl:flex hidden  justify-center items-center text-[#fcfbfe] ">0</div>
                   <FaShoppingBasket className=" xl:flex hidden  cursor-pointer " size={20} />

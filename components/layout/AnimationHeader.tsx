@@ -3,10 +3,11 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
-import { FaBars, FaShoppingBasket } from "react-icons/fa";
+import { FaBars, FaShoppingBasket, FaUser } from "react-icons/fa";
 import { FaTruckFast } from "react-icons/fa6";
 import Modal from "../modal/Modal";
 import ModalHeader from "../modal/ModalHeader";
+import ModalLoginUser from "../modal/ModalLoginUser";
 
 interface PropsType {
   setShowBox3: (s: boolean) => void;
@@ -30,6 +31,10 @@ export default function AnimationHeader({ setShowBox3, showBox2, showBox3, showS
             <div className={` z-[100000]  ${curentUrl == "/" ? "border-b-[1px] border-[#f4f1ea42] " : " border-none "} `}>
               <div className={`  text-[#fcfbfe] mx-auto max-w-[82rem] py-[.4rem] items-center flex justify-between  sm:px-[1.6rem] `}>
                 <div className=" flex items-center gap-[5rem] md:gap-[1.5rem] ">
+                  <FaUser onClick={() => setOpen(true)} size={22} color="#D12525" className=" cursor-pointer " />
+                  <Modal center={true} isOpen={open} onClose={() => setOpen(false)}>
+                    <ModalLoginUser setOpen={setOpen} />
+                  </Modal>
                   <FaBars onClick={() => setOpen(true)} className=" block xl:hidden cursor-pointer " size={30} color="#212121" />
                   <button className=" rounded-md outline-none  transition-all ease delay-200 cursor-pointer hover:bg-[#00813D] bg-[#D12525] hidden  md:flex items-center justify-center gap-[.5rem] border-[1px] border-[#ffff] text-center px-[1rem] w-[15rem] py-[1rem] pb-[1.3rem] font-bold ">
                     اکنون سفارش دهید
@@ -37,9 +42,7 @@ export default function AnimationHeader({ setShowBox3, showBox2, showBox3, showS
                       <FaTruckFast size={22} />{" "}
                     </span>{" "}
                   </button>
-                  <Modal isOpen={open} onClose={() => setOpen(false)}>
-                    <ModalHeader setOpen={setOpen} />
-                  </Modal>
+
                   <div className=" hidden xl:flex items-center gap-[1.5rem] relative  ">
                     <div className=" bg-[#212121] cursor-pointer top-[-.4rem] left-[-.5rem] absolute  w-[1rem] text-[.6rem] pb-[.1rem] pr-[0rem] rounded-[.5rem] h-[1rem] flex justify-center items-center text-[#fcfbfe] ">0</div>
                     <FaShoppingBasket className="  text-[#D12525] cursor-pointer " size={20} />

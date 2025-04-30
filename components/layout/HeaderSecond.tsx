@@ -3,9 +3,11 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
-import { FaBars, FaPinterestP, FaShoppingBasket, FaTruck, FaTwitter, FaVimeoV } from "react-icons/fa";
+import { FaBars, FaPinterestP, FaShoppingBasket, FaTruck, FaTwitter, FaUser, FaVimeoV } from "react-icons/fa";
 import { FaFacebookF, FaTruckFast } from "react-icons/fa6";
 import AnimationHeader from "./AnimationHeader";
+import Modal from "../modal/Modal";
+import ModalLoginUser from "../modal/ModalLoginUser";
 
 export default function HeaderSecond() {
   const [showBox, setShowBox] = useState(false);
@@ -13,6 +15,7 @@ export default function HeaderSecond() {
   const [showBox3, setShowBox3] = useState(false);
   const [showBox10, setShowBox10] = useState(false);
   const [showBox20, setShowBox20] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const curentUrl = usePathname();
   const heroRef = useRef<HTMLDivElement>(null);
@@ -68,6 +71,11 @@ export default function HeaderSecond() {
           <div className={`  ${curentUrl == "/" ? "border-b-[1px] border-[#f4f1ea42] " : " border-none "} `}>
             <div className={`  text-[#fcfbfe] mx-auto max-w-[82rem] py-[1.2rem] items-center flex justify-between px-[1rem] sm:px-[3rem] lg:px-[1rem] xl:px-[1.5rem] `}>
               <div className=" flex items-center gap-[1.5rem] xl:gap-[1.7rem] ">
+                <FaUser onClick={() => setOpen(true)} size={22} color="#D12525" className=" cursor-pointer " />
+                <Modal center={true} isOpen={open} onClose={() => setOpen(false)}>
+                  <ModalLoginUser setOpen={setOpen} />
+                </Modal>
+
                 <FaBars className=" block xl:hidden cursor-pointer " size={30} color="#212121" />
                 <button className=" rounded-md outline-none  transition-all ease delay-200 cursor-pointer hover:bg-[#00813D] bg-[#D12525] hidden md:flex items-center justify-center gap-[.5rem] border-[1px] border-[#ffff] text-center px-[1rem] w-[15rem] py-[1rem] pb-[1.3rem] font-bold ">
                   اکنون سفارش دهید
@@ -160,7 +168,7 @@ export default function HeaderSecond() {
                 </div>
 
                 <div
-                  className="relative z-[10000000]"
+                  className="relative z-[100000]"
                   onMouseEnter={() => {
                     setShowBox20(true);
                     setShowBox2(false);
