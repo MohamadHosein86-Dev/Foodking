@@ -7,7 +7,7 @@ import { FaBars, FaPinterestP, FaShoppingBasket, FaTruck, FaTwitter, FaUser, FaV
 import { FaFacebookF, FaTruckFast } from "react-icons/fa6";
 import AnimationHeader from "./AnimationHeader";
 import Modal from "../modal/Modal";
-import ModalLoginUser from "../modal/ModalLoginUser";
+import ModalLoginUser from "../authenticationuser/ModalLoginUser";
 
 export default function HeaderSecond() {
   const [showBox, setShowBox] = useState(false);
@@ -222,7 +222,7 @@ export default function HeaderSecond() {
           </div>
         </div>
       </div>
-      <AnimationHeader setShowBox3={setShowBox3} showBox2={showBox2} showBox3={showBox3} setShowBox={setShowBox} setShowBox2={setShowBox2} setShowBox10={setShowBox10} setShowBox20={setShowBox20} showBox={showBox} showSticky={showSticky} />
+      <AnimationHeader showSticky={showSticky} />
     </section>
   );
 }

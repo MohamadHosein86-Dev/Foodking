@@ -5,14 +5,15 @@ const handler = NextAuth({
     providers:[
         CredentialsProvider({
             
-            name:"credentials",
+            name:"OTP Login",
             credentials:{
+                
                 phone:{label:"phone" ,type:"text"},
                 code:{label:"code" ,type:"text"}
             },
             async authorize(credentials){
 
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/verify`, {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/auth/verify`, {
                     method: "POST",
                     headers: {
                       "Content-Type": "application/json",
@@ -22,24 +23,20 @@ const handler = NextAuth({
                       code: credentials?.code,
                     }),
                 });
+                
                 if (!res.ok) {
                     return null;
                 }
                   
                 const text = await res.text(); 
-                console.log(text, "RAW RESPONSE TEXTسسسسسسسسس"); // اول متن میگیری
-                if (!text) {
-                    return null;  // اگر خالی بود، return null
-                }
-                  
                 const user = JSON.parse(text);
                 
                 
-                if (user && user.token) {
+                if (user?.accessToken && user?.refreshToken) {
                     return {
                       id: user.id,
-                      phone: user.phone,
-                      token: user.token,
+                      accessToken: user.accessToken,
+                      refreshToken: user.refreshToken,
                     };
                 } 
                 else {
@@ -55,17 +52,17 @@ const handler = NextAuth({
     secret: process.env.NEXTAUTH_SECRET,
     callbacks: {
         async jwt({ token, user }) {
-          console.log("JWT CALLBACK", { token, user });
           if (user) {
-            token.accessToken = user.token;
+            token.accessToken = user.accessToken;
+            token.refreshToken = user.refreshToken;
           }
           return token;
         },
         async session({ session, token }) {
-          console.log("SESSION CALLBACK", { session, token });
           session.accessToken = token.accessToken;
+          session.refreshToken = token.refreshToken;
           return session;
-        },
+        }        
       },
       
     

@@ -6,23 +6,20 @@ import React, { useState } from "react";
 import { FaBars, FaShoppingBasket, FaUser } from "react-icons/fa";
 import { FaTruckFast } from "react-icons/fa6";
 import Modal from "../modal/Modal";
-import ModalHeader from "../modal/ModalHeader";
-import ModalLoginUser from "../modal/ModalLoginUser";
+import ModalLoginUser from "../authenticationuser/ModalLoginUser";
 
 interface PropsType {
-  setShowBox3: (s: boolean) => void;
-  showBox2: boolean;
-  showBox3: boolean;
   showSticky: boolean;
-  setShowBox: (s: boolean) => void;
-  setShowBox2: (s: boolean) => void;
-  setShowBox10: (s: boolean) => void;
-  setShowBox20: (s: boolean) => void;
-  showBox: boolean;
 }
-export default function AnimationHeader({ setShowBox3, showBox2, showBox3, showSticky, setShowBox, setShowBox2, setShowBox10, setShowBox20, showBox }: PropsType) {
+export default function AnimationHeader({ showSticky }: PropsType) {
   const curentUrl = usePathname();
   const [open, setOpen] = useState(false);
+  const [showBox, setShowBox] = useState(false);
+  const [showBox2, setShowBox2] = useState(false);
+  const [showBox3, setShowBox3] = useState(false);
+  const [x, setShowBox10] = useState(false);
+  const [y, setShowBox20] = useState(false);
+
   return (
     <AnimatePresence>
       {showSticky && (

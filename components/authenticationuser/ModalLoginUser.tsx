@@ -14,9 +14,9 @@ export default function ModalLoginUser({ setOpen }: PropsType) {
   const [step, setStep] = useState<"phone" | "verify">("phone");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [password] = useState("");
   const [phone, setPhone] = useState("");
   const [code, setCode] = useState("");
+  const [password] = useState("");
 
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -30,10 +30,11 @@ export default function ModalLoginUser({ setOpen }: PropsType) {
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/auth/signin`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, password, phone })
+        body: JSON.stringify({ phone })
       });
 
       const text = await res.text();
+      console.log(text + "kirrr");
 
       if (!text) {
         setError("پاسخ خالی از سرور دریافت شد");
@@ -63,7 +64,8 @@ export default function ModalLoginUser({ setOpen }: PropsType) {
     try {
       const result = await signIn("credentials", {
         phone,
-        code
+        code,
+        redirect: false
       });
 
       if (result?.error) {
@@ -80,15 +82,15 @@ export default function ModalLoginUser({ setOpen }: PropsType) {
   }
 
   return (
-    <div className="p-8 max-w-[90rem]   h-full text-black  px-9 py-9 mx-auto">
+    <div className="p-8 max-w-[90rem] z-[10000000]   h-full text-black  px-9 py-9 mx-auto">
       <div className="flex  max-w-[90rem] justify-between items-center mb-6">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.8} stroke="currentColor" className=" text-[#5C5C5B] size-5">
           <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
         </svg>
         <h1 className="text-xl text-[#d15858] font-semibold text-center "> ورود به فودکینگ </h1>
-        <p onClick={() => setOpen(false)} className=" text-[#5C5C5B] p-1  cursor-pointer rounded-[6rem] text-2xl ">
+        <button onClick={() => setOpen(false)} className=" z-[1000]  cursor-pointer text-[#5C5C5B] p-1 rounded-[6rem] text-2xl ">
           ×
-        </p>
+        </button>
       </div>
 
       {step === "phone" && (
@@ -101,7 +103,7 @@ export default function ModalLoginUser({ setOpen }: PropsType) {
           <input type="text" className=" border-gray-300 outline-none border rounded-[1rem] px-3 py-3" placeholder="شماره موبایل" value={phone} onChange={(e) => setPhone(e.target.value)} required />
 
           {error && <p className="text-red-500 text-sm">{error}</p>}
-          <button type="submit" disabled={loading} className={` mt-[1rem] ${name && email && password} bg-[#D12525]  text-white py-3 rounded-[.8rem] `}>
+          <button type="submit" disabled={loading} className={` mt-[1rem] ${name && email && phone} bg-[#D12525]  text-white py-3 rounded-[.8rem] `}>
             {loading ? "در حال ارسال..." : "ارسال کد تایید"}
           </button>
           <p className=" text-[#5C5C5B] mt-[.5rem] text-center text-[.8rem] ">
