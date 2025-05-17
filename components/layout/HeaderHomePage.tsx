@@ -15,7 +15,7 @@ export default function HeaderHomePage({ curentUrl }: { curentUrl: string }) {
 
   const { data: session, status } = useSession();
 
-  console.log(status + "Dc");
+  console.log(status + "  Dc");
 
   const heroRef = useRef<HTMLDivElement>(null);
 
