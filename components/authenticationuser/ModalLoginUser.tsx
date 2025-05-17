@@ -1,8 +1,7 @@
 "use client";
-
-import { signIn } from "next-auth/react";
+import { getSession, signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface PropsType {
   setOpen: (s: boolean) => void;
@@ -16,7 +15,8 @@ export default function ModalLoginUser({ setOpen }: PropsType) {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [code, setCode] = useState("");
-  const [password] = useState("");
+  const [phone1, setPhone1] = useState("");
+  const [password, setpas] = useState("");
 
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -34,17 +34,16 @@ export default function ModalLoginUser({ setOpen }: PropsType) {
       });
 
       const text = await res.text();
-      console.log(text + "kirrr");
 
       if (!text) {
         setError("پاسخ خالی از سرور دریافت شد");
         return;
       }
-
       const data = JSON.parse(text);
+      console.log("kirrr = ", data);
 
       if (res.ok) {
-        alert(data.code + " = کد تایید برای شما ارسال شد.");
+        alert(`yourcode = ${data.code}`);
         setStep("verify");
       } else {
         setError(" لطفا فیلد هارو درست پر کنید ");
@@ -72,7 +71,7 @@ export default function ModalLoginUser({ setOpen }: PropsType) {
         setError("کد وارد شده اشتباه است.");
       } else {
         setOpen(false);
-        router.refresh();
+        router.push("/dashboard");
       }
     } catch {
       setError("مشکلی در ورود پیش آمده");
@@ -84,7 +83,7 @@ export default function ModalLoginUser({ setOpen }: PropsType) {
   return (
     <div className="p-8 max-w-[90rem] z-[10000000]   h-full text-black  px-9 py-9 mx-auto">
       <div className="flex  max-w-[90rem] justify-between items-center mb-6">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.8} stroke="currentColor" className=" text-[#5C5C5B] size-5">
+        <svg onClick={() => setStep("phone")} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.8} stroke="currentColor" className=" cursor-pointer text-[#5C5C5B] size-5">
           <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
         </svg>
         <h1 className="text-xl text-[#d15858] font-semibold text-center "> ورود به فودکینگ </h1>
@@ -96,10 +95,7 @@ export default function ModalLoginUser({ setOpen }: PropsType) {
       {step === "phone" && (
         <form onSubmit={handlePhoneSubmit} className="  max-w-sm mx-auto  flex flex-col gap-4">
           <img className=" w-[8.5rem]  mx-auto   " src="https://t-theme.com/foodking/wp-content/uploads/2024/08/U_U_O¯U©U_U_U¯_14-transformed.png" alt="logo" />
-
           <p className=" text-[#555555] mt-[.5rem] text-center text-[.9rem] mb-[1rem] ">با وارد کردن شماره موبایل، کد تایید برای شما ارسال خواهد شد</p>
-          <input type="text" className=" border-gray-300 outline-none border rounded-[1rem] px-3 py-3" placeholder="نام کامل" value={name} onChange={(e) => setName(e.target.value)} required />
-          <input type="email" className=" border-gray-300 outline-none border rounded-[1rem] px-3 py-3" placeholder="ایمیل" value={email} onChange={(e) => setEmail(e.target.value)} required />
           <input type="text" className=" border-gray-300 outline-none border rounded-[1rem] px-3 py-3" placeholder="شماره موبایل" value={phone} onChange={(e) => setPhone(e.target.value)} required />
 
           {error && <p className="text-red-500 text-sm">{error}</p>}
@@ -114,8 +110,10 @@ export default function ModalLoginUser({ setOpen }: PropsType) {
 
       {step === "verify" && (
         <form onSubmit={handleVerifySubmit} className="flex flex-col gap-4">
-          <h1 className="text-2xl font-bold text-center">وارد کردن کد تایید</h1>
-          <input type="text" className="border rounded px-3 py-2" placeholder="کد تایید" value={code} onChange={(e) => setCode(e.target.value)} required />
+          <h1 className="text-2xl font-bold text-center"> ثبت شماره در سایت </h1>
+          <input type="text" className=" border-gray-300 outline-none border rounded-[1rem] px-3 py-3" placeholder=" تلفن " value={phone} onChange={(e) => setPhone(e.target.value)} required />
+          <input type="text" className=" border-gray-300 outline-none border rounded-[1rem] px-3 py-3" placeholder=" کد " value={code} onChange={(e) => setCode(e.target.value)} required />
+
           {error && <p className="text-red-500 text-sm">{error}</p>}
 
           <button type="submit" disabled={loading} className="bg-green-500 text-white py-2 rounded">

@@ -7,10 +7,15 @@ import ModalLoginUser from "../authenticationuser/ModalLoginUser";
 import HeaderBottom from "./HeaderBottom";
 import Navbar_desktop from "../navbar_desktop/navbar_desktop";
 import AnimationHeader from "./AnimationHeader";
+import { useSession } from "next-auth/react";
 
 export default function HeaderHomePage({ curentUrl }: { curentUrl: string }) {
   const [open, setOpen] = useState(false);
   const [showSticky, setShowSticky] = useState(false);
+
+  const { data: session, status } = useSession();
+
+  console.log(status + "Dc");
 
   const heroRef = useRef<HTMLDivElement>(null);
 
