@@ -2,13 +2,15 @@
 import Container from "@/components/container/container";
 import PanleUserPage from "@/components/panleUserPage/panleUserPage";
 import BtnProfile from "@/components/ui/BtnProfile";
+import { signOut, useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 export default function ProfileUser() {
-  const name = "نام وارد نشده است";
-  const email = "آدرس ایمیل وارد نشده است";
-  const phone = "  شماره تلفن وارد نشده است";
+  const { data: session } = useSession();
+  const name = session?.user?.name && session.user.name;
+  const phone = session?.user?.phone && session.user.phone;
+
   const pathname = usePathname();
   const ruoterLink = useRouter();
   const [showmodal, setshowmodal] = useState(false);
@@ -19,9 +21,9 @@ export default function ProfileUser() {
         <div className="  rounded-[16px] flex flex-col gap-[.8rem] w-full md:w-[35rem] lg:w-[30rem]  xl:basis-[30%] ">
           <div className=" rounded-[15px] px-[2rem]  border-[1px] border-[#E7E7E8]  py-[1.5rem] flex gap-[1rem]  w-full ">
             <img className=" w-[3rem] " src="/e2946bbdae579b021ad972a47e0370a956703380.png" alt="" />
-            <p onClick={() => {}} className=" flex-col justify-start cursor-pointer flex items-center gap-[4px] text-[#B19276] ">
+            <p onClick={() => {}} className=" flex-col justify-center cursor-pointer flex  gap-[4px] text-[#B19276] ">
               <span className=" text-sm text-[#3C3D45] font-semibold ml-auto ">{name}</span>
-              <span className=" text-sm text-[#3C3D45] font-semibold ">{email}</span>
+              <span className=" text-sm text-[#3C3D45] font-semibold ">{phone}</span>
             </p>
           </div>
 
@@ -38,7 +40,14 @@ export default function ProfileUser() {
             <BtnProfile onclick={() => ruoterLink.push(`/dashboard/mylocation`)} icon={"mylocation"} rout="/dashboard/mylocation">
               ادرس های من
             </BtnProfile>
-            <BtnProfile logout={true} onclick={() => ruoterLink.push(``)} icon={""} rout="">
+            <BtnProfile
+              logout={true}
+              onclick={() => {
+                signOut();
+              }}
+              icon={""}
+              rout=""
+            >
               خروج
             </BtnProfile>
 

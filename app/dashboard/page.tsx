@@ -1,6 +1,12 @@
+import { useSession } from "next-auth/react";
+
 export default function Acount() {
+  const { data: session } = useSession();
+  const name = session?.user?.name && session.user.name;
+  const email = session?.user?.email && session.user.email;
+  const phone = session?.user?.phone && session.user.phone;
   return (
-    <div className=" hidden md:block gap-[2rem] rounded-[16px] border-[1px] border-[#E7E7E8] w-[50rem]  xl:basis-[70%] ">
+    <div className=" hidden  md:block gap-[2rem] rounded-[16px] border-[1px] border-[#E7E7E8] w-[50rem]  xl:basis-[70%] ">
       <div className=" px-[2rem]  border-b-[1px] border-b-[#E7E7E8]  py-[1.5rem] flex justify-between  w-full ">
         <h2 className="  text-[#23242E] font-bold flex gap-[.3rem]  ">
           حساب من
@@ -10,6 +16,18 @@ export default function Acount() {
             </svg>
           </span>
         </h2>
+      </div>
+      <div className=" mt-[1rem] p-[2rem] flex gap-[1rem] items-center ">
+        <p className=" font-semibold  ">نام : </p>
+        <p className=" ">{name}</p>
+      </div>
+      <div className=" p-[2rem] flex gap-[1rem] items-center ">
+        <p className=" font-semibold  ">ایمیل : </p>
+        <p className=" ">{email}</p>
+      </div>
+      <div className=" p-[2rem] flex gap-[1rem] items-center ">
+        <p className=" font-semibold  ">تلفن : </p>
+        <p className=" ">{phone}</p>
       </div>
     </div>
   );

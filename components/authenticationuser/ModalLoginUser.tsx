@@ -63,6 +63,8 @@ export default function ModalLoginUser({ setOpen }: PropsType) {
       const result = await signIn("credentials", {
         phone,
         code,
+        name,
+        email,
         redirect: false
       });
 
@@ -112,7 +114,6 @@ export default function ModalLoginUser({ setOpen }: PropsType) {
       {step === "verify" && (
         <form onSubmit={handleVerifySubmit} className="max-w-sm mx-auto flex flex-col gap-4">
           <h1 className="text-xl font-bold text-center">تأیید شماره موبایل</h1>
-          <input type="text" className="border-gray-300 border rounded-xl px-3 py-3" placeholder="شماره موبایل" value={phone} disabled />
           <input type="text" className="border-gray-300 border rounded-xl px-3 py-3" placeholder="کد تأیید" value={code} onChange={(e) => setCode(e.target.value)} required />
 
           {error && <p className="text-red-500 text-sm">{error}</p>}

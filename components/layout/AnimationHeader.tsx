@@ -7,6 +7,7 @@ import { FaBars, FaShoppingBasket, FaUser } from "react-icons/fa";
 import { FaTruckFast } from "react-icons/fa6";
 import Modal from "../modal/Modal";
 import ModalLoginUser from "../authenticationuser/ModalLoginUser";
+import Isauthenticated from "../authenticationuser/Isauthenticated";
 
 interface PropsType {
   showSticky: boolean;
@@ -28,11 +29,13 @@ export default function AnimationHeader({ showSticky }: PropsType) {
             <div className={` z-[100000]  ${curentUrl == "/" ? "border-b-[1px] border-[#f4f1ea42] " : " border-none "} `}>
               <div className={`  text-[#fcfbfe] mx-auto max-w-[82rem] py-[.4rem] items-center flex justify-between  sm:px-[1.6rem] `}>
                 <div className=" flex items-center gap-[5rem] md:gap-[1.5rem] ">
-                  <FaUser onClick={() => setOpen(true)} size={22} color="#D12525" className=" cursor-pointer " />
-                  <Modal center={true} isOpen={open} onClose={() => setOpen(false)}>
-                    <ModalLoginUser setOpen={setOpen} />
-                  </Modal>
-                  <FaBars onClick={() => setOpen(true)} className=" block xl:hidden cursor-pointer " size={30} color="#212121" />
+                  <Isauthenticated>
+                    <FaUser onClick={() => setOpen(true)} size={22} color="#D12525" className=" cursor-pointer " />
+                    <Modal center={true} isOpen={open} onClose={() => setOpen(false)}>
+                      <ModalLoginUser setOpen={setOpen} />
+                    </Modal>
+                    <FaBars onClick={() => setOpen(true)} className=" block xl:hidden cursor-pointer " size={30} color="#212121" />
+                  </Isauthenticated>
                   <button className=" rounded-md outline-none  transition-all ease delay-200 cursor-pointer hover:bg-[#00813D] bg-[#D12525] hidden  md:flex items-center justify-center gap-[.5rem] border-[1px] border-[#ffff] text-center px-[1rem] w-[15rem] py-[1rem] pb-[1.3rem] font-bold ">
                     اکنون سفارش دهید
                     <span>

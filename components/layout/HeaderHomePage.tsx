@@ -7,15 +7,11 @@ import ModalLoginUser from "../authenticationuser/ModalLoginUser";
 import HeaderBottom from "./HeaderBottom";
 import Navbar_desktop from "../navbar_desktop/navbar_desktop";
 import AnimationHeader from "./AnimationHeader";
-import { useSession } from "next-auth/react";
+import Isauthenticated from "../authenticationuser/Isauthenticated";
 
 export default function HeaderHomePage({ curentUrl }: { curentUrl: string }) {
   const [open, setOpen] = useState(false);
   const [showSticky, setShowSticky] = useState(false);
-
-  const { data: session, status } = useSession();
-
-  console.log(status + "  Dc");
 
   const heroRef = useRef<HTMLDivElement>(null);
 
@@ -45,10 +41,13 @@ export default function HeaderHomePage({ curentUrl }: { curentUrl: string }) {
       <div ref={heroRef} className={` ${curentUrl == "/" ? "border-b-[1px] border-[#f4f1ea42] " : " border-none "} `}>
         <div className={`  text-[#fcfbfe] mx-auto max-w-[82rem] py-[1rem] items-center flex justify-between px-[1.5rem] `}>
           <div className=" flex items-center gap-[2rem] xl:gap-[3rem] ">
-            <FaUser onClick={() => setOpen(true)} size={22} color="#ffff" className=" cursor-pointer " />
-            <Modal center={true} isOpen={open} onClose={() => setOpen(false)}>
-              <ModalLoginUser setOpen={setOpen} />
-            </Modal>
+            <Isauthenticated>
+              <FaUser onClick={() => setOpen(true)} size={22} color="#ffff" className=" cursor-pointer " />
+              <Modal center={true} isOpen={open} onClose={() => setOpen(false)}>
+                <ModalLoginUser setOpen={setOpen} />
+              </Modal>
+            </Isauthenticated>
+
             <button className=" outline-none rounded-md  transition-all ease delay-200 cursor-pointer hover:bg-[#00813D] bg-[#D12525] xl:flex hidden  items-center justify-center gap-[.5rem] border-[1px] border-[#ffff] text-center px-[1rem] w-[15rem] py-[1rem] pb-[1.3rem] font-bold ">
               اکنون سفارش دهید
               <span>

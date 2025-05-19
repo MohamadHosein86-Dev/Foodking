@@ -129,12 +129,12 @@ const AboutUs: React.FC = () => {
           <section className=" w-1/5 h-full -space-y-60 flex-wrap flex justify-end items-center">
             <div className="w-full mr-12 relative h-1/4">
               <motion.div style={{ y }} ref={scope} className="w-auto transition-all duration-500  absolute right-0">
-                <Image alt="#" width={80} height={80} src={"https://t-theme.com/foodking/wp-content/uploads/2024/02/fry-shape-2-3.png"} />
+                <Image alt="#" width={80} height={80} src="/pages/menu_1/shape_food1.png" />
               </motion.div>
             </div>
             <div className="w-full mr-12 relative h-1/4">
               <motion.div style={{ rotate: rotPitzza }} ref={pitzza} className="w-auto absolute transition-all duration-500  rotate-180 right-0">
-                <Image alt="#" width={100} height={100} src={"https://t-theme.com/foodking/wp-content/uploads/2024/02/pizzashape-1.png"} />
+                <Image alt="#" width={100} height={100} src="/pages/menu_1/shape_food2.png" />
               </motion.div>
             </div>
           </section>
@@ -144,7 +144,7 @@ const AboutUs: React.FC = () => {
           <section className=" w-1/5 h-full flex justify-center items-center">
             <div className="flex items-center h-full w-full">
               <motion.div className="w-30 ml-12 rotate-180 transition-all duration-500 " ref={hamburger} style={{ rotate: rotateHamburgur }}>
-                <Image alt="#" width={120} height={120} src={"https://t-theme.com/foodking/wp-content/uploads/2024/02/burger-shape-3-3.png"} />
+                <Image alt="#" width={120} height={120} src="/pages/menu_1/shape_food3.png" />
               </motion.div>
             </div>
           </section>

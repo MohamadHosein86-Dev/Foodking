@@ -8,6 +8,7 @@ import { FaFacebookF, FaTruckFast } from "react-icons/fa6";
 import AnimationHeader from "./AnimationHeader";
 import Modal from "../modal/Modal";
 import ModalLoginUser from "../authenticationuser/ModalLoginUser";
+import Isauthenticated from "../authenticationuser/Isauthenticated";
 
 export default function HeaderSecond() {
   const [showBox, setShowBox] = useState(false);
@@ -71,12 +72,14 @@ export default function HeaderSecond() {
           <div className={`  ${curentUrl == "/" ? "border-b-[1px] border-[#f4f1ea42] " : " border-none "} `}>
             <div className={`  text-[#fcfbfe] mx-auto max-w-[82rem] py-[1.2rem] items-center flex justify-between px-[1rem] sm:px-[3rem] lg:px-[1rem] xl:px-[1.5rem] `}>
               <div className=" flex items-center gap-[1.5rem] xl:gap-[1.7rem] ">
-                <FaUser onClick={() => setOpen(true)} size={22} color="#D12525" className=" cursor-pointer " />
-                <Modal center={true} isOpen={open} onClose={() => setOpen(false)}>
-                  <ModalLoginUser setOpen={setOpen} />
-                </Modal>
+                <Isauthenticated>
+                  <FaUser onClick={() => setOpen(true)} size={22} color="#D12525" className=" cursor-pointer " />
+                  <Modal center={true} isOpen={open} onClose={() => setOpen(false)}>
+                    <ModalLoginUser setOpen={setOpen} />
+                  </Modal>
+                  <FaBars className=" block xl:hidden cursor-pointer " size={30} color="#212121" />
+                </Isauthenticated>
 
-                <FaBars className=" block xl:hidden cursor-pointer " size={30} color="#212121" />
                 <button className=" rounded-md outline-none  transition-all ease delay-200 cursor-pointer hover:bg-[#00813D] bg-[#D12525] hidden md:flex items-center justify-center gap-[.5rem] border-[1px] border-[#ffff] text-center px-[1rem] w-[15rem] py-[1rem] pb-[1.3rem] font-bold ">
                   اکنون سفارش دهید
                   <span>

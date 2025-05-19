@@ -18,7 +18,7 @@ async function refreshAccessToken(oldToken: any) {
       ...oldToken,
       accessToken: data.accessToken,
       refreshToken: data.refreshToken || oldToken.refreshToken,
-      accessTokenExpires: Date.now() + (data.expiresIn || 3600) * 1000, // اگر expiresIn نبود، 1 ساعت
+      accessTokenExpires: Date.now() + (data.expiresIn || 3600) * 1000,
     };
   } catch (error) {
     console.error("Refresh token error:", error);
@@ -35,7 +35,6 @@ const handler = NextAuth({
         code: { label: "Code", type: "text" },
       },
       async authorize(credentials) {
-        // تایید کد OTP و دریافت توکن‌ها
         const verifyRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/auth/verify`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -47,16 +46,21 @@ const handler = NextAuth({
 
         if (!verifyRes.ok) return null;
         const verifyData = await verifyRes.json();
+        const emailFromCredentials =credentials?.email;
+        const phoneFromCredentials =credentials?.phone;
+        const nameFromCredentials = credentials?.name;
 
+        
         if (verifyData?.accessToken && verifyData?.refreshToken) {
           return {
-            phone: credentials?.phone,
             accessToken: verifyData.accessToken,
             refreshToken: verifyData.refreshToken,
             accessTokenExpires: Date.now() + (verifyData.expiresIn || 3600) * 1000,
-            // اگر اطلاعات کاربر هم می‌فرسته، اینجا اضافه کن
-            // user: verifyData.user
+            name: nameFromCredentials,
+            email:emailFromCredentials,
+            phone: phoneFromCredentials
           };
+          
         }
 
         return null;
@@ -65,7 +69,6 @@ const handler = NextAuth({
   ],
   callbacks: {
     async jwt({ token, user }) {
-      // لاگین اولیه
       if (user) {
         return {
           accessToken: user.accessToken,
