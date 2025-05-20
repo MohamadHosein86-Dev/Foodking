@@ -54,7 +54,7 @@ export default async function ProductPage() {
         </div>
       </div>
 
-      <section className="w-full h-[700px] ">
+      <section className="w-full flex justify-center h-[550px] ">
         <AddToshopipngCard
           category={product.category}
           name={product.name}
