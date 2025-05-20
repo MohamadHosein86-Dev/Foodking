@@ -1,11 +1,11 @@
 "use client";
 
-import MoreAbout_chef from "@/components/related_chefPage/moreAbout_chef";
 import { TbTruckDelivery } from "react-icons/tb";
 import { FaChevronLeft } from "react-icons/fa";
 import MoreAbout_testimonial from "@/components/related_testimonial/moreAbout_testimonial";
 import { useScroll, useTransform, motion, useSpring } from "framer-motion";
 import { useRef } from "react";
+
 export default function Testimonial() {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -31,7 +31,7 @@ export default function Testimonial() {
     [230, 55, 15, 0]
   );
   return (
-    <div ref={ref} className="w-full ">
+    <div ref={ref} className="w-full bg-[#F4F1EA] ">
       <motion.svg
         className="fixed bottom-4 left-4"
         width="60"
@@ -88,11 +88,8 @@ export default function Testimonial() {
         </div>
       </div>
       {/* //! دیدار با کارشناس ها و سرآشپزها */}
-      <div className="w-full flex-wrap space-y-4 flex  justify-center items-end">
-        <div
-          className=" flex flex-wrap gap-6 justify-center space-y-3 w-2/3
-         min-h-96 mt-12"
-        >
+      <div className="w-full flex-wrap space-y-4 flex mt-[6rem] mb-[2rem]  justify-center items-end">
+        <div className="  grid gap-[2rem] grid-cols-1 sm:grid-cols-2  xl:grid-cols-3 max-w-[82rem] px-[1rem] sm:px-[3rem] xl:px-[1.6rem]  py-[.7rem]  ">
           <MoreAbout_testimonial
             role="بلاگر مواد غذایی"
             testimonialName="فرانک اچ. هیوستون"
@@ -150,23 +147,17 @@ export default function Testimonial() {
         </div>
       </div>
       {/* //! دیدار با کارشناس ها و سرآشپزها */}
+
       <div
         className="
         justify-center
-
-
 md:justify-center
-
         lg:justify-center
         
         xl:justify-center
         2xl:justify-center
       
-
-
-
         w-full flex 
-
           bg-[#e7ed70] mt-24 
         bg-cover bg-center h-96
        bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/08/image.jpg)]"
@@ -199,21 +190,15 @@ md:justify-center
          
           justify-start
           w-3/5
-         
-
+        
         md:justify-center 
         md:w-3/5 
-
         lg:justify-center
         lg:w-1/5 
-
         xl:justify-center
         xl:w-1/4 
-
         2xl:justify-center 
         2xl:w-1/4
-
-
         flex 
         items-center "
         >
@@ -221,13 +206,10 @@ md:justify-center
             className="
             w-48
              md:w-64 
-
              lg:w-64 
-
              xl:w-64 
-
              2xl:w-64 
-             
+             hidden sm:block
             h-16 group relative
            font-semibold rounded-xl bg-slate-100"
           >
@@ -242,11 +224,8 @@ md:justify-center
                 font-semibold
                 text-xs
                md:text-base
-
              lg:text-base
-
              xl:text-base
-
              2xl:text-base
               "
               >
@@ -265,60 +244,42 @@ md:justify-center
           </button>
         </section>
 
-
         <section
           className="
        sm:w-0
-
-        <motion.div ref={motorCycleRef} transition={{ duration: 14 }} style={{ translateX: forMotorCycle }} className="transition-all duration-700 -translate-y-5 w-1/4 h-[350px] bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/08/delivery-man-2.png)]"></motion.div>
-
-
        md:w-0
           
        lg:w-[552px]
-
        xl:w-[552px]
-
        2xl:w-[622px]
         relative"
         >
           <motion.div
             ref={motorCycleRef}
             transition={{ duration: 14 }}
-            style={{ translateX: forMotorCycle as any }}
+            style={{ translateX: forMotorCycle }}
             className="
             absolute 
             inset-0
-
           hidden
          
 bg-none
-
 md:hidden
 md:scale-80
-
-
              lg:block
              xl:block
              2xl:block
 lg:scale-95
-
 xl:scale-100
-
 2xl:scale-100
-
           md:bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/08/delivery-man-2.png)]
 md:-translate-x-36
           lg:bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/08/delivery-man-2.png)]
 lg:-translate-x-36
-
           xl:bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/08/delivery-man-2.png)]
 xl:-translate-x-36
-
           2xl:bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/08/delivery-man-2.png)]
 2xl:-translate-x-36
-
-
           w-[400px] h-[350px]
           transition-all duration-700 -translate-y-5 
          "
@@ -326,22 +287,18 @@ xl:-translate-x-36
         </section>
         <section
           className="
-          
+           
     w-[220px]
        
          sm:w-[350px]
     
             md:w-[370px]
-
              
              lg:w-[450px]
-
              
              xl:w-[520px]
             
-
              2xl:w-[720px]
-
      
          
          h-full relative"
@@ -350,7 +307,6 @@ xl:-translate-x-36
             className="w-[400px] z-10 
             -left-64
           md:-left-36
-
           lg:-left-20
             
           xl:-left-12
@@ -368,11 +324,8 @@ xl:-translate-x-36
               className="
               text-3xl
               md:text-4xl 
-
              lg:text-5xl 
-
              xl:text-5xl 
-
              2xl:text-6xl 
              
             text-white text-right
@@ -385,11 +338,8 @@ xl:-translate-x-36
                 className="text-white text-right 
                  text-2xl
               md:text-4xl 
-
              lg:text-5xl 
-
              xl:text-5xl 
-
              2xl:text-6xl 
               font-semibold "
               >
@@ -399,11 +349,8 @@ xl:-translate-x-36
                 className="
    text-2xl
               md:text-4xl 
-
              lg:text-5xl 
-
              xl:text-5xl 
-
              2xl:text-6xl 
               text-amber-300 text-right   font-semibold "
               >
@@ -428,7 +375,6 @@ xl:-translate-x-36
            right-0
          
     
-
 w-24
           
             h-1/2 transition-all 
