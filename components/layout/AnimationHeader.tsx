@@ -20,7 +20,7 @@ export default function AnimationHeader({ showSticky }: PropsType) {
   const [showBox3, setShowBox3] = useState(false);
   const [x, setShowBox10] = useState(false);
   const [y, setShowBox20] = useState(false);
-
+  const name = x && y;
   return (
     <AnimatePresence>
       {showSticky && (
@@ -36,21 +36,28 @@ export default function AnimationHeader({ showSticky }: PropsType) {
                     </Modal>
                     <FaBars onClick={() => setOpen(true)} className=" block xl:hidden cursor-pointer " size={30} color="#212121" />
                   </Isauthenticated>
-                  <button className=" rounded-md outline-none  transition-all ease delay-200 cursor-pointer hover:bg-[#00813D] bg-[#D12525] hidden  md:flex items-center justify-center gap-[.5rem] border-[1px] border-[#ffff] text-center px-[1rem] w-[15rem] py-[1rem] pb-[1.3rem] font-bold ">
-                    اکنون سفارش دهید
-                    <span>
-                      <FaTruckFast size={22} />{" "}
-                    </span>{" "}
+                  <button
+                    className="relative overflow-hidden outline-none rounded-md cursor-pointer  bg-[#D12525] text-white font-bold 
+                    w-[15rem] py-[1rem] pb-[1.3rem] px-[1rem] xl:flex hidden items-center justify-center gap-[.5rem] group h-16"
+                  >
+                    {/* لایه انیمیشنی با ترنزیشن scale از وسط */}
+                    <span className="absolute inset-0 bg-[#00813D] scale-0 origin-center transition-transform duration-500 ease-out group-hover:scale-100 z-0 rounded-md" />
+
+                    {/* محتوای دکمه بالای لایه رنگ */}
+                    <span className="relative z-10 flex items-center gap-2 text-base group-hover:text-white">
+                      اکنون سفارش دهید
+                      <FaTruckFast size={22} className="text-white transition-all duration-500" />
+                    </span>
                   </button>
 
                   <div className=" hidden xl:flex items-center gap-[1.5rem] relative  ">
-                    <div className=" bg-[#212121] cursor-pointer top-[-.4rem] left-[-.5rem] absolute  w-[1rem] text-[.6rem] pb-[.1rem] pr-[0rem] rounded-[.5rem] h-[1rem] flex justify-center items-center text-[#fcfbfe] ">0</div>
+                    <div className=" bg-[#212121] cursor-pointer top-[-.4rem] left-[-.5rem] absolute  w-[1rem] text-[.6rem] pb-[0] pr-[1px] rounded-[.5rem] h-[1rem] flex justify-center items-center text-[#fcfbfe] ">0</div>
                     <FaShoppingBasket className="  text-[#D12525] cursor-pointer " size={20} />
                   </div>
                 </div>
                 <div className=" hidden xl:flex text-[#212121] gap-[2rem] relative ">
                   <Link className="hover:text-[#00813D]  cursor-pointer    transition ease-in delay-150 font-medium" href="/contact">
-                    تماس باما{" "}
+                    تماس باما {name}
                   </Link>
 
                   <div
@@ -73,7 +80,7 @@ export default function AnimationHeader({ showSticky }: PropsType) {
                       {showBox && (
                         <motion.div className="absolute shadow-md  right-[0rem] top-[2.5rem] border-[1px] border-[#eeeeee] bg-[#ffffff] rounded-md w-[14rem] overflow-hidden" initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.2 }}>
                           <ul className="flex shadow-md  rounded-md flex-col text-right text-[#212121]">
-                            <Link onClick={() => setShowBox(false)} className="  text-[#515151] hover:text-[#ffff] transition ease-in delay-150 hover:bg-[#D12525] py-[1rem]  border-b-[1px] border-b-[#eaeaea]    " href={"/shop/chef"}>
+                            <Link onClick={() => setShowBox(false)} className="  text-[#515151] hover:text-[#ffff] transition ease-in delay-150 hover:bg-[#D12525] py-[1rem]  border-b-[1px] border-b-[#eaeaea]    " href={"/chef"}>
                               <span className="  font-semibold    px-[1rem]  ">آشپز</span>
                             </Link>
                             <Link onClick={() => setShowBox(false)} className="  text-[#515151] hover:text-[#ffff] transition ease-in delay-150 hover:bg-[#D12525] py-[1rem]  border-b-[1px] border-b-[#eaeaea]    " href={"/food-menu"}>
@@ -88,7 +95,7 @@ export default function AnimationHeader({ showSticky }: PropsType) {
                             <Link onClick={() => setShowBox(false)} className="  text-[#515151] hover:text-[#ffff] transition ease-in delay-150 hover:bg-[#D12525] py-[1rem]  border-b-[1px] border-b-[#eaeaea]    " href={"/reservation"}>
                               <span className="  font-semibold    px-[1rem]  ">رزرواسیون</span>
                             </Link>
-                            <Link onClick={() => setShowBox(false)} className="  text-[#515151] hover:text-[#ffff] transition ease-in delay-150 hover:bg-[#D12525] py-[1rem]     " href={""}>
+                            <Link onClick={() => setShowBox(false)} className="  text-[#515151] hover:text-[#ffff] transition ease-in delay-150 hover:bg-[#D12525] py-[1rem]     " href={"/faqs"}>
                               <span className="  font-semibold    px-[1rem]  ">سوالات متداول</span>
                             </Link>
                           </ul>
@@ -117,7 +124,7 @@ export default function AnimationHeader({ showSticky }: PropsType) {
                       {showBox2 && (
                         <motion.div className="absolute  border-[1px] border-[#eeeeee] bg-[#ffffff]  right-[0rem] top-[2.5rem] shadow-lg rounded-md w-[14rem] overflow-hidden" initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.2 }}>
                           <ul className="flex flex-col text-right text-[#212121]">
-                            <Link onClick={() => setShowBox2(false)} className="  text-[#515151] hover:text-[#ffff] transition ease-in delay-150 hover:bg-[#D12525] py-[1rem]     " href={""}>
+                            <Link onClick={() => setShowBox2(false)} className="  text-[#515151] hover:text-[#ffff] transition ease-in delay-150 hover:bg-[#D12525] py-[1rem]     " href={"/blog"}>
                               <span className="  font-semibold    px-[1rem]  "> وبلاگ </span>
                             </Link>
                           </ul>

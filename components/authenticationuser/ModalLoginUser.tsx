@@ -1,5 +1,6 @@
 "use client";
 import { signIn } from "next-auth/react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -47,8 +48,7 @@ export default function ModalLoginUser({ setOpen }: PropsType) {
 
       alert(`کد ارسال‌شده: ${data2.code}`); // حذف کن توی پروجکت واقعی
       setStep("verify");
-    } catch (err) {
-      setError(err.message || "خطای ناشناخته");
+    } catch {
     } finally {
       setLoading(false);
     }
@@ -97,7 +97,7 @@ export default function ModalLoginUser({ setOpen }: PropsType) {
 
       {step === "signup" && (
         <form onSubmit={handleSignupSubmit} className="max-w-sm mx-auto flex flex-col gap-4">
-          <img className="w-[8.5rem] mx-auto" src="https://t-theme.com/foodking/wp-content/uploads/2024/08/U_U_O¯U©U_U_U¯_14-transformed.png" alt="logo" />
+          <Image className="w-[8.5rem] mx-auto" src="https://t-theme.com/foodking/wp-content/uploads/2024/08/U_U_O¯U©U_U_U¯_14-transformed.png" alt="logo" />
           <p className="text-[#555555] mt-2 text-center text-sm mb-4">ثبت‌نام برای دریافت کد تأیید</p>
           <input type="text" className="border-gray-300 border rounded-xl px-3 py-3" placeholder="نام کامل" value={name} onChange={(e) => setName(e.target.value)} required />
           <input type="email" className="border-gray-300 border rounded-xl px-3 py-3" placeholder="ایمیل" value={email} onChange={(e) => setEmail(e.target.value)} required />

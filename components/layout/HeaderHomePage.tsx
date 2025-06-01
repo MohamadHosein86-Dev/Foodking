@@ -48,15 +48,23 @@ export default function HeaderHomePage({ curentUrl }: { curentUrl: string }) {
               </Modal>
             </Isauthenticated>
 
-            <button className=" outline-none rounded-md  transition-all ease delay-200 cursor-pointer hover:bg-[#00813D] bg-[#D12525] xl:flex hidden  items-center justify-center gap-[.5rem] border-[1px] border-[#ffff] text-center px-[1rem] w-[15rem] py-[1rem] pb-[1.3rem] font-bold ">
-              اکنون سفارش دهید
-              <span>
-                <FaTruckFast size={22} />{" "}
-              </span>{" "}
+            <button
+              className="relative overflow-hidden outline-none rounded-md cursor-pointer border-[1px] border-white bg-[#D12525] text-white font-bold 
+  w-[15rem] py-[1rem] pb-[1.3rem] px-[1rem] xl:flex hidden items-center justify-center gap-[.5rem] group h-16"
+            >
+              {/* لایه انیمیشنی با ترنزیشن scale از وسط */}
+              <span className="absolute inset-0 bg-[#00813D] scale-0 origin-center transition-transform duration-500 ease-out group-hover:scale-100 z-0 rounded-md" />
+
+              {/* محتوای دکمه بالای لایه رنگ */}
+              <span className="relative z-10 flex items-center gap-2 text-xs md:text-base group-hover:text-white">
+                اکنون سفارش دهید
+                <FaTruckFast size={22} className="text-white transition-all duration-500" />
+              </span>
             </button>
+
             <FaBars className=" block xl:hidden cursor-pointer " size={30} color="#ffff" />
             <div className=" flex items-center gap-[1.5rem] relative  ">
-              <div className=" bg-[#200707cc] top-[-.4rem] left-[-.5rem] absolute  w-[1rem] text-[.6rem] pb-[.1rem] pr-[.1rem] rounded-[.5rem] h-[1rem] xl:flex hidden  justify-center items-center text-[#fcfbfe] ">0</div>
+              <div className=" bg-[#200707cc] top-[-.4rem] left-[-.5rem] absolute  w-[1rem] text-[.6rem] pb-[0] pr-[1px] rounded-[.5rem] h-[1rem] xl:flex hidden  justify-center items-center text-[#fcfbfe] ">0</div>
               <FaShoppingBasket className=" xl:flex hidden  cursor-pointer " size={20} />
               <FaSearch className=" cursor-pointer " size={18} />
             </div>

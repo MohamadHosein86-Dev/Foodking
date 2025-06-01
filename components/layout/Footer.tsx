@@ -14,7 +14,7 @@ function Footer() {
             whileInView={{ x: -38 }}
             transition={{ duration: 1 }}
             viewport={{ once: false, amount: 0.2 }}
-            className=" hidden 2xl:block opacity-[.30] absolute left-[0] top-[14rem]"
+            className=" hidden xl:block opacity-[.30] absolute left-[0] top-[14rem]"
             src="https://modinatheme.com/foodking/wp-content/uploads/2024/02/fry-shape-2.png"
             alt=""
           />
@@ -77,12 +77,12 @@ function Footer() {
           </div>
 
           <div className="w-[15rem]">
-            <h2 className="mb-[2rem] font-bold text-[1.1rem]">: آدرس</h2>
+            <h2 className="mb-[2rem] font-bold text-[1.1rem]"> آدرس : </h2>
             <ul className="flex flex-col">
               <Link href="/" className="text-[1.1rem] text-[#5c5c5b] font-medium">
                 ، نیویورک، نیویورک <span className="text-[#d12525]">10018</span> ایالات متحده
               </Link>
-              <h2 className="mb-[1rem] font-bold text-[1.1rem] mt-[2rem]">: ساعت</h2>
+              <h2 className="mb-[1rem] font-bold text-[1.1rem] mt-[2rem]"> ساعت : </h2>
               <p className="text-[#5c5c5b] text-[1.1rem] font-medium">از ساعت 9:30 الی 18:30 از دوشنبه تا جمعه</p>
             </ul>
           </div>
@@ -109,7 +109,7 @@ function Footer() {
             whileInView={{ y: -140 }}
             transition={{ duration: 1 }}
             viewport={{ once: false, amount: 0.2 }}
-            className=" hidden 2xl:block  opacity-[.28] absolute right-[-4.7rem] top-[20rem]"
+            className=" hidden xl:block  opacity-[.28] absolute right-[-4.7rem] top-[20rem]"
             src="https://modinatheme.com/foodking/wp-content/uploads/2024/02/burger-shape-3.png"
             alt=""
           />

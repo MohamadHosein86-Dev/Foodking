@@ -10,17 +10,18 @@ import Link from "next/link";
 
 export default function moreAboutChef({ role, chefName, imageUrl, chefLink, faceBookLink, twitterLink, youtubeLink, linkedinLink }: { role: string; chefName: string; imageUrl: string; chefLink: string; faceBookLink: string; twitterLink: string; youtubeLink: string; linkedinLink: string }) {
   const [onAction, setonAction] = useState(false);
+
   return (
     <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} onMouseEnter={() => setonAction(true)} onMouseLeave={() => setonAction(false)} className=" w-[370px] flex flex-wrap  h-[500px]  ">
-      <div className="h-[400px] w-full relative">
+      <div className="h-[400px] w-full   relative">
         <div
-          className={`${onAction ? "rotate-3" : "rotate-0"} rounded-xl absolute top-0 left-0 w-[345px] h-96 
+          className={`${onAction ? "rotate-3" : "rotate-0"} rounded-xl absolute top-0 left-0 w-[280px] sm:w-[345px] h-96 
        border-2 border-dotted border-green-500 transition-all ease-in-out duration-500`}
         ></div>
         <div
           style={{ backgroundImage: `url(${imageUrl})` }}
-          className={`bg-[url(${imageUrl})] absolute bottom-0 
-        right-0 rounded-xl w-[345px] h-96 `}
+          className={`bg-[url(${imageUrl})] bg-center absolute bottom-0 
+         right-0 rounded-xl  w-[260px] sm:w-[345px] h-96 `}
         ></div>
 
         <div

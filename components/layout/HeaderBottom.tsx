@@ -29,11 +29,18 @@ export default function HeaderBottom({ showSticky, open }: { showSticky: boolean
         <div className={` xl:w-[40%]  w-[100%] ${showSticky || open ? "z-1" : "z-[1000000]"}   mt-[4.2rem] `}>
           <h1 className=" text-[#ffff] text-center lg:text-right  font-semibold leading-[4rem] sm:leading-[5rem] lg:leading-[8.5rem] xl:leading-[9.8rem] mt-[-6rem] xl:mt-[-10rem] text-[3rem] sm:text-[4rem] lg:text-[7rem] xl:text-[8rem] xl:ml-auto ">پیتزای فوق العاده خوشمزه </h1>
           <h4 className=" text-[#ffff] text-center text-[1.4rem] font-semibold mt-[1.5rem] sm:mt-[3rem] mb-[2rem] mx-auto xl:ml-auto  ">فقط با 25 هزارتومان سفارش خود را ستاره دار کنید</h4>
-          <button className=" rounded-sm mx-auto lg:mr-[0rem]  outline-none transition-all ease delay-200 cursor-pointer hover:bg-[#ffff] bg-[#FFB936] flex items-center justify-center gap-[.5rem] text-center px-[1rem] w-[14rem] sm:w-[17rem]  py-[.7rem] sm:py-[1rem] pb-[1rem] sm:pb-[1.3rem] font-bold ">
-            <span>
-              <FaArrowLeft className=" mb-[-.5rem] " size={24} />
+          <button
+            className="relative mx-auto md:ml-auto overflow-hidden outline-none rounded-md cursor-pointer  bg-[#FFB936] text-black font-bold 
+            w-[16.5rem] py-[1rem] pb-[1.3rem] px-[1rem] flex  items-center justify-center gap-[.5rem] group h-16"
+          >
+            {/* لایه انیمیشنی با ترنزیشن scale از وسط */}
+            <span className="absolute inset-0 bg-[#ffff] scale-0 origin-center transition-transform duration-500 ease-out group-hover:scale-100 z-0 rounded-md" />
+
+            {/* محتوای دکمه بالای لایه رنگ */}
+            <span className="relative z-10 flex items-center gap-2 text-base ">
+              <FaArrowLeft className=" mb-[-.5rem] " size={20} />
+              اکنون سفارش دهید
             </span>
-            اکنون سفارش دهید
           </button>
         </div>
       </div>

@@ -1,32 +1,32 @@
-import NextAuth from "next-auth";
+import NextAuth, { NextAuthOptions, User, Session } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { JWT } from "next-auth/jwt";
+import { refreshAccessToken } from "@/lib/auth";
 
-// تابع رفرش توکن
-async function refreshAccessToken(oldToken: any) {
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/auth/token`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ refreshToken: oldToken.refreshToken }),
-    });
-
-    if (!res.ok) throw new Error("Failed to refresh token");
-
-    const data = await res.json();
-
-    return {
-      ...oldToken,
-      accessToken: data.accessToken,
-      refreshToken: data.refreshToken || oldToken.refreshToken,
-      accessTokenExpires: Date.now() + (data.expiresIn || 3600) * 1000,
-    };
-  } catch (error) {
-    console.error("Refresh token error:", error);
-    return { ...oldToken, error: "RefreshTokenError" };
-  }
+interface ExtendedUser extends User {
+  accessToken: string;
+  refreshToken: string;
+  accessTokenExpires: number;
+  phone?: string;
 }
 
-const handler = NextAuth({
+interface ExtendedToken extends JWT {
+  accessToken: string;
+  refreshToken: string;
+  accessTokenExpires: number;
+  user: {
+    name?: string;
+    email?: string;
+    phone?: string;
+  };
+}
+
+interface ExtendedSession extends Session {
+  accessToken: string;
+  refreshToken: string;
+}
+
+export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: "credentials",
@@ -35,71 +35,82 @@ const handler = NextAuth({
         code: { label: "Code", type: "text" },
       },
       async authorize(credentials) {
-        const verifyRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/auth/verify`, {
+        if (!credentials) return null;
+
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/auth/verify`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            phone: credentials?.phone,
-            code: credentials?.code,
+            phone: credentials.phone,
+            code: credentials.code,
           }),
         });
 
-        if (!verifyRes.ok) return null;
-        const verifyData = await verifyRes.json();
-        const emailFromCredentials =credentials?.email;
-        const phoneFromCredentials =credentials?.phone;
-        const nameFromCredentials = credentials?.name;
+        if (!res.ok) return null;
 
-        
-        if (verifyData?.accessToken && verifyData?.refreshToken) {
+        const data = await res.json();
+
+        if (data?.accessToken && data?.refreshToken) {
           return {
-            accessToken: verifyData.accessToken,
-            refreshToken: verifyData.refreshToken,
-            accessTokenExpires: Date.now() + (verifyData.expiresIn || 3600) * 1000,
-            name: nameFromCredentials,
-            email:emailFromCredentials,
-            phone: phoneFromCredentials
-          };
-          
+            id: credentials.phone,
+            phone: credentials.phone,
+            accessToken: data.accessToken,
+            refreshToken: data.refreshToken,
+            accessTokenExpires: Date.now() + (data.expiresIn || 3600) * 1000,
+          } as ExtendedUser;
         }
 
         return null;
       },
     }),
   ],
+
   callbacks: {
     async jwt({ token, user }) {
+      const extendedToken = token as ExtendedToken;
+
+      // First login
       if (user) {
-        return {
-          accessToken: user.accessToken,
-          refreshToken: user.refreshToken,
-          phone: user.phone,
-          accessTokenExpires: user.accessTokenExpires,
-          user,
+        const u = user as ExtendedUser;
+        extendedToken.accessToken = u.accessToken;
+        extendedToken.refreshToken = u.refreshToken;
+        extendedToken.accessTokenExpires = u.accessTokenExpires;
+        extendedToken.user = {
+          name: u.name ?? undefined,
+          email: u.email ?? undefined,
+          phone: u.phone,
         };
+        return extendedToken;
       }
 
-      // اگر توکن هنوز منقضی نشده
-      if (Date.now() < (token.accessTokenExpires || 0)) {
-        return token;
+      // Token still valid
+      if (Date.now() < (extendedToken.accessTokenExpires ?? 0)) {
+        return extendedToken;
       }
 
-      // اگر منقضی شده، برو برای رفرش
-      return await refreshAccessToken(token);
+      // Token expired, try to refresh
+      return await refreshAccessToken(extendedToken);
     },
 
     async session({ session, token }) {
-      session.accessToken = token.accessToken;
-      session.refreshToken = token.refreshToken;
-      session.user = token.user;
-       console.log("SESSION CALLBACKطسش", { session, token });
-      return session;
+      const extendedToken = token as ExtendedToken;
+      const extendedSession: ExtendedSession = {
+        ...session,
+        user: extendedToken.user,
+        accessToken: extendedToken.accessToken,
+        refreshToken: extendedToken.refreshToken,
+      };
+
+      return extendedSession;
     },
   },
+
   session: {
     strategy: "jwt",
   },
-  secret: process.env.NEXTAUTH_SECRET,
-});
 
+  secret: process.env.NEXTAUTH_SECRET,
+};
+
+const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };

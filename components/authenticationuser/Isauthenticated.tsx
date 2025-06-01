@@ -3,6 +3,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import React from "react"; // ✅ اضافه کردن import React
+import { FaUser } from "react-icons/fa";
 
 interface PropsType {
   children: React.ReactNode;
@@ -25,10 +26,6 @@ export default function Isauthenticated({ children }: PropsType) {
   if (status === "unauthenticated") {
     return <>{children}</>;
   } else if (status === "authenticated") {
-    return (
-      <p onClick={() => goProfile.push("/dashboard")} className=" text-[#FFB936] cursor-pointer font-semibold ">
-        ورد به پنل کاربر
-      </p>
-    );
+    return <FaUser onClick={() => goProfile.push("/dashboard")} size={22} color="#FFB936" className=" cursor-pointer " />;
   }
 }

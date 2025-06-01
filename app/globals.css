@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
+* {
+  font-family: var(--font-body) !important;
+}
 :root {
-
     --primaryColor: #00813D;
     --secondaryColor: #D12525;
     --mainColor: #FFB936;
@@ -26,12 +28,31 @@
     --wc-form-border-radius: 4px;
     --wc-form-border-width: 1px;
 }
+:root {
+  --font-header: "Quicksand", "Nunito", sans-serif;
+  --font-body: "Rubik", "Open Sans", "Roboto", sans-serif;
+  --primary-bg: #ffffff;
+  --primary-text: #1c1c1c;
+  --primary-bg-dark: #1c1c1c;
+  --primary-text-dark: #ffffff;
+}
+* {
+  font-family: var(--font-body) !important;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-header);
+}
+
 
 
 .shadwoCss {
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
 }
-
 .bg-breadcamp {
   background-image: url("https://t-theme.com/foodking/wp-content/uploads/2024/07/breadcrumb-1.jpg");
   background-repeat: no-repeat;
@@ -39,7 +60,56 @@
 }
 
 
-
+.bg_home {
+  background-image: url("/home/image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-foodbox {
+  background-image: url("/home/vector.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-foodbox2 {
+  background-image: url("/home/vector-2.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-sliderhome {
+  background-image: url("/home/shape.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-sectionhome {
+  background-image: url("/home/bg-shape-1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-bloghome1 {
+  background-image: url("/home/06-1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center
+}
+.bg-bloghome2 {
+  background-image: url("/home/post-inner.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center
+}
+.bg-bloghome3 {
+  background-image: url("/home/05.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center
+}
+.bg-masseghome {
+  background-image: url("/home/main-cta-bg-3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
 
 .swiper-slide .slide-content {
   @apply scale-75 opacity-60 bg-red-300 transition-all duration-300;
@@ -53,51 +123,14 @@
 
 
 }
-:root {
-  --font-header: "Quicksand", "Nunito", sans-serif;
-  --font-body: "Rubik", "Open Sans", "Roboto", sans-serif;
-
-  --primary-bg: #ffffff;
-  --primary-text: #1c1c1c;
-
-  --primary-bg-dark: #1c1c1c;
-  --primary-text-dark: #ffffff;
-}
-
-
-* {
-  font-family: var(--font-body) !important;
-}
-
-:root {
-  --font-header: "Quicksand", "Nunito", sans-serif;
-  --font-body: "Rubik", "Open Sans", "Roboto", sans-serif;
-
-  --primary-bg: #ffffff;
-  --primary-text: #1c1c1c;
-
-  --primary-bg-dark: #1c1c1c;
-  --primary-text-dark: #ffffff;
-}
-
-* {
-  font-family: var(--font-body) !important;
-}
-
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-header);
-}
-
-
-
 .container:hover h2{
   display: block;
   animation-delay: 2s;
   animation-timing-function: ease-in-out;
+}
+
+
+.scrollbar-hide {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
 }

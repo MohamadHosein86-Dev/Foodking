@@ -1,242 +1,93 @@
 "use client";
-import { useScroll, useTransform, motion, useSpring } from "framer-motion";
+import { useScroll, useTransform, motion } from "framer-motion";
 import { useRef } from "react";
 import { TbTruckDelivery } from "react-icons/tb";
 
 interface PropsType {
   bg?: string;
 }
+
 export default function MotorSycle({ bg = "bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/08/image.jpg)]" }: PropsType) {
   const motorCycleRef = useRef(null);
   const motorCycle = useScroll({
     target: motorCycleRef,
     offset: ["start end", "end start"]
   });
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end end"]
-  });
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
 
-  const strokeDashoffset = useTransform(scaleX, (v) => 164 - 164 * v);
   const forMotorCycle = useTransform(motorCycle.scrollYProgress, [0, 0.5, 0.7, 1], [230, 55, 15, 0]);
+
   return (
-    <div className="  " ref={ref}>
-      <motion.svg className="fixed bottom-4 left-4" width="60" height="60" viewBox="0 0 60 60">
-        <circle cx="30" cy="30" r="26" stroke="#fff" strokeWidth="4" fill="none" />
-        <motion.circle cx="30" cy="30" r="26" stroke="#cd0808" strokeWidth="4" fill="none" strokeDasharray="164" strokeDashoffset="164" style={{ strokeDashoffset }} />
-      </motion.svg>
-      <div
-        className={`
-justify-center
-md:justify-center
-lg:justify-center
-
-xl:justify-center
-2xl:justify-center
-
-w-full flex 
-  bg-[#e7ed70] mt-24 
-bg-cover bg-center h-96
-    ${bg}
- `}
-      >
-        <div></div>
-        <section
-          className="
- 
-  w-24
-
-relative  h-full"
-        >
-          <motion.div
-            // initial={{ y: 1 }}
-
-            animate={{ y: [-33, 3, -33] }}
-            transition={{
-              duration: 3,
-              ease: "easeInOut",
-
-              repeat: Infinity,
-              repeatType: "loop"
-            }}
-            className="w-24  
-    absolute right-0 top-40 h-20 transition-all 
-   bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/08/chilli.png)]"
-          ></motion.div>
+    <>
+      <div className={` ${bg} hidden sm:flex mt-24  h-96 w-full justify-center bg-cover bg-center bg-[#e7ed70] `}>
+        {/* Chilli animation */}
+        <section className="relative h-full w-24">
+          <motion.div animate={{ y: [-33, 3, -33] }} transition={{ duration: 3, ease: "easeInOut", repeat: Infinity, repeatType: "loop" }} className="absolute right-0 top-40 h-20 w-24 bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/08/chilli.png)] transition-all" />
         </section>
-        <section
-          className="
- 
-  justify-start
-  w-2/5
 
-md:justify-center 
-md:w-3/5 
-lg:justify-center
-lg:w-1/5 
-xl:justify-center
-xl:w-1/4 
-2xl:justify-center 
-2xl:w-1/4
-flex 
-items-center
-
- "
-        >
-          <button className="w-56  md:w-64 h-16 md:h-16 group relative font-semibold rounded-xl bg-slate-100">
-            <div className="w-full h-full cursor-pointer z-10 group-hover:text-white absolute inset-0 flex items-center justify-center space-x-1 font-semibold">
-              <h1>اکنون سفارش دهید</h1>
-              <TbTruckDelivery className="text-green-700 transition-all duration-500 group-hover:text-white text-xl md:text-2xl" />
+        {/* Button */}
+        <section className="flex items-center justify-start w-3/5 md:justify-center md:w-3/5 lg:justify-center lg:w-1/5 xl:justify-center xl:w-1/4 2xl:justify-center 2xl:w-1/4">
+          <button className="relative hidden h-16 w-48 rounded-xl bg-slate-100 font-semibold group sm:block md:w-64">
+            <div className="absolute inset-0 z-10 flex h-full w-full items-center justify-center space-x-1 group-hover:text-white">
+              <h1 className="text-xs font-semibold md:text-base">اکنون سفارش دهید</h1>
+              <TbTruckDelivery className="text-2xl text-green-700 transition-all duration-500 group-hover:text-white" />
             </div>
-            <span className="absolute inset-0 w-full  rounded-xl bg-amber-400 scale-0 group-hover:scale-100 transition-all duration-500 ease-out origin-center"></span>
+            <span className="absolute inset-0 h-full w-full origin-center scale-0 rounded-xl transition-all duration-500 ease-out group-hover:scale-100 bg-amber-400" />
           </button>
         </section>
 
-        <section
-          className="
-sm:w-0
-md:w-0
-  
-lg:w-[552px]
-xl:w-[552px]
-2xl:w-[622px]
-relative"
-        >
-          <motion.div
-            ref={motorCycleRef}
-            transition={{ duration: 14 }}
-            style={{ translateX: forMotorCycle }}
-            className="
-    absolute 
-    inset-0
-  hidden
- 
-bg-none
-md:hidden
-md:scale-80
-     lg:block
-     xl:block
-     2xl:block
-lg:scale-95
-xl:scale-100
-2xl:scale-100
-  md:bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/08/delivery-man-2.png)]
-md:-translate-x-36
-  lg:bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/08/delivery-man-2.png)]
-lg:-translate-x-36
-  xl:bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/08/delivery-man-2.png)]
-xl:-translate-x-36
-  2xl:bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/08/delivery-man-2.png)]
-2xl:-translate-x-36
-  w-[400px] h-[350px]
-  transition-all duration-700 -translate-y-5 
- "
-          ></motion.div>
+        {/* MotorCycle Image */}
+        <section className="relative sm:w-0 md:w-0 lg:w-[552px] xl:w-[552px] 2xl:w-[622px]">
+          <motion.div ref={motorCycleRef} transition={{ duration: 14 }} style={{ translateX: forMotorCycle }} className="absolute inset-0 hidden h-[350px] w-[400px] -translate-y-5 transition-all duration-700 md:hidden md:scale-80 lg:block lg:-translate-x-36 lg:bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/08/delivery-man-2.png)] xl:block xl:-translate-x-36 xl:scale-100 xl:bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/08/delivery-man-2.png)] 2xl:block 2xl:-translate-x-36 2xl:scale-100 2xl:bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/08/delivery-man-2.png)]" />
         </section>
-        <section
-          className="
-           hidden md:block
-w-[220px]
 
- sm:w-[350px]
-
-    md:w-[370px]
-     
-     lg:w-[450px]
-     
-     xl:w-[520px]
-    
-     2xl:w-[720px]
-
- 
- h-full relative"
-        >
-          <div
-            className="w-[400px] z-10 
-    -left-64
-  md:-left-36
-  lg:-left-20
-    
-  xl:-left-12
-  
-  2xl:-left-1
-   top-36 absolute  h-1/2"
-          >
-            <h1
-              className="text-amber-300
-    text-xl text-right w-full font-semibold "
-            >
-              ترد، هر لقمه طعم
-            </h1>
-            <h1
-              className="
-      text-3xl
-      md:text-4xl 
-     lg:text-5xl 
-     xl:text-5xl 
-     2xl:text-6xl 
-     
-    text-white text-right
-      w-full font-semibold "
-            >
-              دقیقه سریع 45
-            </h1>
-            <div className="flex  justify-end">
-              <h1
-                className="text-white text-right 
-         text-2xl
-      md:text-4xl 
-     lg:text-5xl 
-     xl:text-5xl 
-     2xl:text-6xl 
-      font-semibold "
-              >
-                قول ما
-              </h1>
-              <h1
-                className="
-text-2xl
-      md:text-4xl 
-     lg:text-5xl 
-     xl:text-5xl 
-     2xl:text-6xl 
-      text-amber-300 text-right   font-semibold "
-              >
-                تحویل
-              </h1>
+        {/* Text + Floating image */}
+        <section className="relative h-full w-[220px] sm:w-[350px] md:w-[370px] lg:w-[450px] xl:w-[520px] 2xl:w-[720px]">
+          <div className="absolute top-36 z-10 h-1/2 w-[400px] -left-64 md:-left-36 lg:-left-20 xl:-left-12 2xl:-left-1">
+            <h1 className="w-full text-right text-xl font-semibold text-amber-300">ترد، هر لقمه طعم</h1>
+            <h1 className="w-full text-right text-3xl font-semibold text-white md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl">دقیقه سریع 45</h1>
+            <div className="flex justify-end">
+              <h1 className="text-right text-2xl font-semibold text-white md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl">قول ما</h1>
+              <h1 className="text-right text-2xl font-semibold text-amber-300 md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl">تحویل</h1>
             </div>
           </div>
-          <motion.div
-            // initial={{ y: 1 }}
-            animate={{ y: [-33, 3, -33] }}
-            transition={{
-              duration: 3,
-              ease: "easeInOut",
-
-              repeat: Infinity,
-              repeatType: "loop"
-            }}
-            className="  
-    top-36
-    absolute
-    z-0
-   right-0
- 
-
-w-24
-  
-    h-1/2 transition-all 
- 
-   bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/08/image-11.png)]"
-          ></motion.div>
+          <motion.div animate={{ y: [-33, 3, -33] }} transition={{ duration: 3, ease: "easeInOut", repeat: Infinity, repeatType: "loop" }} className="absolute top-36 right-0 z-0 h-1/2 w-24 bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/08/image-11.png)] transition-all" />
         </section>
       </div>
-    </div>
+      <div className={` ${bg}  flex sm:hidden mt-24  h-96 w-full justify-center bg-cover bg-center bg-[#e7ed70] `}>
+        {/* Chilli animation */}
+        <section className="relative h-full w-24">
+          <motion.div animate={{ y: [-33, 3, -33] }} transition={{ duration: 3, ease: "easeInOut", repeat: Infinity, repeatType: "loop" }} className="absolute right-0 top-40 h-20 w-24 bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/08/chilli.png)] transition-all" />
+        </section>
+
+        {/* Button */}
+        <section className="flex items-center justify-start w-3/5 md:justify-center md:w-3/5 lg:justify-center lg:w-1/5 xl:justify-center xl:w-1/4 2xl:justify-center 2xl:w-1/4">
+          <button className="relative hidden h-16 w-48 rounded-xl bg-slate-100 font-semibold group sm:block md:w-64">
+            <div className="absolute inset-0 z-10 flex h-full w-full items-center justify-center space-x-1 group-hover:text-white">
+              <h1 className="text-xs font-semibold md:text-base">اکنون سفارش دهید</h1>
+              <TbTruckDelivery className="text-2xl text-green-700 transition-all duration-500 group-hover:text-white" />
+            </div>
+            <span className="absolute inset-0 h-full w-full origin-center scale-0 rounded-xl transition-all duration-500 ease-out group-hover:scale-100 bg-amber-400" />
+          </button>
+        </section>
+
+        {/* MotorCycle Image */}
+        <section className="relative sm:w-0 md:w-0 lg:w-[552px] xl:w-[552px] 2xl:w-[622px]">
+          <motion.div ref={motorCycleRef} transition={{ duration: 14 }} style={{ translateX: forMotorCycle }} className="absolute inset-0 hidden h-[350px] w-[400px] -translate-y-5 transition-all duration-700 md:hidden md:scale-80 lg:block lg:-translate-x-36 lg:bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/08/delivery-man-2.png)] xl:block xl:-translate-x-36 xl:scale-100 xl:bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/08/delivery-man-2.png)] 2xl:block 2xl:-translate-x-36 2xl:scale-100 2xl:bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/08/delivery-man-2.png)]" />
+        </section>
+
+        {/* Text + Floating image */}
+        <section className="relative h-full w-[220px] sm:w-[350px] md:w-[370px] lg:w-[450px] xl:w-[520px] 2xl:w-[720px]">
+          <div className="absolute top-36 z-10 h-1/2 w-[400px] -left-64 md:-left-36 lg:-left-20 xl:-left-12 2xl:-left-1">
+            <h1 className="w-full text-right text-xl font-semibold text-amber-300">ترد، هر لقمه طعم</h1>
+            <h1 className="w-full text-right text-3xl font-semibold text-white md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl">دقیقه سریع 45</h1>
+            <div className="flex justify-end">
+              <h1 className="text-right text-2xl font-semibold text-white md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl">قول ما</h1>
+              <h1 className="text-right text-2xl font-semibold text-amber-300 md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl">تحویل</h1>
+            </div>
+          </div>
+          <motion.div animate={{ y: [-33, 3, -33] }} transition={{ duration: 3, ease: "easeInOut", repeat: Infinity, repeatType: "loop" }} className="absolute top-36 right-0 z-0 h-1/2 w-24 bg-[url(https://t-theme.com/foodking/wp-content/uploads/2024/08/image-11.png)] transition-all" />
+        </section>
+      </div>
+    </>
   );
 }
