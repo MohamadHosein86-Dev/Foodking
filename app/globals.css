@@ -2,6 +2,7 @@
 
 * {
   font-family: var(--font-body) !important;
+  outline: none;
 }
 :root {
     --primaryColor: #00813D;

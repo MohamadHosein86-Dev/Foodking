@@ -1,7 +1,6 @@
 import MapCountanerShop from "@/components/map/MapCountaner";
 import MotorSycle from "@/components/MotorCycelComponents/MotorSycle";
 import TitelPages from "@/components/titelCompo/TitelPges";
-import Image from "next/image";
 
 import Link from "next/link";
 import React from "react";
@@ -37,19 +36,19 @@ function Contact() {
       <section>
         <div className=" pt-[8rem] max-w-[82rem] px-[1rem] sm:px-[3rem] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mx-auto  gap-[1rem] xl:px-[1.6rem]  py-[.7rem] ">
           <div className=" hover:bg-[#00813D] group transition ease-in delay-200 hover:text-white text-black  cursor-pointer rounded-[.5rem]  bg-[#ffff] flex-col flex justify-center items-center w-full px-[2.5rem] py-[3.8rem] ">
-            <Image alt="Image Loading..." src="https://modinatheme.com/foodking/wp-content/uploads/2024/03/email.svg" />
+            <img alt="Image Loading..." src="https://modinatheme.com/foodking/wp-content/uploads/2024/03/email.svg" />
             <h2 className=" mt-[1.2rem] mb-[.7rem]  font-bold text-2xl ">آدرس ایمیل</h2>
             <p className=" text-[#5C5C5B] group-hover:text-white transition ease-in delay-200 text-[1rem] font-semibold mb-[.2rem] ">email@example.com</p>
             <p className=" text-[#5C5C5B] group-hover:text-white transition ease-in delay-200 text-[1rem] font-semibold ">info@yourdomain.com</p>
           </div>
           <div className=" hover:bg-[#00813D] group transition ease-in delay-200 hover:text-white   cursor-pointer rounded-[.5rem]  bg-[#ffff] flex-col flex justify-center items-center w-full px-[2.5rem] py-[3.8rem] ">
-            <Image alt="Image Loading..." src="https://modinatheme.com/foodking/wp-content/uploads/2024/03/location.svg" />
+            <img alt="Image Loading..." src="https://modinatheme.com/foodking/wp-content/uploads/2024/03/location.svg" />
             <h2 className=" mt-[1.2rem] mb-[.7rem]  font-bold text-2xl "> شماره تلفن </h2>
             <p className=" text-[#5C5C5B] text-[1rem] font-semibold mb-[.2rem] group-hover:text-white transition ease-in delay-200 ">+1255 - 568 - 6523 4374-221</p>
             <p className=" text-[#5C5C5B] text-[1rem] font-semibold group-hover:text-white transition ease-in delay-200 ">+1255 - 568 - 6523</p>
           </div>
           <div className=" hover:bg-[#00813D] group transition ease-in delay-200 hover:text-white cursor-pointer rounded-[.5rem]  bg-[#ffff] flex-col flex justify-center items-center w-full px-[2.5rem] py-[3.8rem] ">
-            <Image alt="Image Loading..." src="https://modinatheme.com/foodking/wp-content/uploads/2024/03/phone.svg" />
+            <img alt="Image Loading..." src="https://modinatheme.com/foodking/wp-content/uploads/2024/03/phone.svg" />
             <h2 className=" mt-[1.2rem] mb-[.7rem]  font-bold text-2xl ">خط آدرس</h2>
             <p className=" text-[#5C5C5B] text-[1rem] font-semibold mb-[.2rem] group-hover:text-white transition ease-in delay-200 ">خیابان بووری، نیویورک، 37 ایالات متحده آمریکا</p>
             <p className=" text-[#5C5C5B] text-[1rem] font-semibold group-hover:text-white transition ease-in delay-200 ">NY 10013، ایالات متحده آمریکا</p>

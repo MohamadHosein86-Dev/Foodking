@@ -1,7 +1,10 @@
 "use client";
 import React from "react";
 
-export default function ModalProfileUser({ close }) {
+interface PropsType {
+  close: () => void;
+}
+export default function ModalProfileUser({ close }: PropsType) {
   return (
     <div className=" relative block md:hidden gap-[2rem] overflow-y-hidden  rounded-[16px]  w-full] ">
       <div className=" px-[2rem]    py-[1.5rem] flex justify-center  w-full ">

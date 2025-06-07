@@ -3,7 +3,6 @@ import Container from "@/components/container/container";
 import PanleUserPage from "@/components/panleUserPage/panleUserPage";
 import BtnProfile from "@/components/ui/BtnProfile";
 import { signOut, useSession } from "next-auth/react";
-import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useState } from "react";
 
@@ -21,7 +20,7 @@ export default function ProfileUser() {
       <Container flex={"flex gap-[2rem] "}>
         <div className="  rounded-[16px] flex flex-col gap-[.8rem] w-full md:w-[35rem] lg:w-[30rem]  xl:basis-[30%] ">
           <div className=" rounded-[15px] px-[2rem]  border-[1px] border-[#E7E7E8]  py-[1.5rem] flex gap-[1rem]  w-full ">
-            <Image className=" w-[3rem] " src="/e2946bbdae579b021ad972a47e0370a956703380.png" alt="" />
+            <img className=" w-[3rem] " src="/e2946bbdae579b021ad972a47e0370a956703380.png" alt="" />
             <p onClick={() => {}} className=" flex-col justify-center cursor-pointer flex  gap-[4px] text-[#B19276] ">
               <span className=" text-sm text-[#3C3D45] font-semibold ml-auto ">{name}</span>
               <span className=" text-sm text-[#3C3D45] font-semibold ">{phone}</span>

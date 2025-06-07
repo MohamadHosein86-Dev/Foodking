@@ -11,9 +11,7 @@ import ModalLoginUser from "../authenticationuser/ModalLoginUser";
 import Isauthenticated from "../authenticationuser/Isauthenticated";
 
 export default function HeaderSecond() {
-  const [showBox, setShowBox] = useState(false);
   const [showBox2, setShowBox2] = useState(false);
-  const [showBox3, setShowBox3] = useState(false);
   const [showBox10, setShowBox10] = useState(false);
   const [showBox20, setShowBox20] = useState(false);
   const [open, setOpen] = useState(false);

@@ -2,15 +2,7 @@
 
 import Image from "next/image";
 
-export default function featureOfUs({
-  title,
-  content,
-  imageUrl,
-}: {
-  title: string;
-  content: string;
-  imageUrl: string;
-}) {
+export default function featureOfUs({ title, content, imageUrl }: { title: string; content: string; imageUrl: string }) {
   return (
     <section
       className="
@@ -28,7 +20,7 @@ export default function featureOfUs({
      flex h-[300px] flex-wrap justify-center items-center  w-[350px]
      "
     >
-      <Image className="" alt="#" height={70} width={70} src={imageUrl} />
+      <im className="" alt="#" height={70} width={70} src={imageUrl} />
 
       <h1
         className="font-semibold w-full 

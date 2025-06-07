@@ -2,7 +2,6 @@
 import { SwiperSlide, Swiper } from "swiper/react";
 import { Autoplay } from "swiper/modules"; // ← اینو اضافه کن
 import "swiper/css";
-import Image from "next/image";
 export default function Menu1() {
   return (
     <div dir="rtl">
@@ -107,7 +106,7 @@ export default function Menu1() {
         <div className=" h-[500px] bg-[var(--wc-secondary)]">
           <div className="h-full bg-[var(--wc-secondary)] max-w-[82rem] mx-auto grid grid-cols-12">
             <div className="col-span-1">
-              <Image src="/pages/menu_1/shape_food3.png" alt="" className="my-[150px]" />
+              <img src="/pages/menu_1/shape_food3.png" alt="" className="my-[150px]" />
             </div>
             <Swiper
               modules={[Autoplay]}
@@ -133,7 +132,7 @@ export default function Menu1() {
 
                 {/* آواتارها */}
                 <div className="flex gap-4 justify-center mt-4">
-                  <Image src="/pages/menu_1/avatar01.jpg" alt="user1" className="w-20 h-20 rounded-full border-2 border-white shadow-md" />
+                  <img src="/pages/menu_1/avatar01.jpg" alt="user1" className="w-20 h-20 rounded-full border-2 border-white shadow-md" />
                 </div>
               </SwiperSlide>
               <SwiperSlide className="bg-[var(--wc-secondary)] p-6 text-center flex flex-col items-center justify-center gap-4 pt-[100px]">
@@ -146,7 +145,7 @@ export default function Menu1() {
 
                 {/* آواتارها */}
                 <div className="flex gap-4 justify-center mt-4">
-                  <Image src="/pages/menu_1/avatar01.jpg" alt="user1" className="w-20 h-20 rounded-full border-2 border-white shadow-md" />
+                  <img src="/pages/menu_1/avatar01.jpg" alt="user1" className="w-20 h-20 rounded-full border-2 border-white shadow-md" />
                 </div>
               </SwiperSlide>
               <SwiperSlide className="bg-[var(--wc-secondary)] p-6 text-center flex flex-col items-center justify-center gap-4 pt-[100px]">
@@ -159,7 +158,7 @@ export default function Menu1() {
 
                 {/* آواتارها */}
                 <div className="flex gap-4 justify-center mt-4">
-                  <Image src="/pages/menu_1/avatar01.jpg" alt="user1" className="w-20 h-20 rounded-full border-2 border-white shadow-md" />
+                  <img src="/pages/menu_1/avatar01.jpg" alt="user1" className="w-20 h-20 rounded-full border-2 border-white shadow-md" />
                 </div>
               </SwiperSlide>
               <SwiperSlide className="bg-[var(--wc-secondary)] p-6 text-center flex flex-col items-center justify-center gap-4 pt-[100px]">
@@ -172,7 +171,7 @@ export default function Menu1() {
 
                 {/* آواتارها */}
                 <div className="flex gap-4 justify-center mt-4">
-                  <Image src="/pages/menu_1/avatar01.jpg" alt="user1" className="w-20 h-20 rounded-full border-2 border-white shadow-md" />
+                  <img src="/pages/menu_1/avatar01.jpg" alt="user1" className="w-20 h-20 rounded-full border-2 border-white shadow-md" />
                 </div>
               </SwiperSlide>
               <SwiperSlide className="bg-[var(--wc-secondary)] p-6 text-center flex flex-col items-center justify-center gap-4 pt-[100px]">
@@ -185,13 +184,13 @@ export default function Menu1() {
 
                 {/* آواتارها */}
                 <div className="flex gap-4 justify-center mt-4">
-                  <Image src="/pages/menu_1/avatar01.jpg" alt="user1" className="w-20 h-20 rounded-full border-2 border-white shadow-md" />
+                  <img src="/pages/menu_1/avatar01.jpg" alt="user1" className="w-20 h-20 rounded-full border-2 border-white shadow-md" />
                 </div>
               </SwiperSlide>
             </Swiper>
             <div className="col-span-1 ps-5">
-              <Image src="/pages/menu_1/shape_food1.png" alt="" className="my-[100px]" />
-              <Image src="/pages/menu_1/shape_food2.png" alt="" />
+              <img src="/pages/menu_1/shape_food1.png" alt="" className="my-[100px]" />
+              <img src="/pages/menu_1/shape_food2.png" alt="" />
             </div>
           </div>
         </div>

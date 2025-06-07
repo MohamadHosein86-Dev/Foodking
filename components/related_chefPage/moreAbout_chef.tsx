@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-
 import { useState } from "react";
 import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
@@ -8,7 +7,17 @@ import { FaYoutube } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
 import Link from "next/link";
 
-export default function moreAboutChef({ role, chefName, imageUrl, chefLink, faceBookLink, twitterLink, youtubeLink, linkedinLink }: { role: string; chefName: string; imageUrl: string; chefLink: string; faceBookLink: string; twitterLink: string; youtubeLink: string; linkedinLink: string }) {
+interface PropsType {
+  role: string;
+  chefName: string;
+  imageUrl: string;
+  chefLink: string;
+  faceBookLink: string;
+  twitterLink: string;
+  youtubeLink: string;
+  linkedinLink: string;
+}
+export default function MoreAboutChef({ role, chefName, imageUrl, chefLink, faceBookLink, twitterLink, youtubeLink, linkedinLink }: PropsType) {
   const [onAction, setonAction] = useState(false);
 
   return (

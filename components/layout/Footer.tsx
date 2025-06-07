@@ -20,7 +20,7 @@ function Footer() {
           />
 
           <div className="xl:mb-[-3rem] w-[18rem]">
-            <img className="ml-auto" src="https://t-theme.com/foodking/wp-content/uploads/2024/08/U_U_O¯U©U_U_U¯_14-transformed.png" alt="" />
+            <img src="https://t-theme.com/foodking/wp-content/uploads/2024/08/U_U_O¯U©U_U_U¯_14-transformed.png" alt="" />
             <p className="my-[1.6rem] font-medium text-[#707070]">ما معتقدیم که قدرت انجام آن را دارد چیزهای شگفت انگیز</p>
             <p className="my-[1rem] font-medium text-[#707070]">علاقه مند به همکاری با ما هستید؟</p>
             <p className="font-bold text-xl text-[#00813d]">info@example.com</p>
@@ -118,7 +118,7 @@ function Footer() {
 
       <section className="bg-[#00813d]">
         <div className="   mx-auto max-w-[82rem] py-[2.8rem] gap-[2rem] text-right items-center flex-wrap-reverse flex justify-center lg:justify-between px-[1rem] ">
-          <img src="https://modinatheme.com/foodking/wp-content/uploads/2024/02/card-1.png" alt="" />
+          <img height={10} width={10} src="https://modinatheme.com/foodking/wp-content/uploads/2024/02/card-1.png" alt="" />
           <h2 className=" text-[#ffff] font-medium text-[1.2rem] ">
             {" "}
             . کپی رایت <span className=" text-[#ffb936] ">2024</span> فودکینگ . تمامی حقوق محفوظ است ©{" "}
