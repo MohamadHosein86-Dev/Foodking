@@ -1,11 +1,9 @@
+import ProductList from "@/app/products/components/ProductList";
 import PriceFilter from "@/components/pricefilter/PriceFilter";
 import TitelPages from "@/components/titelCompo/TitelPges";
-import { getProducts } from "@/lib/api-product";
-import { FaChevronLeft, FaHamburger, FaStar } from "react-icons/fa";
-import { GiShoppingCart } from "react-icons/gi";
+import { FaChevronLeft, FaHamburger } from "react-icons/fa";
 
 export default async function ShopPage() {
-  const products = await getProducts();
   return (
     <section dir="rtl" className="bg-[#F4F1EA] ">
       <TitelPages>
@@ -55,47 +53,7 @@ export default async function ShopPage() {
             </p>
             <form className=" px-[1rem] py-[1rem] border-[1px] rounded-[6px] bg-[#D12525] text-white font-semibold border-gray-300 ">مرتب‌سازی بر اساس محبوبیت</form>
           </div>
-          <div className=" flex flex-col mt-[3rem]  gap-[2rem] ">
-            {products?.map((res) => (
-              <div key={res.id} className="flex-row-reverse rounded-[.8rem] py-[2rem] px-[2.3rem]  bg-[#ffff] flex flex-wrap w-full justify-center items-center">
-                <section className="  w-[60%]   flex flex-wrap h-1/2  content-center">
-                  <div className="flex justify-between w-full items-center ">
-                    <p className=" text-slate-500  font-semibold text-[1.2rem] ">امتیاز</p>
-                    <div className=" flex ">
-                      <FaStar className="text-amber-400" />
-                      <FaStar className="text-amber-400" />
-                      <FaStar className="text-amber-400" />
-                      <FaStar className="text-amber-400" />
-                      <FaStar className="text-amber-400" />
-                    </div>
-                  </div>
-
-                  <h1 className="w-full font-semibold my-[.8rem]  text-right text-3xl text-black sm:text-3xl md:text-4xl lg:text-[1.8rem] ">{res.name}</h1>
-
-                  <h2 className="w-[90%] font-semibold  text-right text-base text-slate-500  md:text-[1.4rem] lg:text-[.9rem]">{res.description}</h2>
-
-                  <div className="flex w-full mt-4  font-semibold text-2xl space-x-6">
-                    <div className="flex space-x-2">
-                      <p className="text-[#D12525]">تومان</p>
-                      <div className="text-[#D12525]">{res.price}</div>
-                    </div>
-                  </div>
-
-                  <button className="relative cursor-pointer bg-green-700 w-40 h-12 mt-4 mr-2 group rounded-lg">
-                    <div className="bg-red-600 scale-0 duration-500 group-hover:scale-100 z-0 absolute rounded-lg w-full inset-0 h-full"></div>
-                    <div className="absolute z-10 inset-0 h-full">
-                      <div className="flex w-full h-full justify-center items-center">
-                        <p className="font-semibold text-white text-base"> سفارش </p>
-                      </div>
-                    </div>
-                  </button>
-                </section>
-                <section className=" w-[40%]  flex  items-center">
-                  <img src={res.image} className="" alt="" />
-                </section>
-              </div>
-            ))}
-          </div>
+          <ProductList Shop={true} />
         </div>
       </div>
     </section>

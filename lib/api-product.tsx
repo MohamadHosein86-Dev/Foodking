@@ -35,8 +35,6 @@ export async function getProduct(slug: string) {
 }
 
 export async function addToCart(id: string, token: string) {
-  console.log("Token being sent:", token);
-
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/cart`, {
     method: "POST",
     cache: "no-store",
@@ -58,3 +56,21 @@ export async function addToCart(id: string, token: string) {
   const product = await res.json();
   return product;
 }
+export const getProductsCart = async (token: string) => {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/cart`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`
+    },
+    cache: "no-store"
+  });
+
+  if (!response.ok) {
+    throw new Error("Network response was not ok " + response.statusText);
+  }
+
+  const data = await response.json();
+
+  return data as Product[];
+};

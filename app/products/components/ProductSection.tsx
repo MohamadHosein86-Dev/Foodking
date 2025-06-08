@@ -10,9 +10,7 @@ export default async function ProductSection() {
         <p className="font-medium text-[#00813D]">پرفروش ترین ظروف</p>
         <h2 className="font-bold text-[3rem]">محصولات ما را کاوش کنید</h2>
 
-        <div className="sm:px-[1rem] md:px-0 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 mt-[3rem] gap-[1.5rem]">
-          <ProductList />
-        </div>
+        <ProductList Home={true} />
       </div>
 
       <img className="hidden xl:block absolute w-[2.8rem] bottom-[3.5rem] left-[3rem]" src="https://modinatheme.com/foodking/wp-content/uploads/2024/03/frame-3.png" alt="" />
