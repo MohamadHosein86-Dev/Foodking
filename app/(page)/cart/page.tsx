@@ -10,16 +10,6 @@ export default function Cart() {
   const { data: session } = useSession();
   const [products, setProducts] = useState([]);
 
-  const fetchData = async () => {
-    if (session?.accessToken) {
-      const data2 = await getProductsCart(session.accessToken);
-      setProducts(data);
-      console.log("Products:", data2);
-    }
-  };
-
-  fetchData();
-
   const index = 4;
   return (
     <section dir="rtl">
