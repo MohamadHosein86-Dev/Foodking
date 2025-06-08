@@ -1,15 +1,9 @@
-"use client";
 import ProductList from "@/app/products/components/ProductList";
 import TitelPages from "@/components/titelCompo/TitelPges";
-import { getProductsCart } from "@/lib/api-product";
-import { useSession } from "next-auth/react";
-import { useState } from "react";
+
 import { FaChevronLeft, FaTrash, FaUser } from "react-icons/fa";
 
 export default function Cart() {
-  const { data: session } = useSession();
-  const [products, setProducts] = useState([]);
-
   const index = 4;
   return (
     <section dir="rtl">
