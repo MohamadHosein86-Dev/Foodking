@@ -8,6 +8,7 @@ import HeaderBottom from "./HeaderBottom";
 import Navbar_desktop from "../navbar_desktop/navbar_desktop";
 import AnimationHeader from "./AnimationHeader";
 import Isauthenticated from "../authenticationuser/Isauthenticated";
+import Link from "next/link";
 
 export default function HeaderHomePage({ curentUrl }: { curentUrl: string }) {
   const [open, setOpen] = useState(false);
@@ -63,11 +64,13 @@ export default function HeaderHomePage({ curentUrl }: { curentUrl: string }) {
             </button>
 
             <FaBars className=" block xl:hidden cursor-pointer " size={30} color="#ffff" />
-            <div className=" flex items-center gap-[1.5rem] relative  ">
-              <div className=" bg-[#200707cc] top-[-.4rem] left-[-.5rem] absolute  w-[1rem] text-[.6rem] pb-[0] pr-[1px] rounded-[.5rem] h-[1rem] xl:flex hidden  justify-center items-center text-[#fcfbfe] ">0</div>
-              <FaShoppingBasket className=" xl:flex hidden  cursor-pointer " size={20} />
-              <FaSearch className=" cursor-pointer " size={18} />
-            </div>
+            <Link href={"/cart"} className=" hidden xl:flex items-center gap-[1.5rem] relative  ">
+              <div className=" bg-[#212121] cursor-pointer top-[-.5rem] left-[-.5rem] absolute  w-[1.2rem] text-[.6rem] pb-[0] pr-[1px] rounded-[.8rem] h-[1.2rem] flex justify-center items-center text-[#fcfbfe] ">
+                <span>0</span>
+              </div>
+              <FaShoppingBasket className="  text-[#fff] cursor-pointer " size={24} />
+            </Link>
+            <FaSearch className=" cursor-pointer " size={18} />
           </div>
           <Navbar_desktop open={open} />
           <img src="https://t-theme.com/foodking/wp-content/uploads/2024/08/U_U_O¯U©U_U_U¯_18-transformed.png" alt="" />

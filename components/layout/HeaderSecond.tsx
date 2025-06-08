@@ -85,10 +85,12 @@ export default function HeaderSecond() {
                   </span>{" "}
                 </button>
 
-                <div className="hidden   xl:flex items-center gap-[1.5rem] relative  ">
-                  <div className=" bg-[#212121] cursor-pointer top-[-.4rem] left-[-.5rem] absolute  w-[1rem] text-[.6rem] pb-[.1rem] pr-[0rem] rounded-[.5rem] h-[1rem] flex justify-center items-center text-[#fcfbfe] ">0</div>
-                  <FaShoppingBasket className="  text-[#D12525] cursor-pointer " size={20} />
-                </div>
+                <Link href={"/cart"} className=" hidden xl:flex items-center gap-[1.5rem] relative  ">
+                  <div className=" bg-[#212121] cursor-pointer top-[-.5rem] left-[-.5rem] absolute  w-[1.2rem] text-[.6rem] pb-[0] pr-[1px] rounded-[.8rem] h-[1.2rem] flex justify-center items-center text-[#fcfbfe] ">
+                    <span>0</span>
+                  </div>
+                  <FaShoppingBasket className="  text-[#D12525] cursor-pointer " size={24} />
+                </Link>
               </div>
               <div className=" hidden text-[#212121]   xl:flex  gap-[2rem] relative ">
                 <Link className="hover:text-[#00813D]  cursor-pointer    transition ease-in delay-150 font-medium " href="/contact">
