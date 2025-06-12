@@ -25,7 +25,8 @@ export default function Isauthenticated({ children }: PropsType) {
 
   if (status === "unauthenticated") {
     return <>{children}</>;
-  } else if (status === "authenticated") {
+  }
+  if (status === "authenticated") {
     return <FaUser onClick={() => goProfile.push("/dashboard")} size={22} color="#FFB936" className=" cursor-pointer " />;
   }
 }

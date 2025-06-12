@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { FaCheck, FaSearch, FaStar } from "react-icons/fa";
-import { FaArrowLeftLong, FaTicket } from "react-icons/fa6";
+import { FaSearch, FaStar } from "react-icons/fa";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 export default function FavaritPage() {
   const data = {

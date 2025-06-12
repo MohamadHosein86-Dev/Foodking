@@ -9,6 +9,7 @@ import AnimationHeader from "./AnimationHeader";
 import Modal from "../modal/Modal";
 import ModalLoginUser from "../authenticationuser/ModalLoginUser";
 import Isauthenticated from "../authenticationuser/Isauthenticated";
+import { useGetCart } from "@/hooks/useCart";
 
 export default function HeaderSecond() {
   const [showBox2, setShowBox2] = useState(false);
@@ -19,6 +20,7 @@ export default function HeaderSecond() {
   const curentUrl = usePathname();
   const heroRef = useRef<HTMLDivElement>(null);
   const [showSticky, setShowSticky] = useState(false);
+  const { totalCount = 0 } = useGetCart();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -87,7 +89,7 @@ export default function HeaderSecond() {
 
                 <Link href={"/cart"} className=" hidden xl:flex items-center gap-[1.5rem] relative  ">
                   <div className=" bg-[#212121] cursor-pointer top-[-.5rem] left-[-.5rem] absolute  w-[1.2rem] text-[.6rem] pb-[0] pr-[1px] rounded-[.8rem] h-[1.2rem] flex justify-center items-center text-[#fcfbfe] ">
-                    <span>0</span>
+                    <span>{totalCount}</span>
                   </div>
                   <FaShoppingBasket className="  text-[#D12525] cursor-pointer " size={24} />
                 </Link>

@@ -1,10 +1,14 @@
-import ProductList from "@/app/products/components/ProductList";
+"use client";
+import CartProducts from "@/app/products/components/CartProduct";
+import Loader from "@/components/loader/Loader";
 import TitelPages from "@/components/titelCompo/TitelPges";
+import { useGetCart } from "@/hooks/useCart";
 
 import { FaChevronLeft, FaTrash, FaUser } from "react-icons/fa";
 
 export default function Cart() {
-  const index = 4;
+  const { totalCount, isLoading } = useGetCart();
+  if (isLoading) return <Loader />;
   return (
     <section dir="rtl">
       <TitelPages>
@@ -19,11 +23,11 @@ export default function Cart() {
       </TitelPages>
       <section className=" bg-[#fff] flex gap-[1.5rem] mx-auto max-w-[80rem] px-4 py-[4rem] ">
         <div className=" h-[700px] basis-[60%] border-[2px] px-[1.3rem] rounded-[.8rem] border-gray-300  ">
-          <ProductList ShopingCart={true} />
+          <CartProducts />
         </div>
         <div className=" basis-[40%] h-[80%] py-[1.5rem] rounded-[.8rem] px-[1rem] border-[2px] border-gray-300 ">
           <div className=" mb-[1.3rem] pb-[1.3rem] border-b-[2px] border-gray-300 items-center flex justify-between ">
-            <p className=" text-[#353535] ">سبد خرید ({index})</p>
+            <p className=" text-[#353535] ">سبد خرید ({totalCount})</p>
             <p>
               <FaTrash color="gray" />
             </p>

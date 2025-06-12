@@ -1,41 +1,26 @@
 "use client";
-import { FaStar } from "react-icons/fa";
+import { FaStar, FaTrash } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
 import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
 import { useState } from "react";
 import { GiShoppingCart } from "react-icons/gi";
-import { addToCart } from "@/lib/api-product";
-import { useSession } from "next-auth/react";
-import { Session } from "next-auth";
-
-// تعریف نوع Session
-interface ExtendedSession extends Session {
-  accessToken: string;
-  refreshToken: string;
-}
+import { useAddToCart } from "@/hooks/useAddToCart";
+import { useGetCart } from "@/hooks/useCart";
+import Loader from "../loader/Loader";
+import { useDeleteToCart } from "@/hooks/useDeleteToCart";
 
 export default function AddToShoppingCard({ name, title, newPrice, productId, productImage }: { productId: string; name: string; title: string; newPrice: string; oldPrice: string | null; category: string[]; productImage: string }) {
   const [counter, setCounter] = useState<number>(0);
   const [description, setDescription] = useState<number>(1);
   const [score, setScore] = useState<number>(0);
-  //
-  //
-  //
-  const { data: session } = useSession() as { data: ExtendedSession | null };
 
-  async function addtoCart() {
-    if (!session?.accessToken) {
-      alert("لطفا ابتدا وارد حساب کاربری خود شوید");
-      return;
-    }
+  const { AddToCartProdcuts } = useAddToCart(productId);
+  const { DeleteToCartProdcuts } = useDeleteToCart(productId);
+  const { cartproducts, isLoading } = useGetCart();
+  const isInCart = cartproducts?.some((item) => item.product.id === productId);
+  const count = cartproducts?.find((item) => item.product.id === productId);
 
-    const response = await addToCart(productId, session.accessToken);
-
-    if (response) {
-      alert("محصول با موفقیت به سبد خرید اضافه شد");
-    }
-  }
   return (
     <div className="flex mt-18 max-w-[80rem] mx-auto flex-wrap justify-center h-full w-2/3">
       <div className="flex-row-reverse flex flex-wrap w-full justify-center items-center">
@@ -63,26 +48,42 @@ export default function AddToShoppingCard({ name, title, newPrice, productId, pr
               <div className="text-green-700">{newPrice}</div>
             </div>
           </div>
-
-          <button onClick={addtoCart} className="relative bg-green-700 w-60 h-16 mt-12 mr-2 group rounded-lg">
-            <div className="bg-red-600 scale-0 duration-500 group-hover:scale-100 z-0 absolute rounded-lg w-full inset-0 h-full"></div>
-            <div className="absolute z-10 inset-0 w-full h-full">
-              <div className="flex w-full h-full justify-center items-center">
-                <p className="font-semibold text-white text-base">افزودن به سبد خرید</p>
-                <GiShoppingCart className="text-white text-3xl" />
-              </div>
-            </div>
-          </button>
-
-          <div className="h-16 w-32 mt-12 flex justify-center items-center">
-            <button onClick={() => setCounter((counter) => counter + 1)} className="border-1 h-full group border-slate-200 px-3 py-5">
-              <FaPlus className="text-black duration-700 group-hover:text-green-800 text-lg" />
-            </button>
-            <div className="text-lg border-1 border-r-0 border-l-0 border-slate-200 px-3 py-4">{counter}</div>
-            <button disabled={counter === 0} onClick={() => setCounter((counter) => counter - 1)} className="border-1 border-slate-200 group px-3 py-5">
-              <FaMinus className="text-black duration-700 group-hover:text-green-800 text-lg" />
-            </button>
-          </div>
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <>
+              {isInCart ? (
+                <div className="h-16 mt-12 flex justify-center flex-row-reverse items-center">
+                  <button onClick={() => setCounter((counter) => counter + 1)} className="border-1  group cursor-pointer border-slate-200 px-6 py-5">
+                    <FaPlus className="text-black duration-700 group-hover:text-green-800 text-lg" />
+                  </button>
+                  <div className="text-lg border-1 border-r-0 border-l-0 border-slate-200 px-6 py-[15px]">{count?.count}</div>
+                  <button disabled={counter === 0} onClick={() => setCounter((counter) => counter - 1)} className="border-1 cursor-pointer border-slate-200 group px-6 py-5">
+                    <FaMinus className="text-black duration-700 group-hover:text-green-800 text-lg" />
+                  </button>
+                  <button onClick={() => DeleteToCartProdcuts()} className="relative bg-red-600 w-60  py-8 cursor-pointer mr-2 group rounded-lg">
+                    <div className="bg-green-700 scale-0 duration-500 group-hover:scale-100 z-0 absolute rounded-lg w-full inset-0 h-full"></div>
+                    <div className="absolute z-10 inset-0 w-full h-full">
+                      <div className="flex w-full h-full justify-center gap-2 items-center">
+                        <p className="font-semibold text-white text-base"> حذف از سبد خرید </p>
+                        <FaTrash className="text-white text-xl" />
+                      </div>
+                    </div>
+                  </button>
+                </div>
+              ) : (
+                <button onClick={() => AddToCartProdcuts()} className="relative bg-green-700 w-60 h-16 mt-12 mr-2 group rounded-lg">
+                  <div className="bg-red-600 scale-0 duration-500 group-hover:scale-100 z-0 absolute rounded-lg w-full inset-0 h-full"></div>
+                  <div className="absolute z-10 inset-0 w-full h-full">
+                    <div className="flex w-full h-full justify-center items-center">
+                      <p className="font-semibold text-white text-base">افزودن به سبد خرید</p>
+                      <GiShoppingCart className="text-white text-3xl" />
+                    </div>
+                  </div>
+                </button>
+              )}
+            </>
+          )}
 
           <div className="w-full flex justify-end">
             <button className="font-semibold text-slate-500 text-base flex justify-end items-center space-x-3 mt-12">

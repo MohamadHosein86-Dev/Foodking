@@ -9,13 +9,14 @@ import Navbar_desktop from "../navbar_desktop/navbar_desktop";
 import AnimationHeader from "./AnimationHeader";
 import Isauthenticated from "../authenticationuser/Isauthenticated";
 import Link from "next/link";
+import { useGetCart } from "@/hooks/useCart";
 
 export default function HeaderHomePage({ curentUrl }: { curentUrl: string }) {
   const [open, setOpen] = useState(false);
   const [showSticky, setShowSticky] = useState(false);
 
   const heroRef = useRef<HTMLDivElement>(null);
-
+  const { totalCount = 0 } = useGetCart();
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -66,13 +67,13 @@ export default function HeaderHomePage({ curentUrl }: { curentUrl: string }) {
             <FaBars className=" block xl:hidden cursor-pointer " size={30} color="#ffff" />
             <Link href={"/cart"} className=" hidden xl:flex items-center gap-[1.5rem] relative  ">
               <div className=" bg-[#212121] cursor-pointer top-[-.5rem] left-[-.5rem] absolute  w-[1.2rem] text-[.6rem] pb-[0] pr-[1px] rounded-[.8rem] h-[1.2rem] flex justify-center items-center text-[#fcfbfe] ">
-                <span>0</span>
+                <span>{totalCount}</span>
               </div>
               <FaShoppingBasket className="  text-[#fff] cursor-pointer " size={24} />
             </Link>
             <FaSearch className=" cursor-pointer " size={18} />
           </div>
-          <Navbar_desktop open={open} />
+          <Navbar_desktop />
           <img src="https://t-theme.com/foodking/wp-content/uploads/2024/08/U_U_O¯U©U_U_U¯_18-transformed.png" alt="" />
         </div>
       </div>

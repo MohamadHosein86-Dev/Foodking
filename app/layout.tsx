@@ -6,6 +6,7 @@ import { SessionProviderWrapper } from "@/components/authenticationuser/SessionP
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import QueryProvider from "@/components/queryprovider/QueryProvider";
+import ScrollToTopOnLoad from "@/components/scrolltotoponload/ScrollToTopOnLoad";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +39,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <QueryProvider>
           <SessionProviderWrapper>
+            <ScrollToTopOnLoad />
             <Header />
             {children}
             <Footer />

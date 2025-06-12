@@ -48,7 +48,7 @@ export default function Faqs() {
 
         <div className="max-w-5xl mx-auto mt-10 space-y-4">
           {faqs.map((faq, index) => (
-            <Accordion key={index} title={faq.title}>
+            <Accordion key={index} title={faq.title} index={index}>
               {faq.content}
             </Accordion>
           ))}
