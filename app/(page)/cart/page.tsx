@@ -2,7 +2,9 @@ import ProductList from "@/app/products/components/ProductList";
 import TitelPages from "@/components/titelCompo/TitelPges";
 
 import { FaChevronLeft, FaTrash, FaUser } from "react-icons/fa";
-
+import { BsCart4 } from "react-icons/bs";
+import { LuSquareCheckBig } from "react-icons/lu";
+import { CiMoneyCheck1 } from "react-icons/ci";
 export default function Cart() {
   const index = 4;
   return (
@@ -17,7 +19,30 @@ export default function Cart() {
           </div>
         </div>
       </TitelPages>
-      <section className=" bg-[#fff] flex gap-[1.5rem] mx-auto max-w-[80rem] px-4 py-[4rem] ">
+
+      <section
+        className="flex  bg-yellow-300 
+      items-center w-full h-24 justify-center"
+      >
+        <div className="flex gap-x-2 h-12 w-38 bg-red-300 items-center justify-center">
+          <BsCart4 className="text-xl" />
+          <p>سبد خرید</p>
+        </div>
+        <div>--------------------</div>
+        <div className="flex w-38 h-12  gap-x-2 items-center justify-center">
+          <LuSquareCheckBig className="text-xl" />
+          <p> تکمیل اطلاعات</p>
+        </div>
+
+        <div className="flex w-38 h-12  gap-x-2 items-center justify-center">
+          <CiMoneyCheck1 className="text-xl" />
+          <p> پرداخت</p>
+        </div>
+      </section>
+      <section
+        className=" bg-[#fff] flex  gap-[1.5rem] mx-auto max-w-[80rem]
+       px-4 py-[4rem] "
+      >
         <div className=" h-[700px] basis-[60%] border-[2px] px-[1.3rem] rounded-[.8rem] border-gray-300  ">
           <ProductList ShopingCart={true} />
         </div>
@@ -39,7 +64,10 @@ export default function Cart() {
             </div>
             <div className=" flex gap-[8px] items-center text-sm text-[#A9791C] ">
               <img src="/shopingcart/warning-2.jpg" alt="" />
-              <p className=" text-[12px]  ">هزینه ارسال در ادامه بر اساس آدرس، زمان و نحوه ارسال انتخابی شما محاسبه و به این مبلغ اضافه خواهد شد.</p>
+              <p className=" text-[12px]  ">
+                هزینه ارسال در ادامه بر اساس آدرس، زمان و نحوه ارسال انتخابی شما
+                محاسبه و به این مبلغ اضافه خواهد شد.
+              </p>
             </div>
           </div>
           <div className="    gap-[.5rem] flex flex-col ">

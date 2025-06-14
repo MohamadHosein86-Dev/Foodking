@@ -1,0 +1,337 @@
+WEBVTT
+
+00:01.140 --> 00:02.220
+Instructor: The next thing we're going to work on
+
+00:02.220 --> 00:04.680
+is allowing the parent component of modal page
+
+00:04.680 --> 00:07.830
+to better customize the content displayed inside the modal.
+
+00:07.830 --> 00:08.970
+So, inside of our modal window,
+
+00:08.970 --> 00:11.520
+we might have some content up here at the top
+
+00:11.520 --> 00:14.190
+with some information we want to provide to the user,
+
+00:14.190 --> 00:15.930
+and then down towards the bottom,
+
+00:15.930 --> 00:17.340
+we might have a series of different buttons
+
+00:17.340 --> 00:18.990
+the user can click on to maybe say
+
+00:18.990 --> 00:21.510
+that they accept something, they decline something,
+
+00:21.510 --> 00:23.670
+a cancel button, and so on.
+
+00:23.670 --> 00:25.800
+The modal component isn't really going to know
+
+00:25.800 --> 00:27.780
+what components need to be shown.
+
+00:27.780 --> 00:30.300
+So, we're going to allow the modal page to customize
+
+00:30.300 --> 00:33.240
+both of these different areas independently.
+
+00:33.240 --> 00:35.130
+To customize the content at the top right here,
+
+00:35.130 --> 00:36.630
+we're gonna have our modal page
+
+00:36.630 --> 00:39.120
+pass down a prop called children.
+
+00:39.120 --> 00:41.850
+And then, to customize the content at the bottom,
+
+00:41.850 --> 00:44.460
+we're gonna pass it onto a prop called actionBar.
+
+00:44.460 --> 00:47.580
+It's called actionBar because this is kind of a bar of area
+
+00:47.580 --> 00:49.680
+where a user is going to commit some action
+
+00:49.680 --> 00:52.950
+like clicking on a button or something like that.
+
+00:52.950 --> 00:54.690
+So inside of our modal page component,
+
+00:54.690 --> 00:56.700
+we're gonna pass down these two props.
+
+00:56.700 --> 00:57.750
+And then inside the modal,
+
+00:57.750 --> 01:00.990
+we just need to make sure we show those on the screen.
+
+01:00.990 --> 01:03.360
+Both these props are gonna be something renderable
+
+01:03.360 --> 01:07.653
+so a string, a number, a react component, JSX, so on.
+
+01:09.930 --> 01:13.083
+Okay, so to get started inside of modal page dot js,
+
+01:13.980 --> 01:16.580
+I'm gonna find where we create our modal right here.
+
+01:17.700 --> 01:20.400
+We're gonna have to add in a good amount of props to this.
+
+01:20.400 --> 01:23.010
+So to just make my code a little bit more legible,
+
+01:23.010 --> 01:26.103
+I'm going to extract that modal component right there.
+
+01:27.000 --> 01:31.713
+So I'm gonna cut it and then define modal up here, like so.
+
+01:32.640 --> 01:35.700
+Then at the show modal and, I'll put in reference
+
+01:35.700 --> 01:37.150
+that variable I just created.
+
+01:38.010 --> 01:40.050
+So I only did this just to give myself a little bit
+
+01:40.050 --> 01:41.130
+more space to work with
+
+01:41.130 --> 01:44.073
+so I can more easily pass in some props to this component.
+
+01:45.240 --> 01:47.490
+To pass in the children prop,
+
+01:47.490 --> 01:50.730
+I'm going to delete the closing forward slash right there.
+
+01:50.730 --> 01:52.420
+I'm going to delete the semicolon
+
+01:53.280 --> 01:56.103
+and then put in a closing modal like so.
+
+01:57.180 --> 01:58.500
+Now inside of here, I could add in
+
+01:58.500 --> 02:00.637
+maybe a paragraph element and say,
+
+02:00.637 --> 02:04.737
+"here is an important agreement for you to accept."
+
+02:05.640 --> 02:07.740
+So this is my children prop.
+
+02:07.740 --> 02:09.270
+We need to receive it inside the modal
+
+02:09.270 --> 02:11.523
+and display it inside of the modal window.
+
+02:13.860 --> 02:16.650
+I then want to add in some actionBar, some kind of button
+
+02:16.650 --> 02:19.260
+or something like that that the user can click on.
+
+02:19.260 --> 02:22.713
+So I'm also gonna put in an actionBar prop right here.
+
+02:23.640 --> 02:25.860
+And this is going to have a string, a number,
+
+02:25.860 --> 02:28.380
+or some JSX that we're gonna show at the bottom
+
+02:28.380 --> 02:29.553
+of that white window.
+
+02:30.660 --> 02:32.040
+So I'll put in for right now.
+
+02:32.040 --> 02:34.083
+How about another button element?
+
+02:37.770 --> 02:40.707
+I'll give this the text of "I accept."
+
+02:41.730 --> 02:43.173
+And how about primary?
+
+02:45.060 --> 02:47.190
+Now right away, this is getting kind of hard to read
+
+02:47.190 --> 02:48.960
+with this really long prop right here.
+
+02:48.960 --> 02:51.390
+So I think maybe we should also extract this
+
+02:51.390 --> 02:53.310
+into a separate variable.
+
+02:53.310 --> 02:56.050
+So I'm gonna take that button right there, cut it
+
+02:57.000 --> 02:58.710
+and then right above our modal variable,
+
+02:58.710 --> 03:01.890
+I'll create a new variable called actionBar.
+
+03:01.890 --> 03:04.680
+And I'll have this be a div
+
+03:04.680 --> 03:07.230
+that shows the button inside of it.
+
+03:07.230 --> 03:09.630
+And then I can use this actionBar variable,
+
+03:09.630 --> 03:12.153
+pass it off to the actionBar prop.
+
+03:15.120 --> 03:17.670
+Okay, let's save this right now.
+
+03:17.670 --> 03:19.200
+We'll then go into our modal component.
+
+03:19.200 --> 03:20.280
+We're gonna make sure that we make use
+
+03:20.280 --> 03:23.850
+of the children prop and the actionBar prop.
+
+03:23.850 --> 03:26.040
+So inside of modal.js,
+
+03:26.040 --> 03:30.183
+I will receive children and actionBar.
+
+03:32.040 --> 03:33.900
+Then inside the div with the class name
+
+03:33.900 --> 03:37.650
+of "absolute inset 40", I'm going to delete the text
+
+03:37.650 --> 03:41.310
+of "I'm a Modal" and replace it
+
+03:41.310 --> 03:44.913
+with Children and actionBar.
+
+03:46.530 --> 03:47.940
+Now, in just a little bit, we're gonna add in
+
+03:47.940 --> 03:49.740
+some more elements and styling inside of here
+
+03:49.740 --> 03:52.890
+to provide more separation between children and actionBar.
+
+03:52.890 --> 03:54.510
+So right now it might seem a little bit pointless
+
+03:54.510 --> 03:56.100
+to have these two separate props.
+
+03:56.100 --> 03:58.493
+Don't worry. We're gonna address that in a little bit.
+
+03:59.370 --> 04:01.950
+Alright, so let's save with these files back over
+
+04:01.950 --> 04:02.783
+inside the browser.
+
+04:02.783 --> 04:04.260
+I can now open the modal
+
+04:04.260 --> 04:05.910
+and I'll see here's an important agreement
+
+04:05.910 --> 04:08.410
+for you to accept. And then the "I accept" button.
+
+04:09.270 --> 04:10.590
+Okay, so that definitely looks good.
+
+04:10.590 --> 04:12.180
+Off to a good start.
+
+04:12.180 --> 04:14.400
+Right now if I click on the "I accept" button,
+
+04:14.400 --> 04:15.540
+nothing happens.
+
+04:15.540 --> 04:18.510
+We probably want to make sure that the modal gets closed.
+
+04:18.510 --> 04:21.393
+So to do so, back inside of modal page.
+
+04:23.310 --> 04:24.900
+Here's modal page.
+
+04:24.900 --> 04:28.260
+Here's where we create that button that says "I accept".
+
+04:28.260 --> 04:30.180
+So to make sure that whenever user clicks on this thing,
+
+04:30.180 --> 04:31.380
+we close the modal,
+
+04:31.380 --> 04:34.140
+we can add on a click event handler to this
+
+04:34.140 --> 04:37.053
+that's going to update the show modal piece of state.
+
+04:38.910 --> 04:41.040
+In fact, we already have a click event handler
+
+04:41.040 --> 04:43.770
+that does exactly that called handle Close.
+
+04:43.770 --> 04:46.680
+So let's just pass that off to the button element.
+
+04:46.680 --> 04:50.577
+So I'll put in an "on click handle close".
+
+04:53.670 --> 04:54.820
+Alright, one more save.
+
+04:56.580 --> 04:58.867
+Now if I refresh open the modal, I can click on
+
+04:58.867 --> 05:00.663
+"I accept" and it goes away.
+
+05:01.980 --> 05:02.813
+Looks good.
