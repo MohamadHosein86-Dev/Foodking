@@ -1,5 +1,5 @@
 "use client";
-import TitelPages from "@/components/titelCompo/TitelPges";
+import TitelPages from "@/app/components/titelPges/TitelPges";
 import { Fragment, useState } from "react";
 import { FaChevronLeft, FaTrash } from "react-icons/fa";
 

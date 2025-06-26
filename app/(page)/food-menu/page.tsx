@@ -1,5 +1,5 @@
-import SwiperComponent from "@/components/swiper/SwiperComponent";
-import TitelPages from "@/components/titelCompo/TitelPges";
+import SwiperComponent from "@/app/components/swiper/SwiperComponent";
+import TitelPages from "@/app/components/titelPges/TitelPges";
 import { FaChevronLeft } from "react-icons/fa";
 
 export default function Menu1() {

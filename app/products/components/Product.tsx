@@ -1,5 +1,5 @@
 import AddToCartHome from "@/components/addTocarthome/AddToCartHome";
-import { Product } from "@/lib/api-product";
+import { Product } from "@/servises/api-product";
 import Link from "next/link";
 
 interface DataType {

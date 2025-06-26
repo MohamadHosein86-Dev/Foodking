@@ -1,5 +1,5 @@
-import { ExtendedSession } from "@/app/Types/Type";
-import { deleteFromCart } from "@/lib/api-product";
+import { ExtendedSession } from "@/app/Types/DataType";
+import { deleteFromCart } from "@/servises/api-product";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";

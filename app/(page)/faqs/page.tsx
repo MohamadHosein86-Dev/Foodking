@@ -1,32 +1,8 @@
-import Accordion from "@/components/faqs_Accordion/Accordion";
-import TitelPages from "@/components/titelCompo/TitelPges";
+import TitelPages from "@/app/components/titelPges/TitelPges";
+import { FaqsData } from "@/app/data/Data";
 import { FaChevronLeft } from "react-icons/fa";
-interface Faq {
-  title: string;
-  content: string;
-}
-const faqs: Faq[] = [
-  {
-    title: "آیا قیمت های منوی شما با قیمت های رستوران یکی است؟",
-    content: "متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپ"
-  },
-  {
-    title: "متن ساختگی با تولید سادگی نامفهوم",
-    content: "متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپ"
-  },
-  {
-    title: "متن ساختگی با تولید سادگی نامفهوم",
-    content: "متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپ"
-  },
-  {
-    title: "متن ساختگی با تولید سادگی نامفهوم",
-    content: "متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپ"
-  },
-  {
-    title: "متن ساختگی با تولید سادگی نامفهوم",
-    content: "متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپ"
-  }
-];
+import AccordionFaqs from "./components/accordionFaqs/AccordionFaqs";
+
 export default function Faqs() {
   return (
     <div className="w-full">
@@ -47,10 +23,10 @@ export default function Faqs() {
         </div>
 
         <div className="max-w-5xl mx-auto mt-10 space-y-4">
-          {faqs.map((faq, index) => (
-            <Accordion key={index} title={faq.title} index={index}>
+          {FaqsData.map((faq, index) => (
+            <AccordionFaqs key={index} title={faq.title} index={index}>
               {faq.content}
-            </Accordion>
+            </AccordionFaqs>
           ))}
         </div>
       </div>

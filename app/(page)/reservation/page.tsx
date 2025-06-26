@@ -1,7 +1,7 @@
+import MotorSycle from "@/app/components/MotorCycelComponents/MotorSycle";
+import TitelPages from "@/app/components/titelPges/TitelPges";
 import { FaChevronLeft } from "react-icons/fa";
-import TitelPages from "@/components/titelCompo/TitelPges";
-import DateInput from "@/components/date_Input_Reservation/Date_Input";
-import MotorSycle from "@/components/MotorCycelComponents/MotorSycle";
+import DateInputReservation from "./components/dateInputReservation/DateInputReservation";
 
 export default function Reservation() {
   return (
@@ -57,7 +57,7 @@ export default function Reservation() {
               </div>
             </div>
             <div className="flex border border-gray-100 rounded-lg flex-col gap-2 justify-center">
-              <DateInput />
+              <DateInputReservation />
             </div>
             <div className="flex flex-col gap-2">
               <div className="relative">

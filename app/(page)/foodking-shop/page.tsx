@@ -1,7 +1,7 @@
-import ProductList from "@/app/products/components/ProductList";
-import TitelPages from "@/components/titelCompo/TitelPges";
+import TitelPages from "@/app/components/titelPges/TitelPges";
 import { FaChevronLeft, FaSearch } from "react-icons/fa";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import ProductShop from "./components/productShop/ProductShop";
 
 export default async function ShopPage() {
   return (
@@ -74,7 +74,7 @@ export default async function ShopPage() {
               </div>
             </div>
             <div className=" w-full ">
-              <ProductList Shop={true} />
+              <ProductShop />
             </div>
           </div>
         </div>

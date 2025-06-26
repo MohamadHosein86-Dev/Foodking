@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-import { SessionProviderWrapper } from "@/components/authenticationuser/SessionProviderWrapper";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import QueryProvider from "@/components/queryprovider/QueryProvider";
-import ScrollToTopOnLoad from "@/components/scrolltotoponload/ScrollToTopOnLoad";
+import { SessionProviderWrapper } from "./components/authenticationuser/SessionProviderWrapper";
+import ScrollToTopOnLoad from "./components/animation/scrolltotoponload/ScrollToTopOnLoad";
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
+import QueryProvider from "./provider/reactQueryProvider/ReactQueryProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

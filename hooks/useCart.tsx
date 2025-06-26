@@ -1,6 +1,6 @@
 "use client";
-import { ExtendedSession } from "@/app/Types/Type";
-import { getCart } from "@/lib/api-product";
+import { ExtendedSession } from "@/app/Types/DataType";
+import { getCart } from "@/servises/api-product";
 import { useQuery } from "@tanstack/react-query";
 import { useSession } from "next-auth/react";
 

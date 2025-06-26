@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { FaChevronLeft } from "react-icons/fa";
 import AddToshopipngCard from "@/components/related_ProductPage/AddToshopipngCard";
-import { getProduct } from "@/lib/api-product";
+import { getProduct } from "@/servises/api-product";
 
 interface ProductPageProps {
   params: {

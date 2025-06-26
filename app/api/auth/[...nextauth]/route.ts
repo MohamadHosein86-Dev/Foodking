@@ -1,7 +1,7 @@
 import NextAuth, { NextAuthOptions, User, Session } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { JWT } from "next-auth/jwt";
-import { refreshAccessToken } from "@/lib/auth";
+import { refreshAccessToken } from "@/servises/auth";
 
 interface ExtendedUser extends User {
   accessToken: string;
