@@ -1,4 +1,4 @@
-import { BlogDataType, FaqsType } from "../Types/DataType";
+import { BlogDataType, FaqsType, FoodMenuItem, IntrductionType } from "../Types/DataType";
 
 export const BlogData = [
   {
@@ -61,12 +61,12 @@ export const InterItemData = [
     title: "شهرت خوب",
     content: "تیمی متشکل از رویاپردازان و انجام دهندگان موسیقی و هنر تعاملی منحصر به فرد را ایجاد می‌کنند."
   }
-];
+] as IntrductionType[];
 
 export const BlogBoxData = [
   {
     id: 1,
-    titel: "نوشته‌های تازه",
+    Title: "نوشته‌های تازه",
     contens: [
       { link: "سلام دنیا!" },
       { link: "شگفتی های غذا در رستوران فودکینگ" },
@@ -77,7 +77,7 @@ export const BlogBoxData = [
   },
   {
     id: 2,
-    titel: "نوشته‌های تازه",
+    Title: "نوشته‌های تازه",
     contens: [
       { type: "text", link: "آخرین دیدگاه‌ها" },
       { type: "comment", author: "foodking", post: "هوس های سریع: از بین بردن لذت های فست فود" },
@@ -89,12 +89,12 @@ export const BlogBoxData = [
   },
   {
     id: 3,
-    titel: "بایگانی‌ها",
+    Title: "بایگانی‌ها",
     contens: [{ link: "جولای 2024" }]
   },
   {
     id: 4,
-    titel: "دسته‌ها",
+    Title: "دسته‌ها",
     contens: [
       { link: "برنج کبابی" },
       { link: "پاستا" },
@@ -107,4 +107,50 @@ export const BlogBoxData = [
       { link: "هات داگ" }
     ]
   }
-];
+] as BlogDataType[];
+
+export const FoodMenuItems = [
+  { id:1,
+    title: 'پیتزا دیپ شیکاگو',
+    desc: 'این تجربه ناهار خوری عالی است که در آن تجربه سریع و کارآمد را داشته باشید',
+    price: '۲۲تومان',
+  },
+  { id:2,
+    title: 'برگر کلاسیک ذغالی',
+    desc: 'ترکیبی از گوشت گریل‌شده، پنیر چدار و سس مخصوص',
+    price: '۱۸تومان',
+  },
+  { id:3,
+    title: 'سالاد سزار با مرغ',
+    desc: 'سالادی سبک با مرغ گریل‌شده، نان تست و سس مخصوص',
+    price: '۱۴تومان',
+  },
+  { id:4,
+    title: 'پاستا آلفردو',
+    desc: 'پاستا خامه‌ای با مرغ و قارچ در سس آلفردو',
+    price: '۲۵تومان',
+  },
+  { id:5,
+    title: 'چیز برگر دوبل',
+    desc: 'دو لایه گوشت، دو لایه پنیر، سس مخصوص و نان نرم',
+    price: '۲۷تومان',
+  },
+  { id:6,
+    title: 'هات‌داگ ویژه',
+    desc: 'هات‌داگ بزرگ با پنیر، چیلی، و ترشی مخصوص',
+    price: '۱۵تومان',
+  },
+  { id:7,
+    title: 'مرغ سوخاری اسپایسی',
+    desc: 'مرغ تند و سوخاری با طعمی بی‌نظیر',
+    price: '۲۰تومان',
+  },
+  { id:8,
+    title: 'کباب لقمه زعفرانی',
+    desc: 'کباب سنتی ایرانی با عطر زعفران و کره',
+    price: '۳۲تومان',
+  },
+] as FoodMenuItem[];
+
+export const faMonths = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
+export const faDays = ["ش", "ی", "د", "س", "چ", "پ", "ج"];

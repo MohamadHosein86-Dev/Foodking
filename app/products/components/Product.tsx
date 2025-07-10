@@ -1,5 +1,6 @@
-import AddToCartHome from "@/components/addTocarthome/AddToCartHome";
-import { Product } from "@/servises/api-product";
+import AddToCartHome from "@/app/components/home/addTocarthome/AddToCartHome";
+import { Product } from "@/app/Types/DataType";
+import Image from "next/image";
 import Link from "next/link";
 
 interface DataType {
@@ -8,13 +9,13 @@ interface DataType {
 export default function ProductCard({ data }: DataType) {
   return (
     <div className="group relative  bg-white cursor-pointer w-full sm:max-w-[30rem] overflow-hidden rounded-xl block">
-      {/* لایه زرد با افکت از بالا به پایین */}
       <div className="absolute inset-0  bg-[#FFB936] origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-in-out rounded-xl z-0" />
 
-      {/* محتوای رویی */}
       <div className="relative z-10 w-full  flex justify-center mt-6  px-8 rounded-[1rem] py-14 mb-6">
         <Link href={`/products/${data.slug}`}>
-          <img className="w-[16rem] z-[100000] h-[11.5rem] object-contain" src={data.image} alt={data.name} />
+          <div className="relative w-[16rem] h-[11.5rem] z-[100000]">
+            <Image src={data.image} alt={data.name} layout="fill" objectFit="contain" />
+          </div>
         </Link>
         <div className="size-[2.5rem] flex items-center justify-center rounded-[5px] hover:bg-[#fff] transition ease-in delay-300 bg-black absolute top-[-.5rem] right-[1rem] z-20">
           <svg className="pt-[2px] text-red-500 size-[1.7rem]" fill="none" strokeWidth="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

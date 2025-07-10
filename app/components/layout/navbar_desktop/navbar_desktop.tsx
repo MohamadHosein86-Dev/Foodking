@@ -34,7 +34,7 @@ export default function Navbar_desktop() {
           {showBox10 && (
             <motion.div className="absolute right-[0] top-[2.5rem] bg-white shadow-lg rounded-md w-[14rem] overflow-hidden" initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.2 }}>
               <ul className="flex flex-col text-right text-[#212121]">
-                <Link onClick={() => setShowBox10(false)} className="  text-[#515151] hover:text-[#ffff] transition ease-in delay-150 hover:bg-[#D12525] py-[1rem]  border-b-[1px] border-b-[#eaeaea]    " href={"/shop/chef"}>
+                <Link onClick={() => setShowBox10(false)} className="  text-[#515151] hover:text-[#ffff] transition ease-in delay-150 hover:bg-[#D12525] py-[1rem]  border-b-[1px] border-b-[#eaeaea]    " href={"/chef"}>
                   <span className="  font-semibold    px-[1rem]  ">آشپز</span>
                 </Link>
                 <Link onClick={() => setShowBox10(false)} className="  text-[#515151] hover:text-[#ffff] transition ease-in delay-150 hover:bg-[#D12525] py-[1rem]  border-b-[1px] border-b-[#eaeaea]    " href={"/food-menu"}>
@@ -115,9 +115,7 @@ export default function Navbar_desktop() {
                 <Link onClick={() => setShowBox20(false)} className="  text-[#515151] hover:text-[#ffff] transition ease-in delay-150 hover:bg-[#D12525] py-[1rem]  border-b-[1px] border-b-[#eaeaea]    " href={"/dashboard/favarit"}>
                   <span className="  font-semibold    px-[1rem]  ">لیست علاقه مندی</span>
                 </Link>
-                <Link onClick={() => setShowBox20(false)} className="  text-[#515151] hover:text-[#ffff] transition ease-in delay-150 hover:bg-[#D12525] py-[1rem]  border-b-[1px] border-b-[#eaeaea]    " href={"/cart"}>
-                  <span className="  font-semibold    px-[1rem]  ">پرداخت</span>
-                </Link>
+
                 <Link onClick={() => setShowBox20(false)} className="  text-[#515151] hover:text-[#ffff] transition ease-in delay-150 hover:bg-[#D12525] py-[1rem]     " href={"/my-account"}>
                   <span className="  font-semibold    px-[1rem]  "> حساب کاربری من </span>
                 </Link>

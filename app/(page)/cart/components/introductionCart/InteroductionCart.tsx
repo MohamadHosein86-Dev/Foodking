@@ -2,7 +2,7 @@ import React from "react";
 import { FaTrash, FaUser } from "react-icons/fa";
 import CartProducs from "../cartProducts/CartProducts";
 
-export default function IntroductionCart({ totalCount }: { totalCount: number }) {
+export default function IntroductionCart({ totalCount }: { totalCount: number | undefined }) {
   return (
     <section className=" bg-[#fff] flex gap-[1.5rem] mx-auto max-w-[80rem] px-4 py-[4rem] ">
       <CartProducs />

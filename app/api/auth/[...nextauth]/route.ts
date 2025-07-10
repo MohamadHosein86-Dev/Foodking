@@ -1,13 +1,31 @@
 import NextAuth, { NextAuthOptions, User, Session } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { JWT } from "next-auth/jwt";
-import { refreshAccessToken } from "@/servises/auth";
+import { refreshAccessToken } from "@/app/servises/auth/refreshAccessToken/refreshAccessToken";
+
+
+declare module "next-auth" {
+  interface User {
+    phone?: string | null;
+  }
+
+  interface Session {
+    user: {
+      name?: string | null;
+      email?: string | null;
+      image?: string | null;
+      phone?: string | null;
+    };
+    accessToken?: string;
+    refreshToken?: string;
+  }
+}
 
 interface ExtendedUser extends User {
   accessToken: string;
   refreshToken: string;
   accessTokenExpires: number;
-  phone?: string;
+  phone?: string | null;
 }
 
 interface ExtendedToken extends JWT {
@@ -15,13 +33,18 @@ interface ExtendedToken extends JWT {
   refreshToken: string;
   accessTokenExpires: number;
   user: {
-    name?: string;
-    email?: string;
-    phone?: string;
+    name?: string | null;
+    email?: string | null;
+    phone?: string | null;
   };
 }
 
 interface ExtendedSession extends Session {
+  user: {
+    name?: string | null;
+    email?: string | null;
+    phone?: string | null;
+  };
   accessToken: string;
   refreshToken: string;
 }
@@ -69,31 +92,30 @@ export const authOptions: NextAuthOptions = {
     async jwt({ token, user }) {
       const extendedToken = token as ExtendedToken;
 
-      // First login
       if (user) {
         const u = user as ExtendedUser;
         extendedToken.accessToken = u.accessToken;
         extendedToken.refreshToken = u.refreshToken;
         extendedToken.accessTokenExpires = u.accessTokenExpires;
         extendedToken.user = {
-          name: u.name ?? undefined,
-          email: u.email ?? undefined,
-          phone: u.phone,
+          name: u.name ?? null,
+          email: u.email ?? null,
+          phone: u.phone ?? null,
         };
         return extendedToken;
       }
 
-      // Token still valid
       if (Date.now() < (extendedToken.accessTokenExpires ?? 0)) {
         return extendedToken;
       }
 
-      // Token expired, try to refresh
+      // Token expired, refresh it
       return await refreshAccessToken(extendedToken);
     },
 
     async session({ session, token }) {
       const extendedToken = token as ExtendedToken;
+
       const extendedSession: ExtendedSession = {
         ...session,
         user: extendedToken.user,

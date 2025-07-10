@@ -1,21 +1,10 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import type { Metadata } from "next";
 import { SessionProviderWrapper } from "./components/authenticationuser/SessionProviderWrapper";
 import ScrollToTopOnLoad from "./components/animation/scrolltotoponload/ScrollToTopOnLoad";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import QueryProvider from "./provider/reactQueryProvider/ReactQueryProvider";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"]
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"]
-});
 
 export const metadata: Metadata = {
   title: "Foodking",
@@ -28,14 +17,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fn">
-      {" "}
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@500..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
-      </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+    <html>
+      <head></head>
+      <body>
         <QueryProvider>
           <SessionProviderWrapper>
             <ScrollToTopOnLoad />

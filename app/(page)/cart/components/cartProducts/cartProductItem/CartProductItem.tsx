@@ -1,9 +1,10 @@
 "use client";
-import { useDeleteToCart } from "@/hooks/useDeleteToCart";
+import { useDeleteToCart } from "@/app/hooks/useDeleteToCart";
+import { Product } from "@/app/Types/DataType";
 import { useState } from "react";
 import { FaStar, FaTrash } from "react-icons/fa";
 
-export default function CartProductItem({ data, count }: any) {
+export default function CartProductItem({ data, count }: { data: Product; count: number | undefined }) {
   const { description, name, id: productId, price, image } = data;
 
   const [id, setid] = useState("");

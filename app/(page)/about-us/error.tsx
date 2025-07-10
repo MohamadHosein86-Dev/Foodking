@@ -1,8 +1,9 @@
 "use client";
-export default function Error() {
+export default function Error({ error }: { error: { message: string } }) {
+  const { message } = error;
   return (
     <div>
-      <p></p>
+      <p>{message}</p>
     </div>
   );
 }

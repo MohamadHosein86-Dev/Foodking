@@ -1,4 +1,4 @@
-import { getProducts } from "@/servises/api-product";
+import { getProducts } from "@/app/servises/products/product";
 import ProductCard from "./Product";
 
 interface PropsType {

@@ -1,5 +1,5 @@
 "use client";
-import { useGetCart } from "@/hooks/useCart";
+import { useGetCart } from "@/app/hooks/useCart";
 import CartProductItem from "./cartProductItem/CartProductItem";
 
 export default function CartProducs() {

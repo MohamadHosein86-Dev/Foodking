@@ -5,10 +5,10 @@ import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import { FaBars, FaShoppingBasket, FaUser } from "react-icons/fa";
 import { FaTruckFast } from "react-icons/fa6";
-import Modal from "../modal/Modal";
-import ModalLoginUser from "../authenticationuser/ModalLoginUser";
+import Modal from "../modal/modal/Modal";
 import Isauthenticated from "../authenticationuser/Isauthenticated";
-import { useGetCart } from "@/hooks/useCart";
+import { useGetCart } from "@/app/hooks/useCart";
+import ModalLoginUser from "../modal/modalLoginUser/ModalLoginUser";
 
 interface PropsType {
   showSticky: boolean;
@@ -38,20 +38,13 @@ export default function AnimationHeader({ showSticky }: PropsType) {
                     </Modal>
                     <FaBars onClick={() => setOpen(true)} className=" block xl:hidden cursor-pointer " size={30} color="#212121" />
                   </Isauthenticated>
-                  <button
-                    className="relative overflow-hidden outline-none rounded-md cursor-pointer  bg-[#D12525] text-white font-bold 
-                    w-[15rem] py-[1rem] pb-[1.3rem] px-[1rem] xl:flex hidden items-center justify-center gap-[.5rem] group h-16"
-                  >
-                    {/* لایه انیمیشنی با ترنزیشن scale از وسط */}
+                  <button className="relative overflow-hidden outline-none rounded-md cursor-pointer  bg-[#D12525] text-white font-bold   w-[15rem] py-[1rem] pb-[1.3rem] px-[1rem] xl:flex hidden items-center justify-center gap-[.5rem] group h-16">
                     <span className="absolute inset-0 bg-[#00813D] scale-0 origin-center transition-transform duration-500 ease-out group-hover:scale-100 z-0 rounded-md" />
-
-                    {/* محتوای دکمه بالای لایه رنگ */}
                     <span className="relative z-10 flex items-center gap-2 text-base group-hover:text-white">
                       اکنون سفارش دهید
                       <FaTruckFast size={22} className="text-white transition-all duration-500" />
                     </span>
                   </button>
-
                   <Link href={"/cart"} className=" hidden xl:flex items-center gap-[1.5rem] relative  ">
                     <div className=" bg-[#212121] cursor-pointer top-[-.5rem] left-[-.5rem] absolute  w-[1.2rem] text-[.6rem] pb-[0] pr-[1px] rounded-[.8rem] h-[1.2rem] flex justify-center items-center text-[#fcfbfe] ">
                       <span>{totalCount}</span>
@@ -167,9 +160,7 @@ export default function AnimationHeader({ showSticky }: PropsType) {
                             <Link onClick={() => setShowBox3(false)} className="  text-[#515151] hover:text-[#ffff] transition ease-in delay-150 hover:bg-[#D12525] py-[1rem]  border-b-[1px] border-b-[#eaeaea]    " href={"/dashboard/favarit"}>
                               <span className="  font-semibold    px-[1rem]  ">لیست علاقه مندی</span>
                             </Link>
-                            <Link onClick={() => setShowBox3(false)} className="  text-[#515151] hover:text-[#ffff] transition ease-in delay-150 hover:bg-[#D12525] py-[1rem]  border-b-[1px] border-b-[#eaeaea]    " href={"/cart"}>
-                              <span className="  font-semibold    px-[1rem]  ">پرداخت</span>
-                            </Link>
+
                             <Link onClick={() => setShowBox3(false)} className="  text-[#515151] hover:text-[#ffff] transition ease-in delay-150 hover:bg-[#D12525] py-[1rem]     " href={"/my-account"}>
                               <span className="  font-semibold    px-[1rem]  "> حساب کاربری من </span>
                             </Link>

@@ -1,7 +1,8 @@
+import { IntrductionType } from "@/app/Types/DataType";
 import React, { Fragment } from "react";
 
-export default function InterItem({ data }: any) {
-  const { titel, content, id } = data;
+export default function InterItem({ data }: { data: IntrductionType }) {
+  const { title, content, id } = data;
   return (
     <div className="flex w-full gap-2 justify-center items-start">
       <Fragment>
@@ -33,7 +34,7 @@ export default function InterItem({ data }: any) {
         )}
       </Fragment>
       <div className="flex flex-col gap-y-3">
-        <h3 className="font-bold text-[16px]">{titel}</h3>
+        <h3 className="font-bold text-[16px]">{title}</h3>
         <p className=" w-full text-gray-700 md:max-w-52 font-semibold ">{content}</p>
       </div>
     </div>

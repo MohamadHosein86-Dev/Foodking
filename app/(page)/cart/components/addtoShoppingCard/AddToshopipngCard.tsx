@@ -5,12 +5,12 @@ import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
 import { useState } from "react";
 import { GiShoppingCart } from "react-icons/gi";
-import { useAddToCart } from "@/hooks/useAddToCart";
-import { useGetCart } from "@/hooks/useCart";
-import { useDeleteToCart } from "@/hooks/useDeleteToCart";
+import { useAddToCart } from "@/app/hooks/useAddToCart";
+import { useGetCart } from "@/app/hooks/useCart";
+import { useDeleteToCart } from "@/app/hooks/useDeleteToCart";
 import Loader from "@/app/components/loader/Loader";
 
-export default function AddToShoppingCard({ name, title, newPrice, productId, productImage }: { productId: string; name: string; title: string; newPrice: string; oldPrice: string | null; category: string[]; productImage: string }) {
+export default function AddToShoppingCard({ name, title, newPrice, productId, productImage }: { productId: string; name: string; title: string; newPrice: string; oldPrice: string | null; category?: string[]; productImage: string }) {
   const [counter, setCounter] = useState<number>(0);
   const [description, setDescription] = useState<number>(1);
   const [score, setScore] = useState<number>(0);

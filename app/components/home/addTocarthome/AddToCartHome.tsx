@@ -1,6 +1,6 @@
 "use client";
-import { useAddToCart } from "@/hooks/useAddToCart";
-import { useGetCart } from "@/hooks/useCart";
+import { useAddToCart } from "@/app/hooks/useAddToCart";
+import { useGetCart } from "@/app/hooks/useCart";
 import React from "react";
 
 export default function AddToCartHome({ id }: { id: string }) {

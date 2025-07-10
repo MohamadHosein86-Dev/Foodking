@@ -8,13 +8,12 @@ export default function ScrollToTopOnLoad() {
     const scrollToTop = () => {
       window.scrollTo({
         top: 0,
-        behavior: "smooth" // انیمیشن اسکرول
+        behavior: "smooth"
       });
     };
 
-    // صبر کن تا DOM لود شه بعد اسکرول کن
     setTimeout(scrollToTop, 100);
   }, []);
 
-  return null; // چیزی نمایش نمی‌ده چون فقط اثر جانبی داره
+  return null;
 }

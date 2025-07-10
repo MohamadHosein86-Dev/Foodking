@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { FaChevronLeft } from "react-icons/fa";
-import AddToshopipngCard from "@/components/related_ProductPage/AddToshopipngCard";
-import { getProduct } from "@/servises/api-product";
+import { getProduct } from "@/app/servises/products/product";
+import AddToShoppingCard from "@/app/(page)/cart/components/addtoShoppingCard/AddToshopipngCard";
 
 interface ProductPageProps {
   params: {
@@ -48,7 +48,7 @@ export default async function ProductstPage({ params }: ProductPageProps) {
       </div>
 
       <section className="w-full flex justify-center min-h-[550px]  ">
-        <AddToshopipngCard productId={product.id} name={product.name} newPrice={product.price} productImage={product.image} title={product.description} oldPrice={product.price} />
+        <AddToShoppingCard productId={product.id} name={product.name} newPrice={product.price} productImage={product.image} title={product.description} oldPrice={product.price} />
       </section>
     </div>
   );
