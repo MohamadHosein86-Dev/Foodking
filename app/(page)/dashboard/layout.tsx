@@ -1,6 +1,8 @@
 "use client";
 
+import LoadingFoodking from "@/app/components/loader/Loading";
 import PanleUserPage from "@/app/components/panleUserPage/panleUserPage";
+import TitlePages from "@/app/components/titelPges/TitelPges";
 import BtnProfile from "@/app/components/ui/btn/BtnProfile";
 import Container from "@/app/components/ui/container/container";
 import { signOut, useSession } from "next-auth/react";
@@ -8,16 +10,20 @@ import { usePathname, useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 export default function ProfileUser() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const name = session?.user?.name && session.user.name;
   const phone = session?.user?.phone && session.user.phone;
+  console.log("kobs = ", phone, name);
 
   const pathname = usePathname();
   const ruoterLink = useRouter();
   const [, setshowmodal] = useState(false);
 
+  if (status == "loading") return <LoadingFoodking />;
+
   return (
     <section dir="rtl" className=" pb-[5rem] mb-[3rem]  ">
+      <TitlePages currentpage={"داشبورد"} nextPage="داشبورد" secondPage=" داشبورد" />
       <Container flex={"flex gap-[2rem] "}>
         <div className="  rounded-[16px] flex flex-col gap-[.8rem] w-full md:w-[35rem] lg:w-[30rem]  xl:basis-[30%] ">
           <div className=" rounded-[15px] px-[2rem]  border-[1px] border-[#E7E7E8]  py-[1.5rem] flex gap-[1rem]  w-full ">

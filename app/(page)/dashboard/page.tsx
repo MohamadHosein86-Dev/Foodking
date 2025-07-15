@@ -1,10 +1,18 @@
 import { useSession } from "next-auth/react";
 
 export default function Acount() {
-  const { data: session } = useSession();
-  const name = session?.user?.name && session.user.name;
-  const email = session?.user?.email && session.user.email;
-  const phone = session?.user?.phone && session.user.phone;
+  const { data: session, status } = useSession();
+
+  if (status === "loading") {
+    return <div>در حال دریافت اطلاعات کاربر...</div>;
+  }
+  if (status === "unauthenticated") {
+    return <div>شما وارد نشده‌اید.</div>;
+  }
+
+  const name = session?.user?.name;
+  const email = session?.user?.email;
+  const phone = session?.user?.phone;
   return (
     <div className=" hidden  md:block gap-[2rem] rounded-[16px] border-[1px] border-[#E7E7E8] w-[50rem]  xl:basis-[70%] ">
       <div className=" px-[2rem]  border-b-[1px] border-b-[#E7E7E8]  py-[1.5rem] flex justify-between  w-full ">

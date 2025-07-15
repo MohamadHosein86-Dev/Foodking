@@ -3,10 +3,11 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { JWT } from "next-auth/jwt";
 import { refreshAccessToken } from "@/app/servises/auth/refreshAccessToken/refreshAccessToken";
 
-
 declare module "next-auth" {
   interface User {
     phone?: string | null;
+    name?: string | null;
+    email?: string | null;
   }
 
   interface Session {
@@ -25,7 +26,6 @@ interface ExtendedUser extends User {
   accessToken: string;
   refreshToken: string;
   accessTokenExpires: number;
-  phone?: string | null;
 }
 
 interface ExtendedToken extends JWT {
@@ -40,11 +40,6 @@ interface ExtendedToken extends JWT {
 }
 
 interface ExtendedSession extends Session {
-  user: {
-    name?: string | null;
-    email?: string | null;
-    phone?: string | null;
-  };
   accessToken: string;
   refreshToken: string;
 }
@@ -56,6 +51,8 @@ export const authOptions: NextAuthOptions = {
       credentials: {
         phone: { label: "Phone", type: "text" },
         code: { label: "Code", type: "text" },
+        name: { label: "Name", type: "text" },
+        email: { label: "Email", type: "text" },
       },
       async authorize(credentials) {
         if (!credentials) return null;
@@ -77,6 +74,8 @@ export const authOptions: NextAuthOptions = {
           return {
             id: credentials.phone,
             phone: credentials.phone,
+            name: credentials.name ,
+            email: credentials.email ,
             accessToken: data.accessToken,
             refreshToken: data.refreshToken,
             accessTokenExpires: Date.now() + (data.expiresIn || 3600) * 1000,
@@ -109,7 +108,6 @@ export const authOptions: NextAuthOptions = {
         return extendedToken;
       }
 
-      // Token expired, refresh it
       return await refreshAccessToken(extendedToken);
     },
 
@@ -118,7 +116,12 @@ export const authOptions: NextAuthOptions = {
 
       const extendedSession: ExtendedSession = {
         ...session,
-        user: extendedToken.user,
+        user: {
+          name: extendedToken.user.name,
+          email: extendedToken.user.email,
+          phone: extendedToken.user.phone,
+          image: null,
+        },
         accessToken: extendedToken.accessToken,
         refreshToken: extendedToken.refreshToken,
       };

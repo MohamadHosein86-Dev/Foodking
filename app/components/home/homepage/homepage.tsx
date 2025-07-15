@@ -15,7 +15,7 @@ export default function Homepage() {
       <PitzaSec showSticky={false} open={true} />
       <AboutChefSec />
       <OrderSec />
-      {/* <ProductSection /> */}
+      <ProductSection />
       <SliderSec />
       <PizaaOederSec />
       <SwiperSec />

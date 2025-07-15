@@ -1,6 +1,5 @@
 import AddToCartHome from "@/app/components/home/addTocarthome/AddToCartHome";
 import { Product } from "@/app/Types/DataType";
-import Image from "next/image";
 import Link from "next/link";
 
 interface DataType {
@@ -14,7 +13,7 @@ export default function ProductCard({ data }: DataType) {
       <div className="relative z-10 w-full  flex justify-center mt-6  px-8 rounded-[1rem] py-14 mb-6">
         <Link href={`/products/${data.slug}`}>
           <div className="relative w-[16rem] h-[11.5rem] z-[100000]">
-            <Image src={data.image} alt={data.name} layout="fill" objectFit="contain" />
+            <img src={data.image} alt={data.name} />
           </div>
         </Link>
         <div className="size-[2.5rem] flex items-center justify-center rounded-[5px] hover:bg-[#fff] transition ease-in delay-300 bg-black absolute top-[-.5rem] right-[1rem] z-20">
