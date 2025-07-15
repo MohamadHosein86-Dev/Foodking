@@ -6,10 +6,8 @@ import TitlePages from "@/app/components/titelPges/TitelPges";
 import LoadingFoodking from "@/app/components/loader/Loading";
 
 export default function Cart() {
-  const { status, data } = useSession();
+  const { status } = useSession();
   const { totalCount, isLoading } = useGetCart();
-
-  console.log("nanat = ", data);
 
   if (status === "loading" || isLoading) {
     return <LoadingFoodking />;

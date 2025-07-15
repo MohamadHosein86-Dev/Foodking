@@ -2,16 +2,16 @@ import Link from "next/link";
 import { FaChevronLeft } from "react-icons/fa";
 import { getProduct } from "@/app/servises/products/product";
 import AddToShoppingCard from "@/app/(page)/cart/components/addtoShoppingCard/AddToshopipngCard";
+import { PageProps } from "@/.next/types/app/page";
 
-interface ProductPageProps {
+type Props = PageProps & {
   params: {
     slug: string;
   };
-}
-export default async function ProductstPage({ params }: ProductPageProps) {
+};
+export default async function ProductstPage({ params }: Props) {
   const slug = params.slug;
   const product = await getProduct(slug);
-  console.log("kir");
 
   return (
     <div>

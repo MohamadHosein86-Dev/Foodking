@@ -1,6 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { SessionProviderWrapper } from "./components/authenticationuser/SessionProviderWrapper";
+import { SessionProviderWrapper } from "./components/authenticationUser/SessionProviderWrapper";
 import ScrollToTopOnLoad from "./components/animation/scrolltotoponload/ScrollToTopOnLoad";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";

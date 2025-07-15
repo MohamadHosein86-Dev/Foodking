@@ -1,8 +1,7 @@
 import { Fragment } from "react";
-
-import MotorSycle from "@/app/components/MotorCycelComponents/MotorSycle";
-import ContactItem from "./contactItem/ContactItem";
 import IntroductionConatct from "../introductionConatct/IntroductionConatct";
+import ContactItem from "./contactItem/ContactItem";
+import MotorSycle from "@/app/components/MotorCycelComponents/MotorSycle";
 
 export default function ContactItems() {
   return (

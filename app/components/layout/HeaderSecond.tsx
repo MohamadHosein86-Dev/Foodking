@@ -6,7 +6,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { FaPinterestP, FaTruck, FaTwitter, FaVimeoV } from "react-icons/fa";
 import { FaFacebookF, FaTruckFast } from "react-icons/fa6";
 import AnimationHeader from "./AnimationHeader";
-import Isauthenticated from "../authenticationuser/Isauthenticated";
+import Isauthenticated from "../authenticationUser/Isauthenticated";
 import { useGetCart } from "@/app/hooks/useCart";
 
 export default function HeaderSecond() {

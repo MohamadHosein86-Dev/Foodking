@@ -1,21 +1,17 @@
 "use client";
-import { AnimatePresence, motion } from "framer-motion";
+import Isauthenticated from "../authenticationUser/Isauthenticated";
 import Link from "next/link";
+import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import React, { useState } from "react";
-import { FaBars, FaShoppingBasket, FaUser } from "react-icons/fa";
+import { useState } from "react";
 import { FaTruckFast } from "react-icons/fa6";
-import Modal from "../modal/modal/Modal";
-import Isauthenticated from "../authenticationuser/Isauthenticated";
 import { useGetCart } from "@/app/hooks/useCart";
-import ModalLoginUser from "../modal/modalLoginUser/ModalLoginUser";
 
 interface PropsType {
   showSticky: boolean;
 }
 export default function AnimationHeader({ showSticky }: PropsType) {
   const curentUrl = usePathname();
-  const [open, setOpen] = useState(false);
   const [showBox, setShowBox] = useState(false);
   const [showBox2, setShowBox2] = useState(false);
   const [showBox3, setShowBox3] = useState(false);
@@ -31,13 +27,7 @@ export default function AnimationHeader({ showSticky }: PropsType) {
             <div className={` z-[100000]  ${curentUrl == "/" ? "border-b-[1px] border-[#f4f1ea42] " : " border-none "} `}>
               <div className={`  text-[#fcfbfe] mx-auto max-w-[82rem] py-[.4rem] items-center flex justify-between  sm:px-[1.6rem] `}>
                 <div className=" flex items-center gap-[5rem] md:gap-[1.5rem] ">
-                  <Isauthenticated>
-                    <FaUser onClick={() => setOpen(true)} size={22} color="#D12525" className=" cursor-pointer " />
-                    <Modal center={true} isOpen={open} onClose={() => setOpen(false)}>
-                      <ModalLoginUser setOpen={setOpen} />
-                    </Modal>
-                    <FaBars onClick={() => setOpen(true)} className=" block xl:hidden cursor-pointer " size={30} color="#212121" />
-                  </Isauthenticated>
+                  <Isauthenticated totalCount={totalCount} />
                   <button className="relative overflow-hidden outline-none rounded-md cursor-pointer  bg-[#D12525] text-white font-bold   w-[15rem] py-[1rem] pb-[1.3rem] px-[1rem] xl:flex hidden items-center justify-center gap-[.5rem] group h-16">
                     <span className="absolute inset-0 bg-[#00813D] scale-0 origin-center transition-transform duration-500 ease-out group-hover:scale-100 z-0 rounded-md" />
                     <span className="relative z-10 flex items-center gap-2 text-base group-hover:text-white">
@@ -45,12 +35,6 @@ export default function AnimationHeader({ showSticky }: PropsType) {
                       <FaTruckFast size={22} className="text-white transition-all duration-500" />
                     </span>
                   </button>
-                  <Link href={"/cart"} className=" hidden xl:flex items-center gap-[1.5rem] relative  ">
-                    <div className=" bg-[#212121] cursor-pointer top-[-.5rem] left-[-.5rem] absolute  w-[1.2rem] text-[.6rem] pb-[0] pr-[1px] rounded-[.8rem] h-[1.2rem] flex justify-center items-center text-[#fcfbfe] ">
-                      <span>{totalCount}</span>
-                    </div>
-                    <FaShoppingBasket className="  text-[#D12525] cursor-pointer " size={24} />
-                  </Link>
                 </div>
                 <div className=" hidden xl:flex text-[#212121] gap-[2rem] relative ">
                   <Link className="hover:text-[#00813D]  cursor-pointer    transition ease-in delay-150 font-medium" href="/contact">

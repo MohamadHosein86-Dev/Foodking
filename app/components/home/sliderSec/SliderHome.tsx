@@ -1,18 +1,15 @@
 "use client";
 import { FaTruckFast } from "react-icons/fa6";
 import ImageSliderHome from "./ImageSliderHome";
-import { Fragment } from "react";
+import ScrollAnimation from "../../animation/scrollanimation/ScrollAnimation";
 
 export default function SliderSec() {
   return (
-    <Fragment>
+    <ScrollAnimation direction="up" delay={0.3}>
       <div dir="rtl" className="flex flex-col md:flex-row">
-        {/* اسلایدر */}
         <div className="w-full h-[22rem] md:h-[120%]  md:w-[65%]">
           <ImageSliderHome />
         </div>
-
-        {/* باکس قرمز کناری */}
         <div className="w-full md:basis-[35%] text-white bg-sliderhome bg-[#D12525]  px-[5rem] ">
           <div>
             <p className="text-[1rem] md:text-[1.2rem] font-semibold mt-[1.9rem] ">معامله روز</p>
@@ -32,6 +29,6 @@ export default function SliderSec() {
           </div>
         </div>
       </div>
-    </Fragment>
+    </ScrollAnimation>
   );
 }

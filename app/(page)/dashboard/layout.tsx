@@ -13,7 +13,6 @@ export default function ProfileUser() {
   const { data: session, status } = useSession();
   const name = session?.user?.name && session.user.name;
   const phone = session?.user?.phone && session.user.phone;
-  console.log("kobs = ", phone, name);
 
   const pathname = usePathname();
   const ruoterLink = useRouter();

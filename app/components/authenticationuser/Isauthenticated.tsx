@@ -32,7 +32,7 @@ export default function Isauthenticated({ totalCount }: PropsType) {
   if (status === "unauthenticated") {
     return (
       <div>
-        <FaUser onClick={() => setOpen(true)} size={22} color="#ffff" className=" cursor-pointer " />
+        <FaUser onClick={() => setOpen(true)} size={22} color="#FFB936" className=" cursor-pointer " />
         <Modal center={true} isOpen={open} onClose={() => setOpen(false)}>
           <ModalLoginUser setOpen={setOpen} />
         </Modal>

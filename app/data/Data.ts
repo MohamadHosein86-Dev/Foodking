@@ -1,4 +1,4 @@
-import { BlogDataType, FaqsType, FoodMenuItem, IntrductionType } from "../Types/DataType";
+import { BlogDataType, FaqsType,  FoodMenuItemType,  IntrductionType } from "../Types/DataType";
 
 export const BlogData = [
   {
@@ -150,7 +150,7 @@ export const FoodMenuItems = [
     desc: 'کباب سنتی ایرانی با عطر زعفران و کره',
     price: '۳۲تومان',
   },
-] as FoodMenuItem[];
+] as FoodMenuItemType[];
 
 export const faMonths = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
 export const faDays = ["ش", "ی", "د", "س", "چ", "پ", "ج"];

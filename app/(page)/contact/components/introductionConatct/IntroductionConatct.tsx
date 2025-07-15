@@ -1,5 +1,4 @@
 import FormContact from "../formContact/FormContact";
-import MapCountanerShop from "../mapContact/MapCountaner";
 
 export default function IntroductionConatct() {
   return (
@@ -9,9 +8,9 @@ export default function IntroductionConatct() {
         <h2 className=" font-bold text-[2.2rem] pb-[.4rem] text-right   ">در تماس باشید</h2>
         <p className=" text-right text-[#5C5C5B] ">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
         <p className=" text-right text-[#5C5C5B] ">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
-        <div className=" w-[40rem] py-[2rem] h-[30rem] pl-[6rem] flex justify-end ">
+        {/* <div className=" w-[40rem] py-[2rem] h-[30rem] pl-[6rem] flex justify-end ">
           <MapCountanerShop />
-        </div>
+        </div> */}
       </div>
     </div>
   );
