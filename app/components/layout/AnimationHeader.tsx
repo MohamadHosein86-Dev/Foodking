@@ -1,5 +1,5 @@
 "use client";
-import Isauthenticated from "../authenticationUser/Isauthenticated";
+import Isauthenticated from "../authenticationuser/Isauthenticated";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";

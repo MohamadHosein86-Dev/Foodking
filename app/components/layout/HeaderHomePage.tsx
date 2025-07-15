@@ -5,7 +5,7 @@ import { FaTruckFast } from "react-icons/fa6";
 import { useGetCart } from "@/app/hooks/useCart";
 import { usePathname } from "next/navigation";
 import AnimationHeader from "./AnimationHeader";
-import Isauthenticated from "../authenticationUser/Isauthenticated";
+import Isauthenticated from "../authenticationuser/Isauthenticated";
 import Navbar_desktop from "./navbar_desktop/navbar_desktop";
 
 export default function HeaderHomePage() {
