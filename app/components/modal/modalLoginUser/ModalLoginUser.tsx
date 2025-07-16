@@ -81,14 +81,9 @@ export default function ModalLoginUser({ setOpen }: PropsType) {
   }
 
   return (
-    <div className="p-8 max-w-[90rem] z-[10000000] mt-10 h-full text-black px-9 py-9 mx-auto">
+    <div className="p-8 max-w-[90rem] z-[10000000]  h-full text-black px-9 py-8 mx-auto">
       <div className="flex justify-between items-center mb-6">
-        {step === "verify" && (
-          <svg onClick={() => setStep("signup")} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.8} stroke="currentColor" className="cursor-pointer text-[#5C5C5B] size-5">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-          </svg>
-        )}
-        <h1 className="text-xl text-[#d15858] font-semibold text-center w-full"> ورود به فودکینگ </h1>
+        <h1 className="text-xl text-[#d15858] font-black text-center w-full">{step === "verify" ? " ثبت نام در فودکینگ" : "  ورود به فودکینگ "}</h1>
         <button onClick={() => setOpen(false)} className="text-[#5C5C5B] p-1 rounded-full text-2xl">
           ×
         </button>
