@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
 import { FaFacebookF, FaPinterestP, FaTwitter, FaVimeoV } from "react-icons/fa";
+import Image from "next/image";
 
 function Footer() {
   return (
@@ -104,21 +105,13 @@ function Footer() {
             </ul>
           </div>
 
-          <motion.img
-            initial={{ y: 200 }} // starts higher, then moves down
-            whileInView={{ y: -140 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: false, amount: 0.2 }}
-            className=" hidden xl:block  opacity-[.28] absolute right-[-4.7rem] top-[20rem]"
-            src="https://modinatheme.com/foodking/wp-content/uploads/2024/02/burger-shape-3.png"
-            alt=""
-          />
+          <motion.img initial={{ y: 200 }} whileInView={{ y: -140 }} transition={{ duration: 1 }} viewport={{ once: false, amount: 0.2 }} className=" hidden xl:block  opacity-[.28] absolute right-[-4.7rem] top-[20rem]" src="https://modinatheme.com/foodking/wp-content/uploads/2024/02/burger-shape-3.png" alt="" />
         </div>
       </section>
 
       <section className="bg-[#00813d]">
         <div className="   mx-auto max-w-[82rem] py-[2.8rem] gap-[2rem] text-right items-center flex-wrap-reverse flex justify-center lg:justify-between px-[1rem] ">
-          <img height={10} width={10} src="https://modinatheme.com/foodking/wp-content/uploads/2024/02/card-1.png" alt="" />
+          <Image height={250} width={250} src="https://modinatheme.com/foodking/wp-content/uploads/2024/02/card-1.png" alt="" />
           <h2 className=" text-[#ffff] font-medium text-[1.2rem] ">
             {" "}
             . کپی رایت <span className=" text-[#ffb936] ">2024</span> فودکینگ . تمامی حقوق محفوظ است ©{" "}

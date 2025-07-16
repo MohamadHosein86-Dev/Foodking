@@ -3,15 +3,13 @@ import Isauthenticated from "../authenticationuser/Isauthenticated";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaTruckFast } from "react-icons/fa6";
 import { useGetCart } from "@/app/hooks/useCart";
 
-interface PropsType {
-  showSticky: boolean;
-}
-export default function AnimationHeader({ showSticky }: PropsType) {
-  const curentUrl = usePathname();
+export default function AnimationHeader() {
+  const Pathname = usePathname();
+  const [showHeader, setShowHeader] = useState(false);
   const [showBox, setShowBox] = useState(false);
   const [showBox2, setShowBox2] = useState(false);
   const [showBox3, setShowBox3] = useState(false);
@@ -19,12 +17,26 @@ export default function AnimationHeader({ showSticky }: PropsType) {
   const [y, setShowBox20] = useState(false);
   const name = x && y;
   const { totalCount = 0 } = useGetCart();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY >= 180) {
+        setShowHeader(true);
+      } else {
+        setShowHeader(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <AnimatePresence>
-      {showSticky && (
+      {showHeader && (
         <motion.div initial={{ y: -80, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -80, opacity: 0 }} transition={{ duration: 0.3 }} className="fixed top-0 left-0 w-full bg-white shadow-xl z-[100000] px-4 py-3">
           <div className=" bg-[#ffff]  ">
-            <div className={` z-[100000]  ${curentUrl == "/" ? "border-b-[1px] border-[#f4f1ea42] " : " border-none "} `}>
+            <div className={` z-[100000]  ${Pathname == "/" ? "border-b-[1px] border-[#f4f1ea42] " : " border-none "} `}>
               <div className={`  text-[#fcfbfe] mx-auto max-w-[82rem] py-[.4rem] items-center flex justify-between  sm:px-[1.6rem] `}>
                 <div className=" flex items-center gap-[5rem] md:gap-[1.5rem] ">
                   <Isauthenticated totalCount={totalCount} />

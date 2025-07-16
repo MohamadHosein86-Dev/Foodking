@@ -11,8 +11,9 @@ import MiniLoader from "../loader/MiniLoader";
 
 interface PropsType {
   totalCount: number;
+  home?: boolean;
 }
-export default function Isauthenticated({ totalCount }: PropsType) {
+export default function Isauthenticated({ totalCount, home }: PropsType) {
   const { data: session, status } = useSession();
   const [open, setOpen] = useState(false);
   const router = useRouter();
@@ -32,7 +33,7 @@ export default function Isauthenticated({ totalCount }: PropsType) {
   if (status === "unauthenticated") {
     return (
       <div>
-        <FaUser onClick={() => setOpen(true)} size={22} color="#FFB936" className=" cursor-pointer " />
+        <FaUser onClick={() => setOpen(true)} size={22} className={` ${home ? " text-black " : " text-[#FFB936] "}  cursor-pointer `} />
         <Modal center={true} isOpen={open} onClose={() => setOpen(false)}>
           <ModalLoginUser setOpen={setOpen} />
         </Modal>
@@ -43,12 +44,12 @@ export default function Isauthenticated({ totalCount }: PropsType) {
   if (status === "authenticated") {
     return (
       <div className=" flex gap-8 ">
-        <FaUser onClick={() => router.push("/dashboard")} size={22} color="#D12525" className=" cursor-pointer " />
+        <FaUser onClick={() => router.push("/dashboard")} size={22} className={` ${home ? " text-[#ffff] " : " text-[#D12525] "}  cursor-pointer `} />
         <Link href={"/cart"} className=" hidden xl:flex items-center gap-[1.5rem] relative  ">
           <div className=" bg-[#212121] cursor-pointer top-[-8px] left-[-.5rem] absolute  w-[1.2rem] text-[.6rem] pb-[0] pr-[1px] rounded-[.8rem] h-[1.2rem] flex justify-center items-center text-[#fcfbfe] ">
             <span className=" mb-[2px] ">{totalCount}</span>
           </div>
-          <FaShoppingBasket className="  text-[#D12525] cursor-pointer " size={24} />
+          <FaShoppingBasket className={` ${home ? " text-[#ffff] " : " text-[#D12525] "}  cursor-pointer  `} size={24} />
         </Link>
       </div>
     );

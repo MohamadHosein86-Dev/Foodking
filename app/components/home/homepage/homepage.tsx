@@ -8,6 +8,7 @@ import SliderSec from "../sliderSec/SliderHome";
 import SwiperSec from "../swiperSec/swiperhome";
 import BlogSec from "../blogSec/BlogSec";
 import MessageSec from "../messageSec/MessageSec";
+import ScrollToTopButton from "../scrollToTopButton/ScrollToTopButton";
 
 export default function Homepage() {
   return (
@@ -22,6 +23,7 @@ export default function Homepage() {
       <CommentsSec />
       <BlogSec />
       <MessageSec />
+      <ScrollToTopButton />
     </section>
   );
 }

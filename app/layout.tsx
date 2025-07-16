@@ -1,7 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { SessionProviderWrapper } from "./components/authenticationuser/SessionProviderWrapper";
-import ScrollToTopOnLoad from "./components/animation/scrolltotoponload/ScrollToTopOnLoad";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import QueryProvider from "./provider/reactQueryProvider/ReactQueryProvider";
@@ -22,7 +21,6 @@ export default function RootLayout({
       <body>
         <QueryProvider>
           <SessionProviderWrapper>
-            <ScrollToTopOnLoad />
             <Header />
             {children}
             <Footer />
