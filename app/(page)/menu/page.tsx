@@ -8,10 +8,10 @@ export default function Menu() {
   return (
     <section dir="rtl">
       <TitlePages currentpage="منو غذا " nextPage="صفحه اصلی" secondPage="فروشگاه" />
-      <div className="my-[140px] w-full">
+      <div className="my-36 w-full">
         <h5 className="text-center text-[var(--primaryColor)] my-2 font-bold">درباره غذای ما</h5>
         <h2 className="text-center  text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold">منوی غذای پرطرفدار</h2>
-        <div className="  grid grid-cols-1 lg:grid-cols-12 gap-4 gap-y-12  border-1 border-dotted mx-5 xl:mx-auto max-w-[79rem]  py-[4.5rem] my-5 rounded-2xl  px-[2rem] lg-px-0">
+        <div className="  grid grid-cols-1 lg:grid-cols-12 gap-4 gap-y-12  border-1 border-dotted mx-5 xl:mx-auto max-w-7xl  py-18 my-5 rounded-2xl  px-8 lg-px-0">
           {FoodMenuItems.map((res) => (
             <FoodMenuItem key={res.id} data={res} />
           ))}

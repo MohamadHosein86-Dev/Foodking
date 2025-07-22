@@ -2,9 +2,9 @@ import { FaSearch } from "react-icons/fa";
 
 export default function FormSearch() {
   return (
-    <form className=" relative w-[31%] ">
-      <input className=" border-[2px] text-black font-semibold pb-[12px] pr-[.5rem] rounded-[.5rem] py-[.4rem] w-[100%] border-gray-300 " placeholder="جستجو" type="text" />
-      <span className=" absolute top-[1rem] left-[.7rem] ">
+    <form className=" relative w-3/10 ">
+      <input className=" border-2 text-black font-semibold pb-3 pr-2 rounded-lg py-1.5 w-full border-gray-300 " placeholder="جستجو" type="text" />
+      <span className=" absolute top-4 left-3 ">
         <FaSearch color="gray" />
       </span>
     </form>

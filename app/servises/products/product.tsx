@@ -65,7 +65,7 @@ export const getCart = async (token: string) => {
   return data as Cart;
 };
 
-export const deleteFromCart = async (id: string, token: string) => {
+export const deleteToCart = async (id: string, token: string) => {
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/cart/${id}`, {
       method: "DELETE",

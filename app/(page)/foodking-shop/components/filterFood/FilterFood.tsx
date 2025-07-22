@@ -2,7 +2,7 @@ import BtnFoodkingShop from "@/app/components/ui/btn/BtnFoodkingShop";
 
 export default function FilterFood() {
   return (
-    <div className=" flex items-center gap-[.5rem]  ">
+    <div className=" flex items-center gap-2  ">
       <BtnFoodkingShop Title="همه" />
       <BtnFoodkingShop Title="برگرها" />
       <BtnFoodkingShop Title="روتی" />

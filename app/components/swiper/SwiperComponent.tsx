@@ -26,7 +26,7 @@ export default function SwiperComponent() {
 
   const rotateHamburgur = useTransform(forhumbarger.scrollYProgress, [0, 0.2, 0.4], [60, 180, 270]);
   return (
-    <div className="bg-slate-150  max-w-[80rem]  mx-auto flex w-full h-[600px]">
+    <div className="bg-slate-150  max-w-7xl  mx-auto flex w-full h-[37.5rem]">
       <section className=" hidden w-1/5 h-full xl:flex justify-center items-center">
         <div className="flex items-center h-full w-full">
           <motion.div className="w-30 ml-12 rotate-180 transition-all duration-500 " ref={hamburger} style={{ rotate: rotateHamburgur }}>

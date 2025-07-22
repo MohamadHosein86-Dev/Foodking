@@ -22,7 +22,7 @@ export default function AddToShoppingCard({ name, title, newPrice, productId, pr
   const count = cartproducts?.find((item) => item.product.id === productId);
 
   return (
-    <div className="flex mt-18 max-w-[80rem] mx-auto flex-wrap justify-center h-full w-2/3">
+    <div className="flex mt-18 max-w-7xl mx-auto flex-wrap justify-center h-full w-2/3">
       <div className="flex-row-reverse flex flex-wrap w-full justify-center items-center">
         <section className="lg:w-1/2 md:w-full w-full flex justify-end items-center">
           <img src={productImage} className="" alt="" />
@@ -108,7 +108,7 @@ export default function AddToShoppingCard({ name, title, newPrice, productId, pr
         </section>
       </div>
 
-      <div className="w-full h-[700px] mt-12">
+      <div className="w-full h-[43.75rem] mt-12">
         <div className="mt-8 flex w-full space-x-12 justify-end">
           <button onClick={() => setDescription(2)} className={`lg:h-18 md:h-18 h-12 w-48 ${description === 2 ? "bg-amber-400" : "bg-slate-100"} font-semibold duration-500 text-black text-lg rounded-md hover:bg-amber-400`}>
             بررسی ها
@@ -138,8 +138,8 @@ export default function AddToShoppingCard({ name, title, newPrice, productId, pr
 
             <form className="w-full flex flex-wrap gap-x-16">
               <textarea className="lg:mt-12 md:mt-2 mt-2 lg:h-24 md:h-28 h-18 text-right mb-8 py-2 w-full border-1 border-slate-200 px-6" placeholder="نظر خود را بنویسید" />
-              <input className="w-[600px] h-12 text-right px-6 border-slate-200 border-1 bg-amber-200 rounded-md" placeholder="ایمیل" />
-              <input className="w-[600px] h-12 text-right px-6 border-slate-200 border-1 bg-amber-200 rounded-md" placeholder="اسم" />
+              <input className="w-[37.5rem] h-12 text-right px-6 border-slate-200 border-1 bg-amber-200 rounded-md" placeholder="ایمیل" />
+              <input className="w-[37.5rem] h-12 text-right px-6 border-slate-200 border-1 bg-amber-200 rounded-md" placeholder="اسم" />
               <div className="w-full flex text-right justify-end gap-x-2 mt-4">
                 <p>ذخیره نام، ایمیل و وبسایت من در مرورگر برای زمانی که دوباره دیدگاهی می‌نویسم</p>
                 <input type="checkbox" className="text-right border-slate-200 border-1 bg-amber-200 rounded-md" />

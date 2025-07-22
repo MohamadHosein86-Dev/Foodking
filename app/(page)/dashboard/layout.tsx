@@ -21,19 +21,19 @@ export default function ProfileUser() {
   if (status == "loading") return <LoadingFoodking />;
 
   return (
-    <section dir="rtl" className=" pb-[5rem] mb-[3rem]  ">
+    <section dir="rtl" className=" pb-20 mb-12  ">
       <TitlePages currentpage={"داشبورد"} nextPage="داشبورد" secondPage=" داشبورد" />
-      <Container flex={"flex gap-[2rem] "}>
-        <div className="  rounded-[16px] flex flex-col gap-[.8rem] w-full md:w-[35rem] lg:w-[30rem]  xl:basis-[30%] ">
-          <div className=" rounded-[15px] px-[2rem]  border-[1px] border-[#E7E7E8]  py-[1.5rem] flex gap-[1rem]  w-full ">
-            <img className=" w-[3rem] " src="/e2946bbdae579b021ad972a47e0370a956703380.png" alt="" />
-            <p onClick={() => {}} className=" flex-col justify-center cursor-pointer flex  gap-[4px] text-[#B19276] ">
+      <Container flex={"flex gap-8 "}>
+        <div className="  rounded-2xl flex flex-col gap-3 w-full md:w-140 lg:w-120  xl:basis-3/10 ">
+          <div className=" rounded-2xl px-8  border-1 border-[#E7E7E8]  py-6 flex gap-4  w-full ">
+            <img className=" w-12 " src="/e2946bbdae579b021ad972a47e0370a956703380.png" alt="" />
+            <p onClick={() => {}} className=" flex-col justify-center cursor-pointer flex  gap-1 text-[#B19276] ">
               <span className=" text-sm text-[#3C3D45] font-semibold ml-auto ">{name}</span>
               <span className=" text-sm text-[#3C3D45] font-semibold ">{phone}</span>
             </p>
           </div>
 
-          <div className=" rounded-[15px]  pb-[1rem] px-[1rem] flex-col border-[1px] border-[#E7E7E8] gap-[.3rem] py-[1.5rem] flex  ">
+          <div className=" rounded-2xl  pb-4 px-4 flex-col border-1 border-[#E7E7E8] gap-1 py-6 flex  ">
             <BtnProfile onclick={() => ruoterLink.push(`/dashboard`)} icon={"user"} rout="/dashboard">
               حساب کاربری
             </BtnProfile>

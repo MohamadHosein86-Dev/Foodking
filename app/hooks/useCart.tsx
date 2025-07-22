@@ -1,8 +1,8 @@
 "use client";
 import { ExtendedSession } from "@/app/Types/DataType";
-import { getCart } from "@/app/servises/products/product";
 import { useQuery, keepPreviousData } from "@tanstack/react-query";
 import { useSession } from "next-auth/react";
+import { getCart } from "../servises/products/product";
 
 export function useGetCart() {
   const { data: session } = useSession() as { data: ExtendedSession | null };
@@ -14,7 +14,7 @@ export function useGetCart() {
       return getCart(session.refreshToken);
     },
     enabled: !!session?.refreshToken,
-    placeholderData: keepPreviousData, // prevent data flash on reload
+    placeholderData: keepPreviousData // prevent data flash on reload
   });
 
   const totalPrice = data?.totalPrice;

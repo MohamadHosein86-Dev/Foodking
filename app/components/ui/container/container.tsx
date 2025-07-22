@@ -6,5 +6,5 @@ interface PropsType {
 }
 export default function Container({ children, flex }: PropsType) {
   const flexBox = flex ? flex : "";
-  return <div className={` ${flexBox} pt-[8rem]   max-w-[82rem] px-[1rem] sm:px-[3rem]  mx-auto  gap-[1rem] xl:px-[1.6rem]  py-[.7rem] `}>{children}</div>;
+  return <div className={`${flexBox} pt-32 max-w-7xl px-4 sm:px-12 mx-auto gap-4 xl:px-6 py-3`}>{children}</div>;
 }

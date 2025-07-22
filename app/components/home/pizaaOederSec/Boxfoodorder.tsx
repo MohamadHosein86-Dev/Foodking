@@ -6,13 +6,13 @@ interface propsType {
 }
 export default function Boxfoodorder({ logo, Title }: propsType) {
   return (
-    <div className=" flex  items-center mt-[6rem]  ">
-      <img className=" max-w-[11rem] sm:max-w-[8rem] " src={logo} alt="" />
-      <div className=" text-center flex flex-col items-center max-w-[17rem] mr-[-2rem] ">
-        <h2 className=" font-bold text-[1.2rem] sm:text-[1.8rem] w-[72%]  ">{Title}</h2>
-        <span className="relative mt-[1rem] cursor-pointer text-[15px] font-bold flex items-center gap-[.5rem] text-black hover:text-red-600 transition-colors duration-300 group">
+    <div className=" flex  items-center mt-24  ">
+      <img className=" max-w-44 sm:max-w-32 " src={logo} alt="" />
+      <div className=" text-center flex flex-col items-center max-w-68 -mr-8 ">
+        <h2 className=" font-bold text-lg sm:text-2xl w-[72%]  ">{Title}</h2>
+        <span className="relative mt-4 cursor-pointer text-base font-bold flex items-center gap-2 text-black hover:text-red-600 transition-colors duration-300 group">
           اکنون سفارش دهید <FaArrowLeft />
-          <span className="absolute bottom-0 right-0 h-[2px] w-0 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
+          <span className="absolute bottom-0 right-0 h-0.5 w-0 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
         </span>
       </div>
     </div>

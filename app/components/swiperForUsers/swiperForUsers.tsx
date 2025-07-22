@@ -19,7 +19,7 @@ export default function SwipperComponents() {
   return (
     <>
       <Swiper
-        className="h-[300px] sm:h-[240px] md:h-[240px] lg:h-[240px] xl:h-[200px] 2xl:h-[200px] w-full"
+        className="h-75 sm:h-60 md:h-60 lg:h-60 xl:h-50 2xl:h-50 w-full"
         style={
           {
             "--swiper-pagination-color": "#880808",
@@ -54,7 +54,7 @@ export default function SwipperComponents() {
         </SwiperSlide>
       </Swiper>
 
-      <Swiper spaceBetween={2} slidesPerView={1} className="lg:mt-[-9rem] w-full" modules={[Thumbs]} watchSlidesProgress onSwiper={setThumbsSwiper}>
+      <Swiper spaceBetween={2} slidesPerView={1} className="lg:-mt-36 w-full" modules={[Thumbs]} watchSlidesProgress onSwiper={setThumbsSwiper}>
         <SwiperSlide>
           <SwiperForUsers_Images url="https://t-theme.com/foodking/wp-content/uploads/2024/02/02-1.jpg" />
         </SwiperSlide>

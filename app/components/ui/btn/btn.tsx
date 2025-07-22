@@ -5,7 +5,7 @@ interface propsType {
 }
 export default function Btn({ style, text, icon }: propsType) {
   return (
-    <button className={` ${style ? style : ""}  outline-none   transition-all ease delay-200 cursor-pointer   flex items-center justify-center gap-[.5rem] border-[1px] border-[#ffff] text-center px-[1rem]  py-[1rem] pb-[1.3rem] font-bold `}>
+    <button className={` ${style ? style : ""} outline-none transition-all ease delay-200 cursor-pointer flex items-center justify-center gap-2 border border-white text-center px-4 py-4 pb-5 font-bold `}>
       {icon && (
         <span>
           <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" height="22" width="22" xmlns="http://www.w3.org/2000/svg">

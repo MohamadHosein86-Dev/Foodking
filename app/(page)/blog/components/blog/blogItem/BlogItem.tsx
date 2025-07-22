@@ -30,15 +30,15 @@ export default function BlogItem({ title, desc, image }: { title: string; desc: 
           </span>
         </div>
       </div>
-      <div className="my-[40px]">
-        <div className="my-[40px] relative w-full lg:h-[700px] h-[400px]">
+      <div className="my-10">
+        <div className="my-10 relative w-full lg:h-[700px] h-[400px]">
           <Image className="rounded-2xl object-center cover" src={image} alt="تصویر غذا" fill />
         </div>
-        <h1 className="text-[44px] font-bold">{title}</h1>
-        <h4 className="text-[18px] my-[40px] font-bold" style={{ color: "var(--textColor)" }}>
+        <h1 className="text-5xl font-bold">{title}</h1>
+        <h4 className="text-lg my-10 font-bold" style={{ color: "var(--textColor)" }}>
           {desc}
         </h4>
-        <a href="#" className="flex items-center w-[200px] font-bold hover:[color:var(--primaryColor)] transition-all">
+        <a href="#" className="flex items-center w-52 font-bold hover:[color:var(--primaryColor)] transition-all">
           <span className="me-1 text-xl">مشاهده بیشتر </span>
           <span>
             <FaArrowLeft size="20px" />

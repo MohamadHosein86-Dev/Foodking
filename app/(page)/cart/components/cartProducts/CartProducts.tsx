@@ -27,8 +27,8 @@ export default function CartProducs() {
   }
 
   return (
-    <section className=" h-[700px] basis-[60%] border-[2px] px-[1.3rem] rounded-[.8rem] border-gray-300  ">
-      <div dir="rtl" className="overflow-x-auto h-[93%] flex flex-col mt-[1.3rem] gap-[2rem]">
+    <section className=" h-[43.75rem] basis-3/5 border-2 px-5 rounded-lg border-gray-300  ">
+      <div dir="rtl" className="overflow-x-auto h-[93%] flex flex-col mt-5 gap-8">
         {cartproducts?.map((res, index: number) => {
           const count = cartproducts.find((item) => item.product.id === res.product.id);
           return <CartProductItem key={index} data={res.product} count={count?.count} />;

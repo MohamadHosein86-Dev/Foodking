@@ -60,14 +60,14 @@ export default function ImageSliderHome() {
 
       {/* دکمه‌های جابجایی */}
       <div className="flex flex-col absolute md:top-[45%] left-[45%] top-[92%]  md:left-0 ">
-        <button onClick={() => paginate(-1)} className="cursor-pointer hidden  md:flex items-center justify-center bg-[#FFB936] -translate-y-1/2 size-[3.6rem] font-bold">
+        <button onClick={() => paginate(-1)} className="cursor-pointer hidden  md:flex items-center justify-center bg-[#FFB936] -translate-y-1/2 size-14 font-bold">
           <FaArrowLeft />
         </button>
-        <button onClick={() => paginate(1)} className="cursor-pointer hidden  md:flex items-center justify-center -translate-y-1/2 bg-white text-black size-[3.6rem] font-bold">
+        <button onClick={() => paginate(1)} className="cursor-pointer hidden  md:flex items-center justify-center -translate-y-1/2 bg-white text-black size-14 font-bold">
           <FaArrowRight />
         </button>
 
-        <button onClick={() => paginate(-1)} className="cursor-pointer  flex md:hidden   items-center justify-center bg-[#FFB936] -translate-y-1/2 size-[3.6rem] font-bold">
+        <button onClick={() => paginate(-1)} className="cursor-pointer  flex md:hidden   items-center justify-center bg-[#FFB936] -translate-y-1/2 size-14 font-bold">
           <FaArrowUp />
         </button>
       </div>

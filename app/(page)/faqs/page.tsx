@@ -7,9 +7,9 @@ export default function Faqs() {
     <div className="w-full">
       <TitlePages currentpage="سوالات متداول" nextPage="صفحه اصلی" secondPage="سوالات متداول" />
       <div className="flex flex-col justify-center items-center my-4">
-        <div className="title mb-[0rem] mt-[6rem] flex items-center justify-center flex-col gap-y-2">
+        <div className="title mb-0 mt-24 flex items-center justify-center flex-col gap-y-2">
           <p className="text-green-700  font-bold ">سوالات پرتکرار</p>
-          <p className="text-[40px] font-bold   ">سوالات متداول</p>
+          <p className="text-4xl font-bold   ">سوالات متداول</p>
         </div>
         <div className="max-w-5xl mx-auto mt-10 space-y-4">
           {FaqsData.map((faq, index) => (

@@ -8,8 +8,8 @@ export default function Testimonial() {
     <div className="w-full bg-[#F4F1EA]">
       <AnimationTestimonial />
       <TitlePages currentpage="گواهینامه" nextPage="صفحه اصلی" secondPage="رزرواسیون" />
-      <div className="mt-[6rem] mb-[2rem] flex w-full flex-wrap items-end justify-center space-y-4">
-        <div className="grid max-w-[82rem] grid-cols-1 gap-[2rem] px-[1rem] py-[.7rem] sm:grid-cols-2 sm:px-[3rem] xl:grid-cols-3 xl:px-[1.6rem]">
+      <div className="mt-24 mb-8 flex w-full flex-wrap items-end justify-center space-y-4">
+        <div className="grid max-w-7xl grid-cols-1 gap-8 px-4 py-3 sm:grid-cols-2 sm:px-12 xl:grid-cols-3 xl:px-6">
           <MoreAboutTestimonial role="بلاگر مواد غذایی" testimonialName="فرانک اچ. هیوستون" imageUrl="https://modinatheme.com/foodking/wp-content/uploads/2024/03/09.jpg" />
           <MoreAboutTestimonial role="توسعه دهنده" testimonialName="جین کوپر" imageUrl="https://modinatheme.com/foodking/wp-content/uploads/2024/03/08.jpg" />
           <MoreAboutTestimonial role="عاشق غذا" testimonialName="کنت میکس" imageUrl="https://modinatheme.com/foodking/wp-content/uploads/2024/03/11.jpg" />

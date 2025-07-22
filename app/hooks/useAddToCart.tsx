@@ -1,8 +1,8 @@
 import { ExtendedSession } from "@/app/Types/DataType";
-import { addToCart } from "@/app/servises/products/product";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { addToCart } from "../servises/products/product";
 
 export function useAddToCart(productId: string) {
   const { data: session } = useSession() as { data: ExtendedSession | null };

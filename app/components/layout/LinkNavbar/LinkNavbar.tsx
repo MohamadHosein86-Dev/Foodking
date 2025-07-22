@@ -1,5 +1,4 @@
 "use clinet";
-import React from "react";
 
 interface PropsType {
   onMouseEnter: () => void;

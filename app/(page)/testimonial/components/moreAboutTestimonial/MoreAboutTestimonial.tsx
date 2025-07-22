@@ -16,11 +16,11 @@ export default function MoreAboutTestimonial({ role, testimonialName, imageUrl }
   const [onAction, setonAction] = useState(false);
 
   return (
-    <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} onMouseEnter={() => setonAction(true)} onMouseLeave={() => setonAction(false)} className=" w-[370px] flex flex-wrap  h-[500px]  ">
-      <div className="h-[400px] w-full   relative">
-        <div className={`${onAction ? "rotate-3" : "rotate-0"} rounded-xl absolute top-0 left-0 w-[280px] sm:w-[345px] h-96  border-2 border-dotted border-green-500 transition-all ease-in-out duration-500`}></div>
-        <div style={{ backgroundImage: `url(${imageUrl})` }} className={`bg-[url(${imageUrl})] bg-center absolute bottom-0  right-0 rounded-xl  w-[260px] sm:w-[345px] h-96 `}></div>
-        <div className={`${onAction ? "opacity-100" : "opacity-0"}  transition-all ease-in-out duration-500 flex justify-center items-center   bg-[url(/socialNetworkLists.png)] absolute -[50px] scale-x-150  -right-4 top-24 h-52`}>
+    <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} onMouseEnter={() => setonAction(true)} onMouseLeave={() => setonAction(false)} className=" w-92 flex flex-wrap  h-[31.25rem]  ">
+      <div className="h-[25rem] w-full   relative">
+        <div className={`${onAction ? "rotate-3" : "rotate-0"} rounded-xl absolute top-0 left-0 w-70 sm:w-86 h-96  border-2 border-dotted border-green-500 transition-all ease-in-out duration-500`}></div>
+        <div style={{ backgroundImage: `url(${imageUrl})` }} className={`bg-[url(${imageUrl})] bg-center absolute bottom-0  right-0 rounded-xl  w-65 sm:w-86 h-96 `}></div>
+        <div className={`${onAction ? "opacity-100" : "opacity-0"}  transition-all ease-in-out duration-500 flex justify-center items-center   bg-[url(/socialNetworkLists.png)] absolute -12 scale-x-150  -right-4 top-24 h-52`}>
           <motion.div className=" flex flex-wrap w-6 ml-3 justify-center items-center mt-3 text-white  space-y-5">
             <Link href={"#"}>
               <FaFacebookF className="w-full" />

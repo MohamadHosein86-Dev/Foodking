@@ -1,7 +1,7 @@
-import  { NextAuthOptions, User, Session } from "next-auth";
+import { NextAuthOptions, User, Session } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { JWT } from "next-auth/jwt";
-import { refreshAccessToken } from "@/app/servises/auth/refreshAccessToken/refreshAccessToken";
+import { refreshAccessToken } from "@/app/servises/authenticatin/auth";
 
 declare module "next-auth" {
   interface User {
@@ -73,8 +73,8 @@ export const authOptions: NextAuthOptions = {
           return {
             id: credentials.phone,
             phone: credentials.phone,
-            name: credentials.name ,
-            email: credentials.email ,
+            name: credentials.name,
+            email: credentials.email,
             accessToken: data.accessToken,
             refreshToken: data.refreshToken,
             accessTokenExpires: Date.now() + (data.expiresIn || 3600) * 1000,

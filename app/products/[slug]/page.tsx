@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { FaChevronLeft } from "react-icons/fa";
-import { getProduct } from "@/app/servises/products/product";
 import AddToShoppingCard from "@/app/(page)/cart/components/addtoShoppingCard/AddToshopipngCard";
 import { PageProps } from "@/.next/types/app/page";
+import { getProduct } from "@/app/servises/products/product";
 
 type Props = PageProps & {
   params: {

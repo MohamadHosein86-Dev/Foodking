@@ -9,7 +9,7 @@ export default async function ProductList({ Home }: PropsType) {
 
   if (Home)
     return (
-      <div className="sm:px-[1rem] md:px-0 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 mt-[3rem] gap-[1.5rem]">
+      <div className="sm:px-4 md:px-0 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 mt-12 gap-6">
         {products?.map((res) => (
           <ProductCard key={res.id} data={res} />
         ))}
