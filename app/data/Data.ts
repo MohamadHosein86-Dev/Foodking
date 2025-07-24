@@ -195,3 +195,37 @@ export const testimonials = [
     avatar: "/pages/menu_1/avatar01.jpg"
   }
 ];
+
+export const pagesMenu = [
+  { label: "آشپز", href: "/chef" },
+  { label: "منوی غذا", href: "/food-menu" },
+  { label: "گالری", href: "/gallery" },
+  { label: "گواهینامه", href: "/testimonial" },
+  { label: "رزرواسیون", href: "/reservation" },
+  { label: "سوالات متداول", href: "/faqs" },
+];
+
+export const blogMenu = [
+  { label: "وبلاگ", href: "/blog" },
+];
+
+export const shopMenu = [
+  { label: "لیست فروشگاه", href: "/foodking-shop" },
+  { label: "سبد خرید", href: "/cart" },
+  { label: "لیست علاقه مندی", href: "/dashboard/favarit" },
+  { label: "حساب کاربری من", href: "/my-account" },
+];
+
+export const quickLinks = [
+  { label: "خدمات", href: "/" },
+  { label: "درباره شرکت", href: "/" },
+  { label: "آخرین اخبار", href: "/" },
+  { label: "گواهینامه ها", href: "/" },
+];
+
+export const accountLinks = [
+  { label: "پروفایل من", href: "/" },
+  { label: "تاریخچه سفارشات", href: "/" },
+  { label: "لیست علاقه مندی", href: "/" },
+  { label: "سبد خرید", href: "/" },
+]; 

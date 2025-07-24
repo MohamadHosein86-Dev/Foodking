@@ -1,9 +1,9 @@
 "use client";
 
 import LoadingFoodking from "@/app/components/loader/Loading";
-import PanleUserPage from "@/app/components/panleUserPage/panleUserPage";
+import PanleUserPage from "@/app/(page)/dashboard/components/panleUserPage";
 import TitlePages from "@/app/components/titelPges/TitelPges";
-import BtnProfile from "@/app/components/ui/btn/BtnProfile";
+import BtnProfile from "@/app/components/ui/btn/BtnDashboardUser";
 import Container from "@/app/components/ui/container/container";
 import { signOut, useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";

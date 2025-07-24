@@ -1,8 +1,8 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { SessionProviderWrapper } from "./provider/sessionProviderWrapper/SessionProviderWrapper";
-import Header from "./components/layout/Header";
-import Footer from "./components/layout/Footer";
+import Header from "./components/layout/header/Header";
+import Footer from "./components/layout/footer/Footer";
 import QueryProvider from "./provider/reactQueryProvider/ReactQueryProvider";
 
 export const metadata: Metadata = {

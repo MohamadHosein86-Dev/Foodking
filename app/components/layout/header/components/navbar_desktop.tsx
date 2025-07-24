@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import LinkNavbar from "../LinkNavbar/LinkNavbar";
+import LinkNavbar from "./LinkNavbar";
 
 export default function Navbar_desktop() {
   const [showBox2, setShowBox2] = useState(false);

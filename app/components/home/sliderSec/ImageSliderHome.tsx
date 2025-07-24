@@ -11,7 +11,6 @@ export default function ImageSliderHome() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // تشخیص موبایل بودن
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
@@ -57,8 +56,6 @@ export default function ImageSliderHome() {
       <AnimatePresence custom={direction}>
         <motion.img key={index} src={images[index]} custom={direction} variants={variants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.6 }} className="absolute w-full h-full object-cover" />
       </AnimatePresence>
-
-      {/* دکمه‌های جابجایی */}
       <div className="flex flex-col absolute md:top-[45%] left-[45%] top-[92%]  md:left-0 ">
         <button onClick={() => paginate(-1)} className="cursor-pointer hidden  md:flex items-center justify-center bg-[#FFB936] -translate-y-1/2 size-14 font-bold">
           <FaArrowLeft />
@@ -66,7 +63,6 @@ export default function ImageSliderHome() {
         <button onClick={() => paginate(1)} className="cursor-pointer hidden  md:flex items-center justify-center -translate-y-1/2 bg-white text-black size-14 font-bold">
           <FaArrowRight />
         </button>
-
         <button onClick={() => paginate(-1)} className="cursor-pointer  flex md:hidden   items-center justify-center bg-[#FFB936] -translate-y-1/2 size-14 font-bold">
           <FaArrowUp />
         </button>

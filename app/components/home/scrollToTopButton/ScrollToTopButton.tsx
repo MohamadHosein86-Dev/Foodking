@@ -21,8 +21,7 @@ export default function ScrollToTopButton() {
     <button
       onClick={scrollToTop}
       className={`fixed bottom-5 left-5 z-50 text-xl font-bold bg-white border-2 text-[#D12525] flex justify-center items-center size-12 p-3 rounded-full shadow-lg cursor-pointer transition-all duration-300 ease-in-out
-        ${showButton ? "opacity-100 scale-100" : "opacity-0 scale-0 pointer-events-none"}
-      `}
+        ${showButton ? "opacity-100 scale-100" : "opacity-0 scale-0 pointer-events-none"} `}
       style={{ borderColor: "#D12525" }}
     >
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="size-10">
