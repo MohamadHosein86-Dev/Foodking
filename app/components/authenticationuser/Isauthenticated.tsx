@@ -30,7 +30,7 @@ export default function Isauthenticated({ totalCount, home }: PropsType) {
           <FaUser onClick={() => setOpen(true)} size={24} className={` ${home ? " text-[#ffff] " : " text-[#D12525] "}  cursor-pointer `} />
           <Link href={"/cart"}>
             <FaShoppingBasket className={`  ${home ? " text-[#ffff] " : " text-[#D12525] "}  cursor-pointer  `} size={28} />
-            <div className={`  px-2 rounded-md font-semibold  absolute right-[2px] bottom-[24px] text-white ${home ? "bg-[#FFB936]" : " bg-[#D12525]"} `}>
+            <div className={` pb-[1px] px-2 rounded-md font-semibold  absolute right-[2px] bottom-[24px] text-white ${home ? "bg-[#FFB936]" : " bg-[#D12525]"} `}>
               <span>{totalCount}</span>
             </div>
           </Link>
@@ -44,12 +44,13 @@ export default function Isauthenticated({ totalCount, home }: PropsType) {
 
   if (status === "authenticated") {
     return (
-      <div className=" flex gap-8 mt-4 ">
+      <div className=" flex gap-8 mt-0 xl:mt-4 ">
+        <MobileMenu />
         <div className=" hidden xl:flex items-center gap-8 relative  ">
           <FaUser onClick={() => router.push("/dashboard")} size={24} className={` mb-1 ${home ? " text-[#FFB936] " : " text-[#D12525] "}  cursor-pointer `} />
           <Link href={"/cart"}>
             <FaShoppingBasket className={` ${home ? " text-[#ffff] " : " text-[#D12525] "}  cursor-pointer  `} size={28} />
-            <div className={`  px-2 rounded-md font-semibold  absolute right-[2px] bottom-[24px] text-white ${home ? "bg-[#FFB936]" : " bg-[#D12525]"} `}>
+            <div className={` pb-[1px]  px-2 rounded-md font-semibold  absolute right-[2px] bottom-[24px] text-white ${home ? "bg-[#FFB936]" : " bg-[#D12525]"} `}>
               <span>{totalCount}</span>
             </div>
           </Link>

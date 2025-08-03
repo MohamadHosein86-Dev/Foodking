@@ -3,7 +3,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { FaClock, FaEnvelope, FaMapMarker, FaPhone } from "react-icons/fa";
 import { AnimatePresence, motion } from "framer-motion";
-import { TbTruckDelivery } from "react-icons/tb";
 
 export default function ModalHeader() {
   const [showBox, setShowBox] = useState(false);
@@ -12,11 +11,11 @@ export default function ModalHeader() {
   const [, setShowBox10] = useState(false);
   const [, setShowBox20] = useState(false);
   return (
-    <div className="pr-8 pb-8 w-full h-full bg-white rounded-lg pt-8 ">
+    <div className="pr-8 pb-0 w-full h-full bg-white rounded-lg pt-6 ">
       <div className=" flex justify-end items-center ">
         <img className=" " src="https://t-theme.com/foodking/wp-content/uploads/2024/08/U_U_O¯U©U_U_U¯_14-transformed.png" alt="" />
       </div>
-      <div dir="rtl" className="  font-semibold mt-8 mb-24  flex-col-reverse flex text-[#5C5C5B] gap-8  ">
+      <div dir="rtl" className="  font-semibold mt-8   flex-col-reverse flex text-[#5C5C5B] gap-8  ">
         <Link className="hover:text-[#00813D]  cursor-pointer    transition ease-in delay-150 font-medium" href="/contact">
           تماس باما{" "}
         </Link>
@@ -143,7 +142,7 @@ export default function ModalHeader() {
         </Link>
       </div>
       <div dir="rtl" className="  font-semibold mt-8 text-lg flex flex-col gap-4 text-[#212121] ">
-        <h2 className=" mb-6 font-semibold text-2xl ">اطلاعات تماس</h2>
+        <h2 className=" mb-4 font-semibold text-2xl ">اطلاعات تماس</h2>
         <div className=" flex gap-4 items-center ">
           <FaMapMarker color="#D12525" />
           <p className="">خیابان اصلی، ملبورن، استرالیا</p>
@@ -160,13 +159,6 @@ export default function ModalHeader() {
           <p className="">+۹۰۹۹۴۵۳۲۱۱۰۰</p>
         </div>
 
-        <button className=" w-full h-16 md:h-16 mb-6 group relative font-semibold rounded-xl text-white bg-[#00813D] ">
-          <div className="w-full h-full cursor-pointer z-10  absolute inset-0 flex items-center justify-center space-x-1 font-semibold">
-            <TbTruckDelivery className=" text-white transition-all duration-500  text-xl md:text-2xl" />
-            <h1>اکنون سفارش دهید</h1>
-          </div>
-          <span className="absolute inset-0 w-full  rounded-xl bg-[#D12525] scale-0 group-hover:scale-100 transition-all duration-500 ease-out origin-center"></span>
-        </button>
         <div className="   mb-4 flex gap-6">
           <div className="group bg-[#5c5c5b1a] h-10 w-10 rounded-full cursor-pointer flex items-center justify-center transition-colors duration-200 hover:bg-[#D12525]">
             <div className="text-[#212121] group-hover:text-white transition-colors duration-200">

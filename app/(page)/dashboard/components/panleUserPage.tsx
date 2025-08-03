@@ -1,5 +1,4 @@
 "use client";
-
 import FavaritPage from "@/app/(page)/dashboard/favarit/page";
 import MyLocationPage from "@/app/(page)/dashboard/mylocation/page";
 import OrdersPage from "@/app/(page)/dashboard/order/page";

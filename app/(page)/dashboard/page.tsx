@@ -15,7 +15,7 @@ export default function Acount() {
   const email = session?.user?.email;
   const phone = session?.user?.phone;
   return (
-    <div className=" hidden  md:block gap-8 rounded-2xl border-1 border-[#E7E7E8] w-200  xl:basis-7/10 ">
+    <div className="  gap-8 rounded-2xl border-1 border-[#E7E7E8] basis-3xl  xl:basis-7/10 ">
       <div className=" px-8  border-b-1 border-b-[#E7E7E8]  py-6 flex justify-between  w-full ">
         <h2 className="  text-[#23242E] font-bold flex gap-1  ">
           حساب من
@@ -30,7 +30,7 @@ export default function Acount() {
         <p className=" font-semibold  ">نام : </p>
         <p className=" ">{name}</p>
       </div>
-      <div className=" p-8 flex gap-4 items-center ">
+      <div className=" w-full p-8 flex gap-4 items-center ">
         <p className=" font-semibold  ">ایمیل : </p>
         <p className=" ">{email}</p>
       </div>

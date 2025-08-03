@@ -37,7 +37,7 @@ export default function BtnProfile({ children, rout, icon, sm, onclick, logout }
 
   if (logout) {
     return (
-      <button onClick={onclick} className={!sm ? ` hover:bg-[#f2f2f2] group transition ease-in delay-100 cursor-pointer rounded-lg px-3 py-5 items-center border-b border-b-red-600 sm:border-none md:flex hidden gap-2 w-full   ` : `group transition ease-in delay-100 cursor-pointer rounded-lg px-3 py-5 items-center border-b border-b-gray-200 sm:border-none flex md:hidden gap-2 w-full ${pathname === "/profile" ? "bg-[#f2f2f2]" : "hover:bg-[#f2f2f2]"}`}>
+      <button onClick={onclick} className={!sm ? ` hover:bg-[#f2f2f2] group transition ease-in delay-100 cursor-pointer rounded-lg px-3 py-5 items-center flex  gap-2 w-full   ` : `group transition ease-in delay-100 cursor-pointer rounded-lg px-3 py-5 items-center border-b border-b-gray-200 sm:border-none flex gap-2 w-full ${pathname === "/profile" ? "bg-[#f2f2f2]" : "hover:bg-[#f2f2f2]"}`}>
         <div className={`p-2 rounded-full transition-all duration-200    text-[#ffff] group group-hover:bg-[#FF6666] `}>
           <svg xmlns="http://www.w.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={`   size-6 group-hover:text-[#ffff] text-[#FF6666]  `}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
@@ -48,7 +48,7 @@ export default function BtnProfile({ children, rout, icon, sm, onclick, logout }
     );
   }
   return (
-    <button onClick={onclick} className={!sm ? `  group transition ease-in delay-100 cursor-pointer rounded-lg px-3 py-5 items-center border-b border-b-red-600 sm:border-none md:flex hidden gap-2 w-full  ${pathname === rout ? "bg-[#f2f2f2]" : "hover:bg-[#f2f2f2]"} ` : `group transition ease-in delay-100 cursor-pointer rounded-lg px-3 py-5 items-center border-b border-b-gray-200 sm:border-none flex md:hidden gap-2 w-full ${pathname === "/profile" ? "bg-[#f2f2f2]" : "hover:bg-[#f2f2f2]"}`}>
+    <button onClick={onclick} className={!sm ? `  group transition ease-in delay-100 cursor-pointer rounded-lg px-3 py-5 items-center flex  gap-2 w-full  ${pathname === rout ? "bg-[#f2f2f2]" : "hover:bg-[#f2f2f2]"} ` : `group transition ease-in delay-100 cursor-pointer rounded-lg px-3 py-5 items-center border-b border-b-gray-200 sm:border-none flex md:hidden gap-2 w-full ${pathname === "/profile" ? "bg-[#f2f2f2]" : "hover:bg-[#f2f2f2]"}`}>
       <div className={`p-2 rounded-full transition-all duration-200 bg-[#b1b1b1] `}>{icons}</div>
       <p className="font-semibold text-[#3C3D45]"> {children} </p>
     </button>
