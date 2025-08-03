@@ -1,4 +1,4 @@
-import { BlogDataType, FaqsType, FoodMenuItemType, IntrductionType } from "../Types/DataType";
+import { BlogDataType, FaqsType, FoodMenuItemType, IntrductionType, pagesMenuType } from "../Types/DataType";
 
 export const BlogData = [
   {
@@ -197,23 +197,23 @@ export const testimonials = [
 ];
 
 export const pagesMenu = [
-  { label: "آشپز", href: "/chef" },
-  { label: "منوی غذا", href: "/food-menu" },
-  { label: "گالری", href: "/gallery" },
-  { label: "گواهینامه", href: "/testimonial" },
-  { label: "رزرواسیون", href: "/reservation" },
-  { label: "سوالات متداول", href: "/faqs" },
-];
+  {id:1 , label: "آشپز", href: "/chef" },
+  {id:2 , label: "منوی غذا", href: "/food-menu" },
+  {id:3 , label: "گالری", href: "/gallery" },
+  {id:4 , label: "گواهینامه", href: "/testimonial" },
+  {id:5 , label: "رزرواسیون", href: "/reservation" },
+  {id:6 , label: "سوالات متداول", href: "/faqs" },
+] as pagesMenuType[];
 
 export const blogMenu = [
   { label: "وبلاگ", href: "/blog" },
 ];
 
 export const shopMenu = [
-  { label: "لیست فروشگاه", href: "/foodking-shop" },
-  { label: "سبد خرید", href: "/cart" },
-  { label: "لیست علاقه مندی", href: "/dashboard/favarit" },
-  { label: "حساب کاربری من", href: "/my-account" },
+  {id:1 , label: "لیست فروشگاه", href: "/foodking-shop" },
+  {id:2 , label: "سبد خرید", href: "/cart" },
+  {id:3 , label: "لیست علاقه مندی", href: "/dashboard/favarit" },
+  {id:4 , label: "حساب کاربری من", href: "/my-account" },
 ];
 
 export const quickLinks = [

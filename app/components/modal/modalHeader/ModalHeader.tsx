@@ -1,30 +1,22 @@
 "use client";
-
 import Link from "next/link";
 import { useState } from "react";
 import { FaClock, FaEnvelope, FaMapMarker, FaPhone } from "react-icons/fa";
 import { AnimatePresence, motion } from "framer-motion";
 import { TbTruckDelivery } from "react-icons/tb";
 
-interface PropsType {
-  setOpen: (s: boolean) => void;
-}
-
-export default function ModalHeader({ setOpen }: PropsType) {
+export default function ModalHeader() {
   const [showBox, setShowBox] = useState(false);
   const [showBox2, setShowBox2] = useState(false);
   const [showBox3, setShowBox3] = useState(false);
   const [, setShowBox10] = useState(false);
   const [, setShowBox20] = useState(false);
   return (
-    <div className="p-4 pb-8 w-full h-full bg-white rounded-lg pt-8 ">
-      <div className=" flex justify-between items-center ">
-        <button onClick={() => setOpen(false)} className=" bg-red-500 text-white px-4 py-1.5 cursor-pointer rounded-full text-2xl font-bold mb-4">
-          ×
-        </button>
+    <div className="pr-8 pb-8 w-full h-full bg-white rounded-lg pt-8 ">
+      <div className=" flex justify-end items-center ">
         <img className=" " src="https://t-theme.com/foodking/wp-content/uploads/2024/08/U_U_O¯U©U_U_U¯_14-transformed.png" alt="" />
       </div>
-      <div dir="rtl" className=" text-xl font-normal mt-8 mb-24  flex-col-reverse flex text-[#5C5C5B] gap-8  ">
+      <div dir="rtl" className="  font-semibold mt-8 mb-24  flex-col-reverse flex text-[#5C5C5B] gap-8  ">
         <Link className="hover:text-[#00813D]  cursor-pointer    transition ease-in delay-150 font-medium" href="/contact">
           تماس باما{" "}
         </Link>

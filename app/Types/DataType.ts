@@ -83,3 +83,9 @@ export interface FoodMenuItemType {
   desc: string;
   price: string; 
 }
+
+export interface pagesMenuType {
+  id: number;
+  label:string;
+  href: string;
+}
