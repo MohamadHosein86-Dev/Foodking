@@ -3,7 +3,7 @@ import ProductList from "./ProductList";
 
 export default async function ProductSection() {
   return (
-    <section className="relative pb-24 bg-[#F4F1EA]">
+    <section className="relative pt-10 pb-24 bg-[#F4F1EA]">
       <ScrollAnimation direction="up" delay={0.3}>
         <div className="text-center pt-24 max-w-7xl mx-auto p-4">
           <p className="font-medium text-[#00813D]">پرفروش ترین ظروف</p>

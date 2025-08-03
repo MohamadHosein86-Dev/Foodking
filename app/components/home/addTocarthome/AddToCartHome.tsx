@@ -14,16 +14,16 @@ export default function AddToCartHome({ id }: { id: string }) {
 
   if (!isInCart)
     return (
-      <div className="absolute bottom-4 left-1/2 top-28 h-0 -translate-x-1/2 w-[85%] flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10">
-        <div className="absolute bottom-4 left-1/2 top-36 -translate-x-1/2 w-[85%] flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10">
+      <div className="absolute  bottom-4 left-1/2 -top-30 h-0 -translate-x-1/2 w-[70%] flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10">
+        <div className="absolute bottom-4 left-1/2 top-35 -translate-x-1/2 w-[85%] flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10">
           <BtnAddToCart bg="bg-red-600" onclick={() => AddToCartProdcuts()} text="افزودن به سبد خرید" />
         </div>
       </div>
     );
   else {
     return (
-      <div className="absolute bottom-4 left-1/2 top-28 h-0 -translate-x-1/2 w-[85%] flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10">
-        <div className="absolute bottom-4 left-1/2 top-36 -translate-x-1/2 w-[85%] flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10">
+      <div className="absolute  bottom-4 left-1/2 -top-30 h-0 -translate-x-1/2 w-[70%] flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10">
+        <div className="absolute bottom-4 left-1/2 top-35 -translate-x-1/2 w-[85%] flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10">
           <BtnAddToCart bg="bg-green-600" onclick={() => AddToCartProdcuts()} text={`موجود در سبد خرید (${countCart}) `} />
         </div>
       </div>

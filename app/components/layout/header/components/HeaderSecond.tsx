@@ -1,7 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 import { useRef } from "react";
-import { FaTruckFast } from "react-icons/fa6";
+import { FaBars, FaTruckFast } from "react-icons/fa6";
 import { useGetCart } from "@/app/hooks/useCart";
 import { blogMenu, pagesMenu, shopMenu } from "@/app/data/Data";
 import Link from "next/link";
@@ -16,13 +16,14 @@ export default function HeaderSecond() {
 
   if (Pathname !== "/")
     return (
-      <div ref={heroRef} className="hidden xl:flex ">
+      <div ref={heroRef} className=" flex ">
         <div className="w-full relative bg-[#F4F1EA]">
           <div className="top-0 w-1/3 h-full absolute bg-[#212121]" />
           <div className="mx-auto flex items-center justify-between max-w-7xl px-6 py-4 ">
             <div className="flex items-center gap-6 xl:gap-7">
-              <UserCartInfo totalCount={totalCount} />
+              <UserCartInfo home={false} totalCount={totalCount} />
               <OrderButton icon={<FaTruckFast size={22} />} text="اکنون سفارش دهید" className="hidden md:flex" />
+              <FaBars className=" block xl:hidden cursor-pointer" size={30} color="#ffff" />
             </div>
             <div className="hidden xl:flex text-[#212121] gap-8 relative">
               <Link className="hover:text-[#00813D] cursor-pointer transition ease-in delay-150 font-medium" href="/contact">
