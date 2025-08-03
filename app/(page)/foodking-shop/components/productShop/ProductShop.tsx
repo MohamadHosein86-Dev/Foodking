@@ -10,11 +10,8 @@ export default async function ProductShop() {
       <div className=" grid grid-cols-4 mt-12  gap-y-6 ">
         {products?.map((res) => (
           <Link key={res.id} href={`/products/${res.slug}`} className="group border-2 border-gray-300 relative  bg-white cursor-pointer w-full sm:max-w-68  overflow-hidden rounded-xl block">
-            {/* لایه زرد با افکت از بالا به پایین */}
             <div className="absolute inset-0  bg-[#FFB936] origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-in-out rounded-xl z-0" />
-
-            {/* محتوای رویی */}
-            <div className="relative z-10 w-full  flex justify-center   px-8 rounded-xl  mb-6">
+            <div className="relative z-10 w-full  flex justify-center   px-8 rounded-xl  mb-10">
               <img className="w-64 h-46 object-contain" src={res.image} alt={res.name} />
             </div>
             <div className="size-10 mt-4 flex items-center justify-center rounded-md hover:bg-[#fff] transition ease-in delay-300 bg-black absolute top-[-.5rem] right-4 z-20">
@@ -30,8 +27,7 @@ export default async function ProductShop() {
               <FaStar color="#FFB936" />
             </div>
             <p className="relative z-10 text-xl md:text-lg text-[#D12525] text-center font-semibold mb-6 mt-2">قیمت {res.price} تومان</p>
-
-            <div className="absolute bottom-4 left-1/2 top-0 -translate-x-1/2 w-[85%] flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10">
+            <div className="absolute bottom-4 left-1/2 top-8 -translate-x-1/2 w-[85%] flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10">
               <button className="relative cursor-pointer w-full mt-12 group rounded-full h-10 overflow-hidden">
                 <div className="bg-red-600 scale-x-0 origin-center duration-500 group-hover:scale-x-100 absolute inset-0 z-0 transition-transform rounded-full"></div>
                 <div className="relative z-10 flex justify-center items-center h-full w-full">

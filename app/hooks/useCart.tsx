@@ -1,6 +1,6 @@
 "use client";
 import { ExtendedSession } from "@/app/Types/DataType";
-import { useQuery, keepPreviousData } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useSession } from "next-auth/react";
 import { getCart } from "../servises/products/product";
 
@@ -13,8 +13,7 @@ export function useGetCart() {
       if (!session?.refreshToken) throw new Error("No refreshToken");
       return getCart(session.refreshToken);
     },
-    enabled: !!session?.refreshToken,
-    placeholderData: keepPreviousData // prevent data flash on reload
+    enabled: !!session?.refreshToken
   });
 
   const totalPrice = data?.totalPrice;

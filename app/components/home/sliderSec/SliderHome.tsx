@@ -7,7 +7,7 @@ import ScrollAnimation from "../../animation/scrollanimation/ScrollAnimation";
 export default function SliderSec() {
   return (
     <ScrollAnimation direction="up" delay={0.3}>
-      <div dir="rtl" className="flex flex-col md:flex-row">
+      <div dir="rtl" className=" w-full  flex flex-col md:flex-row">
         <div className="w-full h-88 md:h-full  md:w-8/12">
           <ImageSliderHome />
         </div>
@@ -20,16 +20,7 @@ export default function SliderSec() {
               <strong className="font-semibold text-xl md:text-3xl"> 55 هزار تومان</strong>
             </p>
             <p className="font-semibold mb-10   ">سمفونی عالی طعم ها را بچشید این یک تجربه غذاخوری عالی است که در آن با همبرگر خاص ما، یک غذای آشپزی، سریع و کارآمد را تجربه کنید.</p>
-            <ReusableOrderButton
-              icon={<FaTruckFast size={22} className="text-white transition-all duration-500" />}
-              className="relative mb-12 sm:mb-0 overflow-hidden outline-none  cursor-pointer border-1 border-white  text-white font-bold  w-64 py-4 pb-5 px-4 flex  items-center justify-center gap-2 group h-18 "
-              hoverBgColor="group-hover:bg-[#00813D]"
-              textColor="text-white"
-              hoverTextColor="group-hover:text-white"
-              rounded={true}
-              fullWidth={false}
-              text="اکنون سفارش دهید"
-            />
+            <ReusableOrderButton icon={<FaTruckFast size={22} className="text-white transition-all duration-500" />} className="relative mb-12 sm:mb-0 overflow-hidden outline-none  cursor-pointer border-1 border-white  text-white font-bold  w-64 py-4 pb-5 px-4 flex  items-center justify-center gap-2 group h-18 " hoverBgColor="group-hover:bg-[#00813D]" textColor="text-white" hoverTextColor="group-hover:text-white" rounded={true} fullWidth={false} text="اکنون سفارش دهید" />
           </div>
         </div>
       </div>

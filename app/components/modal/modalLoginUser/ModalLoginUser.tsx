@@ -27,7 +27,9 @@ export default function ModalLoginUser({ setOpen }: PropsType) {
       alert(`کد ارسال‌شده: ${resp?.code}`);
 
       setStep("verify");
-    } catch {
+    } catch (error: any) {
+      console.error("Signup error:", error);
+      setError(error?.message || "خطا در ثبت‌نام");
     } finally {
       setLoading(false);
     }
@@ -61,7 +63,7 @@ export default function ModalLoginUser({ setOpen }: PropsType) {
   }
 
   return (
-    <div className="p-8 max-w-7xl z-[10000000]  h-full text-black px-9 py-8 mx-auto">
+    <div className="p-8 max-w-7xl z-100000  h-full text-black px-9 py-8 mx-auto">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-xl text-[#d15858] font-black text-center w-full">{step === "verify" ? " ثبت نام در فودکینگ" : "  ورود به فودکینگ "}</h1>
         <button onClick={() => setOpen(false)} className="text-[#5C5C5B] p-1 rounded-full text-2xl">
@@ -71,8 +73,7 @@ export default function ModalLoginUser({ setOpen }: PropsType) {
 
       {step === "signup" && (
         <form onSubmit={handleSignupSubmit} className="max-w-sm mx-auto flex flex-col gap-4">
-          <img className="w-34 mx-auto" src="https://t-theme.com/foodking/wp-content/uploads/2024/08/U_U_O¯U©U_U_U¯_14-transformed.png" alt="logo" />
-          <p className="text-[#555555] mt-2 text-center text-sm mb-4">ثبت‌نام برای دریافت کد تأیید</p>
+          <img className="w-34 mb-8 mx-auto" src="https://t-theme.com/foodking/wp-content/uploads/2024/08/U_U_O¯U©U_U_U¯_14-transformed.png" alt="logo" />
           <input type="text" className="border-gray-300 border rounded-xl px-3 py-3" placeholder="نام کامل" value={name} onChange={(e) => setForm((pr) => ({ ...pr, name: e.target.value }))} required />
           <input type="email" className="border-gray-300 border rounded-xl px-3 py-3" placeholder="ایمیل" value={email} onChange={(e) => setForm((pr) => ({ ...pr, email: e.target.value }))} required />
           <input type="tel" className="border-gray-300 border rounded-xl px-3 py-3" placeholder="شماره موبایل" value={phone} onChange={(e) => setForm((pr) => ({ ...pr, phone: e.target.value }))} required />

@@ -1,7 +1,9 @@
 import { Cart, Product } from "@/app/Types/DataType";
 
+const BaseUrl = process.env.NEXT_PUBLIC_API_URL;
+
 export const getProducts = async () => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/products`, {
+  const response = await fetch(`${BaseUrl}/v1/products`, {
     method: "GET",
     cache: "no-store"
   });
@@ -16,7 +18,7 @@ export const getProducts = async () => {
 };
 
 export async function getProduct(slug: string) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/products/${slug}`, {
+  const res = await fetch(`${BaseUrl}/v1/products/${slug}`, {
     method: "GET",
     cache: "no-store"
   });
@@ -25,7 +27,7 @@ export async function getProduct(slug: string) {
 }
 
 export async function addToCart(id: string, token: string) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/cart`, {
+  const res = await fetch(`${BaseUrl}/v1/cart`, {
     method: "POST",
     cache: "no-store",
     headers: {
@@ -47,7 +49,7 @@ export async function addToCart(id: string, token: string) {
   return product;
 }
 export const getCart = async (token: string) => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/cart`, {
+  const response = await fetch(`${BaseUrl}/v1/cart`, {
     method: "GET",
     cache: "no-store",
     headers: {
@@ -67,7 +69,7 @@ export const getCart = async (token: string) => {
 
 export const deleteToCart = async (id: string, token: string) => {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/cart/${id}`, {
+    const response = await fetch(`${BaseUrl}/v1/cart/${id}`, {
       method: "DELETE",
       cache: "no-store",
       headers: {

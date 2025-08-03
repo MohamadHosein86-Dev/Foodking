@@ -26,17 +26,13 @@ export default function AnimationHeader() {
   return (
     <AnimatePresence>
       {showHeader && (
-        <motion.div initial={{ y: -80, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -80, opacity: 0 }} transition={{ duration: 0.3 }} className="fixed top-0 left-0 w-full bg-white shadow-xl z-50 px-4 py-3">
-          <div className="bg-[#ffff]">
-            <div className={`z-50 ${Pathname == "/" ? "border-b border-b-neutral-200" : "border-none"}`}>
+        <motion.div initial={{ y: -80, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -80, opacity: 0 }} transition={{ duration: 0.3 }} className="fixed top-0 left-0 w-full bg-white shadow-xl z-1000000 ">
+          <div className="bg-[#ffff]  ">
+            <div className={` px-4 py-3 ${Pathname == "/" ? "border-b border-b-neutral-200" : "border-none"}`}>
               <div className="text-[#fcfbfe] mx-auto max-w-7xl py-1.5 items-center flex justify-between sm:px-6">
                 <div className="flex items-center gap-20 md:gap-6">
                   <UserCartInfo totalCount={totalCount} />
-                  <OrderButton
-                    icon={<FaTruckFast size={22} className="text-white transition-all duration-500" />}
-                    text="اکنون سفارش دهید"
-                    className="hidden xl:flex"
-                  />
+                  <OrderButton icon={<FaTruckFast size={22} className="text-white transition-all duration-500" />} text="اکنون سفارش دهید" className="hidden xl:flex" />
                 </div>
                 <div className="hidden xl:flex text-[#212121] gap-8 relative">
                   <Link className="hover:text-[#00813D] cursor-pointer transition ease-in delay-150 font-medium" href="/contact">
@@ -60,4 +56,4 @@ export default function AnimationHeader() {
       )}
     </AnimatePresence>
   );
-} 
+}

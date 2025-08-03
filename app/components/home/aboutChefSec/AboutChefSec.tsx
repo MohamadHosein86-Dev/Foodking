@@ -7,7 +7,7 @@ export default function AboutChefSec() {
         <div className="  sm:ml-auto md:m-0 relative      ">
           <div className=" md:w-100 ">
             <img className=" mx-auto  md:m-0 w-72  h-90    " src="/home/04-3.jpg" alt="" />
-            <img className=" z-[-1000] hidden w-112 opacity-40 xl:block absolute   -right-60 top-22 " src="/home/shape-Image.png" alt="" />
+            <img className=" z-[-1000] hidden w-112 opacity-40 xl:block absolute   -right-60 top-22 " src="/home/shape.png" alt="" />
           </div>
         </div>
 

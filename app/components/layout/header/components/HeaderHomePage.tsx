@@ -16,15 +16,11 @@ export default function HeaderHomePage() {
   if (Pathname == "/")
     return (
       <section className="bg-[url('https://t-theme.com/foodking/wp-content/uploads/2024/02/hero-bg-3.jpg')] bg-cover bg-center">
-        <div ref={heroRef} className={`py-2 ${Pathname == "/" ? "border-b border-b-neutral-200" : "border-none"}`}>
+        <div ref={heroRef} className={`py-2 ${Pathname == "/" ? "border-b-1 border-[#ffffff2b] " : "border-none"}`}>
           <div className={`text-[#fcfbfe] mx-auto max-w-7xl py-4 items-center flex justify-between px-6`}>
             <div className="flex items-center gap-8 xl:gap-12">
               <UserCartInfo home totalCount={totalCount} />
-              <OrderButton
-                icon={<FaTruckFast size={22} className="text-white transition-all duration-500" />}
-                text="اکنون سفارش دهید"
-                className="xl:flex hidden"
-              />
+              <OrderButton icon={<FaTruckFast size={22} className="text-white transition-all duration-500" />} text="اکنون سفارش دهید" className="xl:flex hidden" />
               <FaBars className="block xl:hidden cursor-pointer" size={30} color="#ffff" />
             </div>
             <Navbar_desktop />
@@ -34,4 +30,4 @@ export default function HeaderHomePage() {
       </section>
     );
   return null;
-} 
+}
